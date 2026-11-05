@@ -6,8 +6,11 @@ import {
   faChartColumn,
   faComments,
   faFileInvoiceDollar,
+  faEnvelope,
   faFolderOpen,
   faHeadset,
+  faLocationDot,
+  faPhone,
   faListCheck,
   faShieldHalved,
   faUserLock,
@@ -163,6 +166,41 @@ export default function HomePage() {
                 ) : null}
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section contacts-section" id="contacts" aria-labelledby="contacts-title">
+        <div className="container">
+          <div className="section-intro">
+            <h2 id="contacts-title">{copy.contacts.title}</h2>
+            <p className="lead">{copy.contacts.lead}</p>
+          </div>
+          <div className="contacts-grid">
+            <article className="card contact-card">
+              <Icon icon={faLocationDot} />
+              <h3>{copy.contacts.company}</h3>
+              <p>
+                {copy.contacts.street}
+                <br />
+                {copy.contacts.city}
+              </p>
+            </article>
+            <article className="card contact-card">
+              <Icon icon={faEnvelope} />
+              <h3>{copy.contacts.emailLabel}</h3>
+              <p>
+                <a href={`mailto:${copy.contacts.email}`}>{copy.contacts.email}</a>
+              </p>
+            </article>
+            <article className="card contact-card">
+              <Icon icon={faPhone} />
+              <h3>{copy.contacts.phoneLabel}</h3>
+              <p>
+                <a href={copy.contacts.phoneHref}>{copy.contacts.phone}</a>
+                <span>{copy.contacts.channels}</span>
+              </p>
+            </article>
           </div>
         </div>
       </section>
