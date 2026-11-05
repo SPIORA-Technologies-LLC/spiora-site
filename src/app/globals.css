@@ -339,6 +339,65 @@ a {
   font-size: 1.25rem;
 }
 
+.team-section {
+  background: var(--surface-formula);
+}
+
+.team-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  margin-bottom: 16px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--bg-page);
+}
+
+.team-photo img {
+  object-fit: cover;
+}
+
+.team-role {
+  color: var(--secondary-red);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.team-card h3 {
+  margin-top: 8px;
+}
+
+.team-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 8px;
+}
+
+.team-contact a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.team-contact span {
+  color: var(--gray-300);
+  font-size: 0.875rem;
+}
+
 .card p,
 .point-grid p,
 .privacy-copy p {
@@ -545,7 +604,8 @@ a {
     padding-inline: 24px;
   }
 
-  .module-grid {
+  .module-grid,
+  .team-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -612,7 +672,8 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .module-grid {
+  .module-grid,
+  .team-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
   }

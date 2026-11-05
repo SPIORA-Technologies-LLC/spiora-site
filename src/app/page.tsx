@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   faBookOpen,
@@ -131,6 +132,40 @@ export default function HomePage() {
               <h3>{copy.security.points[1].title}</h3>
               <p>{copy.security.points[1].body}</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section team-section" id="team" aria-labelledby="team-title">
+        <div className="container">
+          <div className="section-intro">
+            <h2 id="team-title">{copy.team.title}</h2>
+            <p className="lead">{copy.team.lead}</p>
+          </div>
+          <div className="team-grid">
+            {copy.team.members.map((person) => (
+              <article className="card team-card" key={person.name}>
+                <div className="team-photo">
+                  <Image
+                    src={person.photo}
+                    alt={person.alt}
+                    fill
+                    sizes="(max-width: 639px) 100vw, (max-width: 899px) 50vw, 33vw"
+                  />
+                </div>
+                <p className="team-role">{person.role}</p>
+                <h3>{person.name}</h3>
+                {person.phone ? (
+                  <p className="team-contact">
+                    <a href={person.phoneHref}>{person.phone}</a>
+                    <a href={person.whatsapp} target="_blank" rel="noopener noreferrer">
+                      {copy.team.whatsapp}
+                    </a>
+                    <span>{copy.team.channels}</span>
+                  </p>
+                ) : null}
+              </article>
+            ))}
           </div>
         </div>
       </section>
