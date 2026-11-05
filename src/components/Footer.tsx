@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { copy } from "@/content/en";
 
@@ -9,10 +10,7 @@ export function Footer({ salesEmail }: FooterProps) {
   return (
     <footer className="site-footer">
       <div className="container footer-bar">
-        <div>
-          <p className="footer-brand">SPIORA</p>
-          <p className="footer-slogan">{copy.footer.slogan}</p>
-        </div>
+        <Image className="footer-logo" src="/logo2.svg" alt="SPIORA" width={222} height={50} unoptimized />
         <nav className="footer-links" aria-label="Footer">
           {salesEmail ? (
             <a href={`mailto:${salesEmail}`}>

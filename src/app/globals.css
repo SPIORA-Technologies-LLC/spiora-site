@@ -59,9 +59,7 @@ p {
 
 h1,
 h2,
-h3,
-.footer-slogan,
-.footer-brand {
+h3 {
   font-family: var(--font-display);
   font-weight: 700;
   line-height: 1.15;
@@ -139,10 +137,16 @@ a {
   min-width: 44px;
 }
 
-.logo-link img {
+.logo-link img,
+.footer-logo {
   width: auto;
-  height: 26px;
-  max-width: min(210px, 58vw);
+  height: 40px;
+  max-width: min(178px, 56vw);
+}
+
+.footer-logo {
+  height: 52px;
+  max-width: 232px;
 }
 
 .desktop-nav {
@@ -511,18 +515,6 @@ a {
 .footer-bar {
   display: grid;
   gap: 16px;
-}
-
-.footer-brand {
-  font-size: 1.25rem;
-  letter-spacing: 0.08em;
-}
-
-.footer-slogan {
-  margin-top: 8px;
-  color: var(--gray-300);
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
 }
 
 .footer-links {

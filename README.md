@@ -41,7 +41,7 @@ The route waits at most 8 seconds, forwards an `Idempotency-Key`, and limits eac
 ## Where to replace copy and visuals
 
 - English copy, menu, errors, alt text, and metadata: `src/content/en.ts`
-- Logo: `public/spiora-logo.svg` (cropped from the approved wordmark, transparent background)
+- Logo: `public/logo2.svg`, the original SPIORA mark with the slogan. The gray sheet around the export is not shown.
 - Workspace and AI frames: `src/components/Shot.tsx`, used in `src/app/page.tsx`. Replace each frame with an approved screenshot from the demo environment. Synthetic data only: no real names, documents, amounts, messages, or client avatars.
 - Privacy text: `src/app/privacy/page.tsx` and the privacy strings in `src/content/en.ts`
 

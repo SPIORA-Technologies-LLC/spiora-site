@@ -46,7 +46,7 @@ export function Header({ loginUrl }: HeaderProps) {
       </a>
       <div className="container header-bar">
         <Link className="logo-link" href="/#top" aria-label="SPIORA">
-          <Image src="/spiora-logo.svg" alt="SPIORA" width={210} height={26} priority unoptimized />
+          <Image src="/logo2.svg" alt="" width={178} height={40} priority unoptimized />
         </Link>
 
         <nav className="desktop-nav" aria-label={copy.nav.label}>
