@@ -158,9 +158,6 @@ export default function HomePage() {
                 {person.phone ? (
                   <p className="team-contact">
                     <a href={person.phoneHref}>{person.phone}</a>
-                    <a href={person.whatsapp} target="_blank" rel="noopener noreferrer">
-                      {copy.team.whatsapp}
-                    </a>
                     <span>{copy.team.channels}</span>
                   </p>
                 ) : null}
