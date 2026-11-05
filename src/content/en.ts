@@ -191,8 +191,11 @@ export const copy = {
   },
   footer: {
     slogan: "ONE PLATFORM. INFINITE SOLUTIONS.",
+    explore: "Explore",
+    company: "Company",
     privacy: "Privacy policy",
     sales: "Sales",
+    copyright: "© 2026 SPIORA",
   },
   privacy: {
     title: "Privacy policy",

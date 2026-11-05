@@ -53,7 +53,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <Header loginUrl={loginUrl} />
         {children}
-        <Footer salesEmail={salesEmail} />
+        <Footer salesEmail={salesEmail} loginUrl={loginUrl} />
       </body>
     </html>
   );
