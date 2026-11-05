@@ -123,7 +123,7 @@ export const copy = {
       {
         name: "Zlata Moroz",
         role: "Head of projects",
-        photo: "/team/zlata-moroz.png",
+        photo: "/team/veronika-belousova.png",
         alt: "Portrait of Zlata Moroz",
         phone: "+421 951 936 989",
         phoneHref: "tel:+421951936989",
@@ -132,7 +132,7 @@ export const copy = {
       {
         name: "Yulia Zhdanovich",
         role: "Sales",
-        photo: "/team/yulia-zhdanovich.png",
+        photo: "/team/zlata-moroz.png",
         alt: "Portrait of Yulia Zhdanovich",
         phone: "+421 944 615 008",
         phoneHref: "tel:+421944615008",
@@ -141,7 +141,7 @@ export const copy = {
       {
         name: "Veronika Belousova",
         role: "Development",
-        photo: "/team/veronika-belousova.png",
+        photo: "/team/yulia-zhdanovich.png",
         alt: "Portrait of Veronika Belousova",
         phone: "+351 912 768 611",
         phoneHref: "tel:+351912768611",
