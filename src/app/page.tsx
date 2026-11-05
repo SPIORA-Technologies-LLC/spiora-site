@@ -150,7 +150,7 @@ export default function HomePage() {
                     src={person.photo}
                     alt={person.alt}
                     fill
-                    sizes="(max-width: 639px) 100vw, (max-width: 899px) 50vw, 33vw"
+                    sizes="(max-width: 639px) 100vw, (max-width: 899px) 50vw, 20vw"
                   />
                 </div>
                 <p className="team-role">{person.role}</p>
