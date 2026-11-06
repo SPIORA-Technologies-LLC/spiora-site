@@ -346,7 +346,7 @@ a {
   display: grid;
   justify-items: end;
   gap: 12px;
-  width: min(1024px, 100%);
+  width: min(1368px, 100%);
 }
 
 .lightbox-title {

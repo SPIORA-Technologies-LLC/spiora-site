@@ -120,8 +120,8 @@ export default function HomePage() {
           </div>
           <Shot
             src="/shots/ai-workspace.png"
-            width={1024}
-            height={556}
+            width={1368}
+            height={744}
             alt={copy.ai.shotAlt}
             caption={copy.ai.caption}
           />
