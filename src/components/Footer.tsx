@@ -11,6 +11,7 @@ const platform = [
 const company = [
   { href: "/#team", label: copy.nav.team },
   { href: "/#contacts", label: copy.nav.contacts },
+  { href: "/privacy", label: copy.footer.privacy },
 ] as const;
 
 export function Footer() {
@@ -63,7 +64,6 @@ export function Footer() {
 
       <div className="container footer-bottom">
         <p>{copy.footer.copyright}</p>
-        <Link href="/privacy">{copy.footer.privacy}</Link>
       </div>
     </footer>
   );
