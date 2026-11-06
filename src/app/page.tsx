@@ -21,6 +21,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { DemoForm } from "@/components/DemoForm";
+import { EnlargeableShot } from "@/components/EnlargeableShot";
 import { Shot } from "@/components/Shot";
 import { copy } from "@/content/en";
 
@@ -89,13 +90,13 @@ export default function HomePage() {
                 <Icon icon={moduleIcons[index]} />
                 <h3>{card.title}</h3>
                 <p>{card.body}</p>
-                <Image
-                  className="module-shot"
+                <EnlargeableShot
                   src={card.image.src}
                   alt={card.image.alt}
                   width={card.image.width}
                   height={card.image.height}
-                  unoptimized
+                  enlargeLabel={copy.modules.enlarge}
+                  closeLabel={copy.modules.close}
                 />
               </article>
             ))}

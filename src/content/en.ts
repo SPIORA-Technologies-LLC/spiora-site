@@ -48,6 +48,8 @@ export const copy = {
   modules: {
     title: "Team workspace and client portal",
     scenarioLabel: "A typical case",
+    enlarge: "Enlarge screenshot",
+    close: "Close",
     steps: [
       "A manager sends an invitation",
       "The client fills in the questionnaire and uploads documents",
