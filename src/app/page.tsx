@@ -84,30 +84,19 @@ export default function HomePage() {
             <h2 id="modules-title">{copy.modules.title}</h2>
           </div>
           <div className="module-features">
-            {copy.modules.cards.slice(0, 6).map((card, index) => (
+            {copy.modules.cards.map((card, index) => (
               <article className="card" key={card.title}>
                 <Icon icon={moduleIcons[index]} />
                 <h3>{card.title}</h3>
                 <p>{card.body}</p>
-                {"image" in card ? (
-                  <Image
-                    className="module-shot"
-                    src={card.image.src}
-                    alt={card.image.alt}
-                    width={card.image.width}
-                    height={card.image.height}
-                    unoptimized
-                  />
-                ) : null}
-              </article>
-            ))}
-          </div>
-          <div className="module-grid">
-            {copy.modules.cards.slice(6).map((card, index) => (
-              <article className="card" key={card.title}>
-                <Icon icon={moduleIcons[index + 6]} />
-                <h3>{card.title}</h3>
-                <p>{card.body}</p>
+                <Image
+                  className="module-shot"
+                  src={card.image.src}
+                  alt={card.image.alt}
+                  width={card.image.width}
+                  height={card.image.height}
+                  unoptimized
+                />
               </article>
             ))}
           </div>

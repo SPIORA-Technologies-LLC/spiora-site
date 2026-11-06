@@ -117,10 +117,22 @@ export const copy = {
       {
         title: "Knowledge base",
         body: "Procedures, templates, and instructions, with search.",
+        image: {
+          src: "/shots/library.png",
+          width: 1024,
+          height: 556,
+          alt: "SPIORA library with search and an empty materials list.",
+        },
       },
       {
         title: "Analytics",
         body: "An overview of applications, cases, deadlines, and team workload.",
+        image: {
+          src: "/shots/analytics.png",
+          width: 1024,
+          height: 556,
+          alt: "SPIORA analytics overview with clients, leads, cases, and deadlines.",
+        },
       },
     ],
   },
