@@ -57,10 +57,22 @@ export const copy = {
       {
         title: "AI Workspace",
         body: "Drafts emails, translates text, and answers from the company knowledge base.",
+        image: {
+          src: "/shots/ai-workspace.png",
+          width: 1024,
+          height: 556,
+          alt: "SPIORA AI Workspace with a client summary, chat history, and a message box.",
+        },
       },
       {
         title: "Clients and client portal",
         body: "Interaction history, documents, and statuses live in the client record. In the portal, a client fills in a questionnaire, uploads documents, and sees the next steps.",
+        image: {
+          src: "/shots/client-portal.png",
+          width: 1024,
+          height: 556,
+          alt: "SPIORA client portal with a personal account, process status, and a submitted questionnaire.",
+        },
       },
       {
         title: "Tasks",
