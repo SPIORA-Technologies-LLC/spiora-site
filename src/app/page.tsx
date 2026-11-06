@@ -84,7 +84,7 @@ export default function HomePage() {
             <h2 id="modules-title">{copy.modules.title}</h2>
           </div>
           <div className="module-features">
-            {copy.modules.cards.slice(0, 2).map((card, index) => (
+            {copy.modules.cards.slice(0, 4).map((card, index) => (
               <article className="card" key={card.title}>
                 <Icon icon={moduleIcons[index]} />
                 <h3>{card.title}</h3>
@@ -103,9 +103,9 @@ export default function HomePage() {
             ))}
           </div>
           <div className="module-grid">
-            {copy.modules.cards.slice(2).map((card, index) => (
+            {copy.modules.cards.slice(4).map((card, index) => (
               <article className="card" key={card.title}>
-                <Icon icon={moduleIcons[index + 2]} />
+                <Icon icon={moduleIcons[index + 4]} />
                 <h3>{card.title}</h3>
                 <p>{card.body}</p>
               </article>

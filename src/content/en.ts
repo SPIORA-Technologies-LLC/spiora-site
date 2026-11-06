@@ -77,10 +77,22 @@ export const copy = {
       {
         title: "Tasks",
         body: "Assign an owner, a due date, a status, comments, and files on a task.",
+        image: {
+          src: "/shots/team-tasks.png",
+          width: 1024,
+          height: 556,
+          alt: "SPIORA team tasks with status counts and a task list.",
+        },
       },
       {
         title: "Team chat",
         body: "Work discussions and file sharing inside the platform.",
+        image: {
+          src: "/shots/team-members.png",
+          width: 1024,
+          height: 556,
+          alt: "SPIORA team list with employee roles and online status.",
+        },
       },
       {
         title: "Calendar and video meetings",
