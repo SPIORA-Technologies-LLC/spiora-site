@@ -69,26 +69,28 @@ export function DemoForm() {
 
   return (
     <form className="form-card" noValidate onSubmit={onSubmit} aria-busy={status === "sending"}>
-      <Field
-        id="demo-name"
-        name="name"
-        label={copy.demo.name}
-        autoComplete="name"
-        maxLength={80}
-        value={values.name}
-        error={errors.name}
-        onChange={(value) => update("name", value)}
-      />
-      <Field
-        id="demo-company"
-        name="company"
-        label={copy.demo.company}
-        autoComplete="organization"
-        maxLength={120}
-        value={values.company}
-        error={errors.company}
-        onChange={(value) => update("company", value)}
-      />
+      <div className="form-pair">
+        <Field
+          id="demo-name"
+          name="name"
+          label={copy.demo.name}
+          autoComplete="name"
+          maxLength={80}
+          value={values.name}
+          error={errors.name}
+          onChange={(value) => update("name", value)}
+        />
+        <Field
+          id="demo-company"
+          name="company"
+          label={copy.demo.company}
+          autoComplete="organization"
+          maxLength={120}
+          value={values.company}
+          error={errors.company}
+          onChange={(value) => update("company", value)}
+        />
+      </div>
       <Field
         id="demo-email"
         name="email"

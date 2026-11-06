@@ -170,50 +170,62 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section contacts-section" id="contacts" aria-labelledby="contacts-title">
-        <div className="container">
-          <div className="section-intro">
-            <h2 id="contacts-title">{copy.contacts.title}</h2>
-            <p className="lead">{copy.contacts.lead}</p>
-          </div>
-          <div className="contacts-grid">
-            <article className="card contact-card">
-              <Icon icon={faLocationDot} />
-              <h3>{copy.contacts.company}</h3>
-              <p>
-                {copy.contacts.street}
-                <br />
-                {copy.contacts.city}
-              </p>
-            </article>
-            <article className="card contact-card">
-              <Icon icon={faEnvelope} />
-              <h3>{copy.contacts.emailLabel}</h3>
-              <p>
-                <a href={`mailto:${copy.contacts.email}`}>{copy.contacts.email}</a>
-              </p>
-            </article>
-            <article className="card contact-card">
-              <Icon icon={faPhone} />
-              <h3>{copy.contacts.phoneLabel}</h3>
-              <p>
-                <a href={copy.contacts.phoneHref}>{copy.contacts.phone}</a>
-                <span>{copy.contacts.channels}</span>
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
+      <div className="reach-band">
+        <div className="container reach-grid">
+          <section className="reach-col" id="contacts" aria-labelledby="contacts-title">
+            <div className="reach-intro">
+              <h2 id="contacts-title">{copy.contacts.title}</h2>
+              <p className="lead">{copy.contacts.lead}</p>
+            </div>
+            <div className="contact-panel">
+              <div className="contact-row">
+                <span className="contact-icon" aria-hidden="true">
+                  <FontAwesomeIcon icon={faLocationDot} />
+                </span>
+                <div>
+                  <p className="contact-kicker">{copy.contacts.company}</p>
+                  <p className="contact-value">
+                    {copy.contacts.street}
+                    <br />
+                    {copy.contacts.city}
+                  </p>
+                </div>
+              </div>
+              <div className="contact-row">
+                <span className="contact-icon" aria-hidden="true">
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </span>
+                <div>
+                  <p className="contact-kicker">{copy.contacts.emailLabel}</p>
+                  <p className="contact-value">
+                    <a href={`mailto:${copy.contacts.email}`}>{copy.contacts.email}</a>
+                  </p>
+                </div>
+              </div>
+              <div className="contact-row">
+                <span className="contact-icon" aria-hidden="true">
+                  <FontAwesomeIcon icon={faPhone} />
+                </span>
+                <div>
+                  <p className="contact-kicker">{copy.contacts.phoneLabel}</p>
+                  <p className="contact-value">
+                    <a href={copy.contacts.phoneHref}>{copy.contacts.phone}</a>
+                    <span>{copy.contacts.channels}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
 
-      <section className="section band" id="demo" aria-labelledby="demo-title">
-        <div className="container split">
-          <div>
-            <h2 id="demo-title">{copy.demo.title}</h2>
-            <p className="lead">{copy.demo.lead}</p>
-          </div>
-          <DemoForm />
+          <section className="reach-col" id="demo" aria-labelledby="demo-title">
+            <div className="reach-intro">
+              <h2 id="demo-title">{copy.demo.title}</h2>
+              <p className="lead">{copy.demo.lead}</p>
+            </div>
+            <DemoForm />
+          </section>
         </div>
-      </section>
+      </div>
     </main>
   );
 }
