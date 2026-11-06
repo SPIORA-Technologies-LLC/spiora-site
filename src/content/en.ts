@@ -91,11 +91,8 @@ export const copy = {
   ai: {
     title: "An AI Workspace for daily work",
     lead: "The assistant prepares email drafts, translates text, and answers questions from the company knowledge base.",
-    shotLabel: "Screenshot pending approval",
-    shotTitle: "AI Workspace",
-    shotNote: "Replace this frame with an approved capture from the demo environment. Synthetic data only.",
     shotAlt:
-      "Reserved frame for an approved screenshot of AI Workspace drafting a message from the company knowledge base.",
+      "SPIORA AI Workspace with a client summary, chat history, and a message box.",
     caption: "Drafting a message from the company knowledge base.",
   },
   security: {

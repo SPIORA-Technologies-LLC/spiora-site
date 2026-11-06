@@ -54,6 +54,7 @@ export default function HomePage() {
             src="/shots/team-workspace.png"
             width={1024}
             height={556}
+            priority
             alt={copy.hero.shotAlt}
             caption={copy.hero.caption}
           />
@@ -109,9 +110,9 @@ export default function HomePage() {
             <p className="lead">{copy.ai.lead}</p>
           </div>
           <Shot
-            label={copy.ai.shotLabel}
-            title={copy.ai.shotTitle}
-            note={copy.ai.shotNote}
+            src="/shots/ai-workspace.png"
+            width={1024}
+            height={556}
             alt={copy.ai.shotAlt}
             caption={copy.ai.caption}
           />
