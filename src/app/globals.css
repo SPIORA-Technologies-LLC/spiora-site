@@ -879,13 +879,22 @@ a {
   }
 
   .module-features {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 24px;
   }
 
   .module-features .card {
     display: flex;
     flex-direction: column;
+    grid-column: span 2;
+  }
+
+  .module-features .card:nth-child(7) {
+    grid-column: 2 / span 2;
+  }
+
+  .module-features .card:nth-child(8) {
+    grid-column: 4 / span 2;
   }
 
   .module-features .card h3 {
