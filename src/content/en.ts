@@ -97,10 +97,22 @@ export const copy = {
       {
         title: "Calendar and video meetings",
         body: "Personal and team events, reminders, and calls.",
+        image: {
+          src: "/shots/calendar.png",
+          width: 1024,
+          height: 556,
+          alt: "SPIORA calendar for November 2026 with personal and company events.",
+        },
       },
       {
         title: "Finance",
         body: "Agreements, payments, and balances tied to the client.",
+        image: {
+          src: "/shots/finance.png",
+          width: 1024,
+          height: 556,
+          alt: "SPIORA client settlements with contract amounts, payments, and margins.",
+        },
       },
       {
         title: "Knowledge base",
