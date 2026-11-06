@@ -2,63 +2,68 @@ import Image from "next/image";
 import Link from "next/link";
 import { copy } from "@/content/en";
 
-const explore = [
+const platform = [
   { href: "/#modules", label: copy.nav.features },
   { href: "/#ai", label: copy.nav.ai },
   { href: "/#security", label: copy.nav.security },
-  { href: "/#team", label: copy.nav.team },
-  { href: "/#contacts", label: copy.nav.contacts },
-  { href: "/#demo", label: copy.nav.demo },
 ] as const;
 
-type FooterProps = {
-  salesEmail: string;
-  loginUrl: string;
-};
+const company = [
+  { href: "/#team", label: copy.nav.team },
+  { href: "/#contacts", label: copy.nav.contacts },
+] as const;
 
-export function Footer({ salesEmail, loginUrl }: FooterProps) {
+export function Footer() {
   return (
     <footer className="site-footer">
       <div className="container footer-main">
-        <Link className="footer-brand" href="/#top" aria-label="SPIORA">
-          <Image className="footer-logo" src="/logo2.svg" alt="" width={222} height={50} unoptimized />
-        </Link>
+        <div className="footer-brand">
+          <Link className="footer-brand-link" href="/#top" aria-label="SPIORA">
+            <Image className="footer-logo" src="/logo2.svg" alt="" width={178} height={40} unoptimized />
+          </Link>
+          <p className="footer-blurb">{copy.footer.blurb}</p>
+        </div>
 
-        <nav className="footer-col" aria-label={copy.footer.explore}>
-          <p className="footer-label">{copy.footer.explore}</p>
+        <nav className="footer-col" aria-labelledby="footer-platform">
+          <h2 className="footer-label" id="footer-platform">
+            {copy.footer.platform}
+          </h2>
           <ul>
-            {explore.map((item) => (
+            {platform.map((item) => (
               <li key={item.href}>
                 <Link href={item.href}>{item.label}</Link>
               </li>
             ))}
-            {loginUrl ? (
-              <li>
-                <a href={loginUrl}>{copy.nav.login}</a>
-              </li>
-            ) : null}
           </ul>
         </nav>
 
-        <nav className="footer-col" aria-label={copy.footer.company}>
-          <p className="footer-label">{copy.footer.company}</p>
+        <nav className="footer-col" aria-labelledby="footer-company">
+          <h2 className="footer-label" id="footer-company">
+            {copy.footer.company}
+          </h2>
           <ul>
-            <li>
-              <Link href="/privacy">{copy.footer.privacy}</Link>
-            </li>
-            {salesEmail ? (
-              <li>
-                <a href={`mailto:${salesEmail}`}>
-                  {copy.footer.sales}: {salesEmail}
-                </a>
+            {company.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
               </li>
-            ) : null}
+            ))}
           </ul>
         </nav>
+
+        <div className="footer-demo">
+          <h2 className="footer-label" id="footer-demo">
+            {copy.footer.demo}
+          </h2>
+          <p className="footer-blurb">{copy.footer.demoLead}</p>
+          <Link className="btn btn-outline" href="/#demo">
+            {copy.nav.demo}
+          </Link>
+        </div>
       </div>
 
       <div className="container footer-bottom">
         <p>{copy.footer.copyright}</p>
+        <Link href="/privacy">{copy.footer.privacy}</Link>
       </div>
     </footer>
   );

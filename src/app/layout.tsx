@@ -21,7 +21,7 @@ const sora = Sora({
   display: "swap",
 });
 
-const { siteUrl, loginUrl, salesEmail } = publicSite();
+const { siteUrl, loginUrl } = publicSite();
 
 export const metadata: Metadata = {
   metadataBase: siteUrl ? new URL(siteUrl) : undefined,
@@ -53,7 +53,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <Header loginUrl={loginUrl} />
         {children}
-        <Footer salesEmail={salesEmail} loginUrl={loginUrl} />
+        <Footer />
       </body>
     </html>
   );

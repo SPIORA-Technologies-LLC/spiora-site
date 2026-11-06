@@ -205,10 +205,12 @@ export const copy = {
   },
   footer: {
     slogan: "ONE PLATFORM. INFINITE SOLUTIONS.",
-    explore: "Explore",
+    blurb: "A digital office for immigration and consulting teams",
+    platform: "Platform",
     company: "Company",
+    demo: "Demo",
+    demoLead: "See SPIORA in action",
     privacy: "Privacy policy",
-    sales: "Sales",
     copyright: "© 2026 SPIORA",
   },
   privacy: {
