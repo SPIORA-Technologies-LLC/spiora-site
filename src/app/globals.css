@@ -539,6 +539,22 @@ a {
     linear-gradient(160deg, rgba(244, 152, 26, 0.08), transparent 42%),
     var(--gray-800);
   box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.shot-photo {
+  aspect-ratio: auto;
+  display: block;
+  padding: 0;
+  border-style: solid;
+  border-color: var(--border-soft);
+  background: #0a0a0a;
+}
+
+.shot-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .badge {

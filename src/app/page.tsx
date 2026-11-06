@@ -51,9 +51,9 @@ export default function HomePage() {
             </div>
           </div>
           <Shot
-            label={copy.hero.shotLabel}
-            title={copy.hero.shotTitle}
-            note={copy.hero.shotNote}
+            src="/shots/team-workspace.png"
+            width={1024}
+            height={556}
             alt={copy.hero.shotAlt}
             caption={copy.hero.caption}
           />

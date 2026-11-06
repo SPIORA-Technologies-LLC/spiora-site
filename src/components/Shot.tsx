@@ -1,19 +1,30 @@
+import Image from "next/image";
+
 type ShotProps = {
-  label: string;
-  title: string;
-  note: string;
   alt: string;
   caption: string;
+  src?: string;
+  width?: number;
+  height?: number;
+  label?: string;
+  title?: string;
+  note?: string;
 };
 
-export function Shot({ label, title, note, alt, caption }: ShotProps) {
+export function Shot({ label, title, note, alt, caption, src, width, height }: ShotProps) {
   return (
     <figure className="shot">
-      <div className="shot-frame" role="img" aria-label={alt}>
-        <span className="badge">{label}</span>
-        <p className="shot-title">{title}</p>
-        <p className="shot-note">{note}</p>
-      </div>
+      {src && width && height ? (
+        <div className="shot-frame shot-photo">
+          <Image src={src} alt={alt} width={width} height={height} priority unoptimized />
+        </div>
+      ) : (
+        <div className="shot-frame" role="img" aria-label={alt}>
+          <span className="badge">{label}</span>
+          <p className="shot-title">{title}</p>
+          <p className="shot-note">{note}</p>
+        </div>
+      )}
       <figcaption>{caption}</figcaption>
     </figure>
   );

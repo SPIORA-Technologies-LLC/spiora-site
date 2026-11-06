@@ -24,11 +24,8 @@ export const copy = {
     title: "A digital office for immigration and consulting teams",
     lead: "Run clients, documents, tasks, and communications in one workspace. Clients see their case status and next steps in a personal portal.",
     cta: "Request a demo",
-    shotLabel: "Screenshot pending approval",
-    shotTitle: "Team workspace",
-    shotNote: "Replace this frame with an approved capture from the demo environment. Synthetic data only.",
     shotAlt:
-      "Reserved frame for an approved screenshot of the SPIORA team workspace on synthetic demo data.",
+      "SPIORA team workspace with clients, tasks, who is online, and the November calendar.",
     caption: "Team workspace on synthetic demo data.",
   },
   workflow: {
