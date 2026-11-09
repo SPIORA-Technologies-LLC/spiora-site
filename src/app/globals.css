@@ -202,10 +202,11 @@ a {
   color: var(--gray-300);
   font-size: 0.875rem;
   text-decoration: none;
+  transition: color 180ms ease, background-color 180ms ease;
 }
 
 .nav-link:hover {
-  color: var(--white);
+  color: #ff9900;
   background: rgba(255, 255, 255, 0.04);
 }
 
