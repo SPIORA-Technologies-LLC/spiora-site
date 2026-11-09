@@ -5,12 +5,12 @@ import { copy } from "@/content/en";
 const platform = [
   { href: "/#modules", label: copy.nav.features },
   { href: "/#security", label: copy.nav.security },
+  { href: "/privacy", label: copy.footer.privacy },
 ] as const;
 
 const company = [
   { href: "/#team", label: copy.nav.team },
   { href: "/#contacts", label: copy.nav.contacts },
-  { href: "/privacy", label: copy.footer.privacy },
 ] as const;
 
 export function Footer() {
