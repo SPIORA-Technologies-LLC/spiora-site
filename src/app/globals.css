@@ -723,11 +723,20 @@ a {
 }
 
 .team-card .team-role {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   color: #8f8f8f;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+.team-card .team-role img {
+  width: 12px;
+  height: 13px;
+  flex: 0 0 auto;
 }
 
 .team-card h3 {

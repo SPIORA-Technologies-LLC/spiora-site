@@ -150,7 +150,10 @@ export default function HomePage() {
                     sizes="(max-width: 639px) 100vw, (max-width: 899px) 50vw, 20vw"
                   />
                 </div>
-                <p className="team-role">{person.role}</p>
+                <p className="team-role">
+                  <Image src="/power-button.png" alt="" width={121} height={128} />
+                  {person.role}
+                </p>
                 <h3>{person.name}</h3>
                 {person.phone ? (
                   <p className="team-contact">
