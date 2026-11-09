@@ -408,18 +408,21 @@ a {
   height: 1.125rem;
 }
 
-.module-features .card-icon {
+.module-features .card-icon,
+.card-grid .card-icon {
   transition:
     background-color 200ms ease,
     border-color 200ms ease;
 }
 
-.module-features .card-icon svg {
+.module-features .card-icon svg,
+.card-grid .card-icon svg {
   transform-origin: center;
   transform-box: fill-box;
 }
 
-.module-features .card-icon:hover {
+.module-features .card-icon:hover,
+.card-grid .card-icon:hover {
   background: rgba(255, 123, 0, 0.14);
   border-color: #e08600;
 }
@@ -459,6 +462,18 @@ a {
 
 .module-features .card:nth-child(8) .card-icon:hover svg {
   animation: icon-rise 650ms ease forwards;
+}
+
+.card-grid .card:nth-child(1) .card-icon:hover svg {
+  animation: icon-folder 650ms ease forwards;
+}
+
+.card-grid .card:nth-child(2) .card-icon:hover svg {
+  animation: icon-clock 800ms ease forwards;
+}
+
+.card-grid .card:nth-child(3) .card-icon:hover svg {
+  animation: icon-answer 650ms ease forwards;
 }
 
 @keyframes icon-spark {
@@ -514,6 +529,25 @@ a {
   0% { transform: scaleY(1); }
   40% { transform: scaleY(0.7); }
   100% { transform: scaleY(1.2); }
+}
+
+@keyframes icon-folder {
+  0% { transform: scale(1) rotate(0deg); }
+  40% { transform: scale(1.16) rotate(-10deg); }
+  100% { transform: scale(1.06) rotate(0deg); }
+}
+
+@keyframes icon-clock {
+  0% { transform: rotate(0deg) scale(1); }
+  80% { transform: rotate(360deg) scale(1); }
+  100% { transform: rotate(360deg) scale(1.1); }
+}
+
+@keyframes icon-answer {
+  0% { transform: translateY(0) rotate(0deg); }
+  30% { transform: translateY(-5px) rotate(-12deg); }
+  55% { transform: translateY(-1px) rotate(8deg); }
+  100% { transform: translateY(-2px) rotate(-4deg); }
 }
 
 .card h3 {
@@ -611,7 +645,8 @@ a {
 }
 
 .team-card,
-.module-features .card {
+.module-features .card,
+.card-grid .card {
   border: 1.5px solid transparent;
   background:
     linear-gradient(var(--gray-800), var(--gray-800)) padding-box,
