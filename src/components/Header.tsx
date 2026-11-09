@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import { useEffect, useRef, useState, type AnimationEvent } from "react";
 import Link from "next/link";
+import { HeaderLogo } from "@/components/HeaderLogo";
 import "@/lib/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -19,10 +19,14 @@ type HeaderProps = {
   loginUrl: string;
 };
 
+const LOGO_MOTION = "(prefers-reduced-motion: reduce)";
+
 export function Header({ loginUrl }: HeaderProps) {
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const summaryRef = useRef<HTMLElement>(null);
   const [open, setOpen] = useState(false);
+  const [logoPlaying, setLogoPlaying] = useState(false);
+  const logoStartedAt = useRef(0);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -40,14 +44,29 @@ export function Header({ loginUrl }: HeaderProps) {
     if (detailsRef.current) detailsRef.current.open = false;
   }
 
+  function playLogo() {
+    if (window.matchMedia(LOGO_MOTION).matches) return;
+    logoStartedAt.current = performance.now();
+    setLogoPlaying(false);
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => setLogoPlaying(true));
+    });
+  }
+
+  function finishLogo(event: AnimationEvent<SVGSVGElement>) {
+    if (event.animationName !== "logo-tagline-from-left") return;
+    if (performance.now() - logoStartedAt.current < 1400) return;
+    setLogoPlaying(false);
+  }
+
   return (
     <header className="site-header">
       <a className="skip-link" href="#content">
         {copy.skip}
       </a>
       <div className="container header-bar">
-        <Link className="logo-link" href="/#top" aria-label="SPIORA">
-          <Image src="/logo2.svg" alt="" width={178} height={40} priority unoptimized />
+        <Link className="logo-link" href="/#top" aria-label="SPIORA" onClick={playLogo}>
+          <HeaderLogo playing={logoPlaying} onAnimationEnd={finishLogo} />
         </Link>
 
         <nav className="desktop-nav" aria-label={copy.nav.label}>
