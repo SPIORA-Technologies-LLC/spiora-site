@@ -148,7 +148,13 @@ function Field({
 
   return (
     <div className="field">
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id}>
+        {label}
+        <span className="req" aria-hidden="true">
+          {" "}
+          *
+        </span>
+      </label>
       <input
         id={id}
         name={name}
