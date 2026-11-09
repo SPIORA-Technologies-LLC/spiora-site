@@ -506,6 +506,10 @@ a {
   display: flex;
   flex-direction: column;
   padding: 12px;
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(var(--gray-800), var(--gray-800)) padding-box,
+    linear-gradient(160deg, #ff7b00 0%, #ff9700 78%, #ffb300 100%) border-box;
 }
 
 .team-photo {
