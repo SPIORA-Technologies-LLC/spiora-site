@@ -269,14 +269,18 @@ a {
 
 .hero {
   background:
-    radial-gradient(ellipse at 80% 20%, var(--hero-glow), transparent 46%),
     radial-gradient(
-      ellipse 56% 88% at 0% 0%,
-      rgba(244, 152, 26, 0.2) 0%,
-      rgba(244, 152, 26, 0.08) 38%,
+      ellipse 85% 70% at 86% 0%,
+      rgba(244, 152, 26, 0.16) 0%,
+      rgba(244, 152, 26, 0.05) 46%,
+      transparent 74%
+    ),
+    radial-gradient(
+      ellipse 68% 62% at 0% 0%,
+      rgba(244, 152, 26, 0.18) 0%,
+      rgba(244, 152, 26, 0.05) 42%,
       transparent 72%
     ),
-    radial-gradient(ellipse 36% 48% at 20% 100%, rgba(244, 152, 26, 0.06), transparent 70%),
     var(--gradient-hero);
   padding-top: 32px;
 }
