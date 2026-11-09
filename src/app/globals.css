@@ -279,8 +279,7 @@ a {
   padding-top: 0;
 }
 
-.hero,
-.team-section {
+.hero {
   background:
     radial-gradient(
       ellipse 130% 58% at 32% 0%,
@@ -295,6 +294,23 @@ a {
       transparent 76%
     ),
     var(--gradient-hero);
+}
+
+.team-section {
+  background:
+    radial-gradient(
+      ellipse 130% 58% at 32% 100%,
+      rgba(244, 152, 26, 0.16) 0%,
+      rgba(244, 152, 26, 0.07) 42%,
+      transparent 78%
+    ),
+    radial-gradient(
+      ellipse 72% 52% at 92% 100%,
+      rgba(244, 152, 26, 0.12) 0%,
+      rgba(244, 152, 26, 0.04) 46%,
+      transparent 76%
+    ),
+    linear-gradient(168deg, #0a0a0a 0%, #111111 58%, #0a0a0a 100%);
 }
 
 .hero {
