@@ -62,7 +62,7 @@ export function Header({ loginUrl }: HeaderProps) {
               {copy.nav.login}
             </a>
           ) : null}
-          <Link className="btn btn-primary" href="/#demo">
+          <Link className="btn btn-outline" href="/#demo">
             {copy.nav.demo}
           </Link>
         </nav>
@@ -86,7 +86,7 @@ export function Header({ loginUrl }: HeaderProps) {
                 {copy.nav.login}
               </a>
             ) : null}
-            <Link className="btn btn-primary" href="/#demo" onClick={closeMenu}>
+            <Link className="btn btn-outline" href="/#demo" onClick={closeMenu}>
               {copy.nav.demo}
             </Link>
           </nav>
