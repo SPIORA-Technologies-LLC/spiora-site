@@ -44,13 +44,18 @@ export function Header({ loginUrl }: HeaderProps) {
     if (detailsRef.current) detailsRef.current.open = false;
   }
 
-  function playLogo() {
+  const playLogo = useCallback(() => {
     if (window.matchMedia(LOGO_MOTION).matches) return;
     setLogoPlaying(false);
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => setLogoPlaying(true));
     });
-  }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("spiora-logo-play", playLogo);
+    return () => window.removeEventListener("spiora-logo-play", playLogo);
+  }, [playLogo]);
 
   return (
     <header className="site-header">

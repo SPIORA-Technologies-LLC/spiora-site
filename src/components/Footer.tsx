@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { copy } from "@/content/en";
@@ -18,7 +20,12 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container footer-main">
         <div className="footer-brand">
-          <Link className="footer-brand-link" href="/#top" aria-label="SPIORA">
+          <Link
+            className="footer-brand-link"
+            href="/#top"
+            aria-label="SPIORA"
+            onClick={() => window.dispatchEvent(new Event("spiora-logo-play"))}
+          >
             <Image className="footer-logo" src="/logo2.svg" alt="" width={178} height={40} unoptimized />
           </Link>
           <p className="footer-blurb">{copy.footer.blurb}</p>
