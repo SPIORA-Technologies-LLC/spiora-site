@@ -279,7 +279,8 @@ a {
   padding-top: 0;
 }
 
-.hero {
+.hero,
+.team-section {
   background:
     radial-gradient(
       ellipse 130% 58% at 32% 0%,
@@ -294,6 +295,9 @@ a {
       transparent 76%
     ),
     var(--gradient-hero);
+}
+
+.hero {
   padding-top: 32px;
 }
 
@@ -602,10 +606,6 @@ a {
 
 .card h3 {
   font-size: 1.25rem;
-}
-
-.team-section {
-  background: var(--surface-formula);
 }
 
 .reach-band {
