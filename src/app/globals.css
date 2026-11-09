@@ -409,20 +409,23 @@ a {
 }
 
 .module-features .card-icon,
-.card-grid .card-icon {
+.card-grid .card-icon,
+.point-grid .card-icon {
   transition:
     background-color 200ms ease,
     border-color 200ms ease;
 }
 
 .module-features .card-icon svg,
-.card-grid .card-icon svg {
+.card-grid .card-icon svg,
+.point-grid .card-icon svg {
   transform-origin: center;
   transform-box: fill-box;
 }
 
 .module-features .card-icon:hover,
-.card-grid .card-icon:hover {
+.card-grid .card-icon:hover,
+.point-grid .card-icon:hover {
   background: rgba(255, 123, 0, 0.14);
   border-color: #e08600;
 }
@@ -474,6 +477,14 @@ a {
 
 .card-grid .card:nth-child(3) .card-icon:hover svg {
   animation: icon-answer 650ms ease forwards;
+}
+
+.point-grid .card:nth-child(1) .card-icon:hover svg {
+  animation: icon-shield 650ms ease forwards;
+}
+
+.point-grid .card:nth-child(2) .card-icon:hover svg {
+  animation: icon-lock 650ms ease forwards;
 }
 
 @keyframes icon-spark {
@@ -548,6 +559,21 @@ a {
   30% { transform: translateY(-5px) rotate(-12deg); }
   55% { transform: translateY(-1px) rotate(8deg); }
   100% { transform: translateY(-2px) rotate(-4deg); }
+}
+
+@keyframes icon-shield {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.2); }
+  60% { transform: scale(0.94); }
+  100% { transform: scale(1.08); }
+}
+
+@keyframes icon-lock {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-14deg) scale(1.08); }
+  50% { transform: rotate(10deg) scale(1.08); }
+  75% { transform: rotate(-4deg) scale(1.02); }
+  100% { transform: rotate(0deg) scale(1.06); }
 }
 
 .card h3 {
@@ -646,7 +672,8 @@ a {
 
 .team-card,
 .module-features .card,
-.card-grid .card {
+.card-grid .card,
+.point-grid .card {
   border: 1.5px solid transparent;
   background:
     linear-gradient(var(--gray-800), var(--gray-800)) padding-box,
