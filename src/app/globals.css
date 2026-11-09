@@ -531,8 +531,8 @@ a {
   object-fit: cover;
 }
 
-.team-role {
-  color: var(--gray-300);
+.team-card .team-role {
+  color: #8f8f8f;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
