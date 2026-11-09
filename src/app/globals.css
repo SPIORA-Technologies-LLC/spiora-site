@@ -271,14 +271,14 @@ a {
   background:
     radial-gradient(
       ellipse 130% 58% at 32% 0%,
-      rgba(244, 152, 26, 0.22) 0%,
-      rgba(244, 152, 26, 0.1) 42%,
+      rgba(244, 152, 26, 0.16) 0%,
+      rgba(244, 152, 26, 0.07) 42%,
       transparent 78%
     ),
     radial-gradient(
       ellipse 72% 52% at 92% 0%,
-      rgba(244, 152, 26, 0.16) 0%,
-      rgba(244, 152, 26, 0.05) 46%,
+      rgba(244, 152, 26, 0.12) 0%,
+      rgba(244, 152, 26, 0.04) 46%,
       transparent 76%
     ),
     var(--gradient-hero);
