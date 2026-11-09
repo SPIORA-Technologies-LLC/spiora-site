@@ -117,6 +117,7 @@ a {
   top: 0;
   z-index: 30;
   height: var(--header-height);
+  overflow: visible;
   background: rgba(10, 10, 10, 0.82);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border-soft);
@@ -148,58 +149,6 @@ a {
 .header-logo {
   display: block;
   overflow: visible;
-}
-
-.header-logo .logo-letter,
-.header-logo .logo-tagline {
-  transform-box: fill-box;
-  transform-origin: center bottom;
-}
-
-.header-logo.is-playing .logo-letter {
-  animation: logo-letter-jump 0.5s cubic-bezier(0.3, 0.8, 0.35, 1) both;
-}
-
-.header-logo.is-playing .logo-letter:nth-child(1) { animation-delay: 0s; }
-.header-logo.is-playing .logo-letter:nth-child(2) { animation-delay: 0.11s; }
-.header-logo.is-playing .logo-letter:nth-child(3) { animation-delay: 0.22s; }
-.header-logo.is-playing .logo-letter:nth-child(4) { animation-delay: 0.33s; }
-.header-logo.is-playing .logo-letter:nth-child(5) { animation-delay: 0.44s; }
-.header-logo.is-playing .logo-letter:nth-child(6) { animation-delay: 0.55s; }
-
-.header-logo.is-playing .logo-tagline-left {
-  animation:
-    logo-tagline-drain 0.45s ease-in forwards,
-    logo-tagline-from-left 0.65s cubic-bezier(0.22, 0.7, 0.2, 1) 0.95s forwards;
-}
-
-.header-logo.is-playing .logo-tagline-right {
-  animation:
-    logo-tagline-drain 0.45s ease-in forwards,
-    logo-tagline-from-right 0.65s cubic-bezier(0.22, 0.7, 0.2, 1) 0.95s forwards;
-}
-
-@keyframes logo-letter-jump {
-  0% { transform: translateY(0); }
-  34% { transform: translateY(-8px); }
-  58% { transform: translateY(0); }
-  76% { transform: translateY(-2.5px); }
-  100% { transform: translateY(0); }
-}
-
-@keyframes logo-tagline-drain {
-  0% { opacity: 1; transform: translateY(0); }
-  100% { opacity: 0; transform: translateY(14px); }
-}
-
-@keyframes logo-tagline-from-left {
-  0% { opacity: 0; transform: translateX(-18px); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes logo-tagline-from-right {
-  0% { opacity: 0; transform: translateX(18px); }
-  100% { opacity: 1; transform: translateX(0); }
 }
 
 .footer-logo {
@@ -1299,11 +1248,5 @@ a {
   .btn-primary:hover:not(:disabled),
   .btn-outline:hover {
     transform: none;
-  }
-
-  .header-logo.is-playing .logo-letter,
-  .header-logo.is-playing .logo-tagline-left,
-  .header-logo.is-playing .logo-tagline-right {
-    animation: none;
   }
 }

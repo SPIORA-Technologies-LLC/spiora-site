@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type AnimationEvent } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { HeaderLogo } from "@/components/HeaderLogo";
 import "@/lib/fontawesome";
@@ -26,7 +26,7 @@ export function Header({ loginUrl }: HeaderProps) {
   const summaryRef = useRef<HTMLElement>(null);
   const [open, setOpen] = useState(false);
   const [logoPlaying, setLogoPlaying] = useState(false);
-  const logoStartedAt = useRef(0);
+  const finishLogo = useCallback(() => setLogoPlaying(false), []);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
@@ -46,17 +46,10 @@ export function Header({ loginUrl }: HeaderProps) {
 
   function playLogo() {
     if (window.matchMedia(LOGO_MOTION).matches) return;
-    logoStartedAt.current = performance.now();
     setLogoPlaying(false);
     window.requestAnimationFrame(() => {
       window.requestAnimationFrame(() => setLogoPlaying(true));
     });
-  }
-
-  function finishLogo(event: AnimationEvent<SVGSVGElement>) {
-    if (event.animationName !== "logo-tagline-from-left") return;
-    if (performance.now() - logoStartedAt.current < 1400) return;
-    setLogoPlaying(false);
   }
 
   return (
@@ -66,7 +59,7 @@ export function Header({ loginUrl }: HeaderProps) {
       </a>
       <div className="container header-bar">
         <Link className="logo-link" href="/#top" aria-label="SPIORA" onClick={playLogo}>
-          <HeaderLogo playing={logoPlaying} onAnimationEnd={finishLogo} />
+          <HeaderLogo playing={logoPlaying} onDone={finishLogo} />
         </Link>
 
         <nav className="desktop-nav" aria-label={copy.nav.label}>

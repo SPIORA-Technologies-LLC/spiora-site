@@ -1,17 +1,115 @@
-import type { AnimationEvent } from "react";
+"use client";
+
+import { useEffect, useRef } from "react";
+
+const VIEW_W = 23532;
+const VIEW_H = 5296;
+const LETTER_MS = 480;
+const LETTER_GAP = 160;
+const DRAIN_MS = 420;
+const RETURN_AT = 1120;
+const RETURN_MS = 680;
+const TOTAL_MS = RETURN_AT + RETURN_MS;
+
+function jumpOffset(progress: number) {
+  if (progress <= 0 || progress >= 1) return 0;
+  if (progress < 0.4) {
+    const t = progress / 0.4;
+    return -13 * (1 - (1 - t) ** 3);
+  }
+  if (progress < 0.72) {
+    const t = (progress - 0.4) / 0.32;
+    return -13 * (1 - t * t);
+  }
+  const t = (progress - 0.72) / 0.28;
+  return -4 * Math.sin(t * Math.PI);
+}
+
+function taglineOffset(elapsed: number, direction: -1 | 1) {
+  if (elapsed <= DRAIN_MS) {
+    const t = elapsed / DRAIN_MS;
+    const eased = t * t;
+    return { opacity: 1 - eased, x: 0, y: 20 * eased };
+  }
+  if (elapsed < RETURN_AT) return { opacity: 0, x: direction * 56, y: 0 };
+  const t = Math.min(1, (elapsed - RETURN_AT) / RETURN_MS);
+  const eased = 1 - (1 - t) ** 3;
+  return { opacity: eased, x: direction * 56 * (1 - eased), y: 0 };
+}
 
 type HeaderLogoProps = {
   playing: boolean;
-  onAnimationEnd: (event: AnimationEvent<SVGSVGElement>) => void;
+  onDone: () => void;
 };
 
-export function HeaderLogo({ playing, onAnimationEnd }: HeaderLogoProps) {
+export function HeaderLogo({ playing, onDone }: HeaderLogoProps) {
+  const svgRef = useRef<SVGSVGElement>(null);
+
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg || !playing) return;
+
+    const letters = [...svg.querySelectorAll<SVGGElement>(".logo-letter")];
+    const left = svg.querySelector<SVGGElement>(".logo-tagline-left");
+    const right = svg.querySelector<SVGGElement>(".logo-tagline-right");
+    if (!left || !right) return;
+
+    let frame = 0;
+    let cancelled = false;
+    const started = performance.now();
+
+    const reset = () => {
+      for (const letter of letters) letter.removeAttribute("transform");
+      for (const part of [left, right]) {
+        part.removeAttribute("transform");
+        part.style.opacity = "";
+      }
+    };
+
+    const tick = (now: number) => {
+      if (cancelled) return;
+      const elapsed = now - started;
+      const box = svg.getBoundingClientRect();
+      const unitX = box.width > 0 ? VIEW_W / box.width : 0;
+      const unitY = box.height > 0 ? VIEW_H / box.height : 0;
+
+      letters.forEach((letter, index) => {
+        const y = jumpOffset((elapsed - index * LETTER_GAP) / LETTER_MS) * unitY;
+        if (y) letter.setAttribute("transform", `translate(0 ${y})`);
+        else letter.removeAttribute("transform");
+      });
+
+      for (const [part, direction] of [
+        [left, -1],
+        [right, 1],
+      ] as const) {
+        const state = taglineOffset(elapsed, direction);
+        part.style.opacity = String(state.opacity);
+        if (state.x || state.y) part.setAttribute("transform", `translate(${state.x * unitX} ${state.y * unitY})`);
+        else part.removeAttribute("transform");
+      }
+
+      if (elapsed < TOTAL_MS) frame = window.requestAnimationFrame(tick);
+      else {
+        reset();
+        onDone();
+      }
+    };
+
+    frame = window.requestAnimationFrame(tick);
+    return () => {
+      cancelled = true;
+      window.cancelAnimationFrame(frame);
+      reset();
+    };
+  }, [onDone, playing]);
+
   return (
     <svg
-      className={playing ? "header-logo is-playing" : "header-logo"}
+      ref={svgRef}
+      className="header-logo"
       viewBox="3084 7867 23532 5296"
       aria-hidden="true"
-      onAnimationEnd={onAnimationEnd}
     >
       <defs>
         <linearGradient id="header-logo-glow" gradientUnits="objectBoundingBox" x1="49.6394%" y1="0%" x2="49.6394%" y2="99.5639%">
