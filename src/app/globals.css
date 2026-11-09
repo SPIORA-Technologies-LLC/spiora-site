@@ -502,10 +502,8 @@ a {
   gap: 12px;
 }
 
-.team-card {
-  display: flex;
-  flex-direction: column;
-  padding: 12px;
+.team-card,
+.module-features .card {
   border: 1.5px solid transparent;
   background:
     linear-gradient(var(--gray-800), var(--gray-800)) padding-box,
@@ -516,6 +514,12 @@ a {
       color-mix(in srgb, #ffb300 78%, #222) 100%
     )
     border-box;
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
 }
 
 .team-photo {
