@@ -62,7 +62,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section band" id="workflow" aria-labelledby="workflow-title">
+      <section className="section" id="workflow" aria-labelledby="workflow-title">
         <div className="container">
           <div className="section-intro">
             <h2 id="workflow-title">{copy.workflow.title}</h2>
