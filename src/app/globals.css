@@ -267,12 +267,9 @@ a {
   scroll-margin-top: 88px;
 }
 
+#modules,
 #security {
   padding-top: 0;
-}
-
-#modules {
-  padding-top: 32px;
 }
 
 .hero {
@@ -1112,10 +1109,6 @@ a {
 
   .section {
     padding-block: 96px;
-  }
-
-  #modules {
-    padding-top: 48px;
   }
 
   .hero {
