@@ -509,7 +509,13 @@ a {
   border: 1.5px solid transparent;
   background:
     linear-gradient(var(--gray-800), var(--gray-800)) padding-box,
-    linear-gradient(160deg, #ff7b00 0%, #ff9700 78%, #ffb300 100%) border-box;
+    linear-gradient(
+      160deg,
+      color-mix(in srgb, #ff7b00 78%, #222) 0%,
+      color-mix(in srgb, #ff9700 78%, #222) 78%,
+      color-mix(in srgb, #ffb300 78%, #222) 100%
+    )
+    border-box;
 }
 
 .team-photo {
@@ -526,7 +532,7 @@ a {
 }
 
 .team-role {
-  color: var(--secondary-red);
+  color: var(--gray-300);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.06em;
