@@ -4,7 +4,6 @@ import { copy } from "@/content/en";
 
 const platform = [
   { href: "/#modules", label: copy.nav.features },
-  { href: "/#ai", label: copy.nav.ai },
   { href: "/#security", label: copy.nav.security },
 ] as const;
 

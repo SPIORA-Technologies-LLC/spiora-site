@@ -112,22 +112,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section band" id="ai" aria-labelledby="ai-title">
-        <div className="container split">
-          <div>
-            <h2 id="ai-title">{copy.ai.title}</h2>
-            <p className="lead">{copy.ai.lead}</p>
-          </div>
-          <Shot
-            src="/shots/ai-workspace.png"
-            width={1368}
-            height={744}
-            alt={copy.ai.shotAlt}
-            caption={copy.ai.caption}
-          />
-        </div>
-      </section>
-
       <section className="section" id="security" aria-labelledby="security-title">
         <div className="container">
           <div className="section-intro">

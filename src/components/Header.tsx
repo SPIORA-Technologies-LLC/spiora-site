@@ -10,7 +10,6 @@ import { copy } from "@/content/en";
 
 const links = [
   { href: "/#modules", label: copy.nav.features },
-  { href: "/#ai", label: copy.nav.ai },
   { href: "/#security", label: copy.nav.security },
   { href: "/#team", label: copy.nav.team },
   { href: "/#contacts", label: copy.nav.contacts },

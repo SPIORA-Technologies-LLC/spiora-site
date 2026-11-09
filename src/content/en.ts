@@ -11,7 +11,6 @@ export const copy = {
   nav: {
     label: "Primary",
     features: "Features",
-    ai: "AI",
     security: "Security",
     team: "Team",
     contacts: "Contacts",
@@ -137,13 +136,6 @@ export const copy = {
         },
       },
     ],
-  },
-  ai: {
-    title: "An AI Workspace for daily work",
-    lead: "The assistant prepares email drafts, translates text, and answers questions from the company knowledge base.",
-    shotAlt:
-      "SPIORA AI Workspace with a client summary, chat history, and a message box.",
-    caption: "Drafting a message from the company knowledge base.",
   },
   security: {
     title: "Access by role",
