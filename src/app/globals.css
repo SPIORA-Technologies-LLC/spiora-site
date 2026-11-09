@@ -267,6 +267,10 @@ a {
   scroll-margin-top: 88px;
 }
 
+#security {
+  padding-top: 0;
+}
+
 .hero {
   background:
     radial-gradient(
