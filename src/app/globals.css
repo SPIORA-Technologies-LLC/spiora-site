@@ -408,6 +408,114 @@ a {
   height: 1.125rem;
 }
 
+.module-features .card-icon {
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease;
+}
+
+.module-features .card-icon svg {
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.module-features .card-icon:hover {
+  background: rgba(255, 123, 0, 0.14);
+  border-color: #e08600;
+}
+
+.module-features .card:nth-child(1) .card-icon:hover svg {
+  animation: icon-spark 700ms ease forwards;
+}
+
+.module-features .card:nth-child(2) .card-icon:hover svg {
+  animation: icon-hop 650ms ease forwards;
+}
+
+.module-features .card:nth-child(3) .card-icon:hover svg {
+  animation: icon-tick 550ms ease forwards;
+}
+
+.module-features .card:nth-child(4) .card-icon:hover svg {
+  animation: icon-wiggle 600ms ease forwards;
+}
+
+.module-features .card:nth-child(5) .card-icon:hover svg {
+  animation: icon-flip 700ms ease forwards;
+}
+
+.module-features .card:nth-child(6) .card-icon:hover svg {
+  animation: icon-slip 650ms ease forwards;
+}
+
+.module-features .card:nth-child(7) .card-icon:hover svg {
+  animation: icon-open 700ms ease forwards;
+}
+
+.module-features .card:nth-child(8) .card-icon:hover svg,
+.module-features .card:nth-child(8) .card-icon svg {
+  transform-origin: center bottom;
+}
+
+.module-features .card:nth-child(8) .card-icon:hover svg {
+  animation: icon-rise 650ms ease forwards;
+}
+
+@keyframes icon-spark {
+  0% { transform: rotate(0deg) scale(1); }
+  35% { transform: rotate(-22deg) scale(1.22); }
+  65% { transform: rotate(12deg) scale(1.04); }
+  100% { transform: rotate(-8deg) scale(1.12); }
+}
+
+@keyframes icon-hop {
+  0% { transform: translateY(0); }
+  35% { transform: translateY(-6px) scale(1.08); }
+  60% { transform: translateY(1px) scale(0.96); }
+  100% { transform: translateY(-2px) scale(1.05); }
+}
+
+@keyframes icon-tick {
+  0% { transform: scale(1) rotate(0deg); }
+  30% { transform: scale(1.24) rotate(-8deg); }
+  55% { transform: scale(0.92) rotate(4deg); }
+  100% { transform: scale(1.08) rotate(0deg); }
+}
+
+@keyframes icon-wiggle {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(-14deg); }
+  40% { transform: rotate(12deg); }
+  60% { transform: rotate(-8deg); }
+  80% { transform: rotate(4deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes icon-flip {
+  0% { transform: perspective(90px) rotateX(0deg); }
+  45% { transform: perspective(90px) rotateX(-75deg); }
+  100% { transform: perspective(90px) rotateX(0deg); }
+}
+
+@keyframes icon-slip {
+  0% { transform: translateY(0); }
+  40% { transform: translateY(-7px); }
+  70% { transform: translateY(2px); }
+  100% { transform: translateY(-2px); }
+}
+
+@keyframes icon-open {
+  0% { transform: perspective(140px) rotateY(0deg); }
+  50% { transform: perspective(140px) rotateY(-58deg); }
+  100% { transform: perspective(140px) rotateY(-16deg); }
+}
+
+@keyframes icon-rise {
+  0% { transform: scaleY(1); }
+  40% { transform: scaleY(0.7); }
+  100% { transform: scaleY(1.2); }
+}
+
 .card h3 {
   font-size: 1.25rem;
 }
