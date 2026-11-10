@@ -272,8 +272,10 @@ a {
   scroll-margin-top: 88px;
 }
 
+#workflow,
 #modules,
-#security {
+#security,
+#team {
   padding-top: 0;
 }
 
