@@ -53,6 +53,7 @@ export function Header({ loginUrl }: HeaderProps) {
   }, []);
 
   useEffect(() => {
+    playLogo();
     window.addEventListener("spiora-logo-play", playLogo);
     return () => window.removeEventListener("spiora-logo-play", playLogo);
   }, [playLogo]);
