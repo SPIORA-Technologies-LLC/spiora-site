@@ -278,6 +278,18 @@ a {
   padding-top: 0;
 }
 
+.dark-sections {
+  background:
+    linear-gradient(180deg, transparent 0%, #0a0a0a 100%),
+    linear-gradient(90deg, #131313 0%, #191919 100%);
+}
+
+@media (max-width: 899px) {
+  .dark-sections {
+    background: linear-gradient(180deg, #0b0b0b 0%, #0a0a0a 100%);
+  }
+}
+
 .hero {
   background:
     radial-gradient(

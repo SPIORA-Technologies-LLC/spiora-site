@@ -62,6 +62,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <div className="dark-sections">
       <section className="section" id="workflow" aria-labelledby="workflow-title">
         <div className="container">
           <div className="section-intro">
@@ -132,6 +133,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      </div>
 
       <section className="section team-section" id="team" aria-labelledby="team-title">
         <div className="container">
