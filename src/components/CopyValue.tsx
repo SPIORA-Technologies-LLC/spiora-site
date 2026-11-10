@@ -15,7 +15,7 @@ export function CopyValue({ text, label, children }: CopyValueProps) {
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
+      window.setTimeout(() => setCopied(false), 800);
     } catch {
       setCopied(false);
     }

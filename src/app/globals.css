@@ -708,12 +708,14 @@ a {
   text-decoration: none;
 }
 
+.contact-row:has(.copy-button) {
+  position: relative;
+}
+
 .copy-value {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  display: block;
   width: 100%;
+  padding-right: 84px;
 }
 
 .copy-text {
@@ -722,8 +724,10 @@ a {
 
 .copy-button {
   appearance: none;
-  flex: none;
-  margin-left: auto;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
   min-height: 32px;
   padding: 0 12px;
   border: 1px solid #ff9700;
