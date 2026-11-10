@@ -813,7 +813,7 @@ a {
   gap: 12px;
   align-items: flex-start;
   min-height: 44px;
-  background: var(--surface-formula);
+  background: var(--gray-800);
   border: 1px solid var(--border-soft);
   border-radius: 16px;
   padding: 12px 16px;
