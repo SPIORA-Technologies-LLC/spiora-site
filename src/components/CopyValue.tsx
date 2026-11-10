@@ -9,26 +9,23 @@ type CopyValueProps = {
 };
 
 export function CopyValue({ text, label, children }: CopyValueProps) {
-  const [hidden, setHidden] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   async function copy() {
     try {
       await navigator.clipboard.writeText(text);
-      setHidden(true);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
     } catch {
-      setHidden(false);
+      setCopied(false);
     }
   }
 
   return (
-    <span className="copy-value" onMouseLeave={() => setHidden(false)}>
-      <span>{children}</span>
-      <button
-        type="button"
-        className={hidden ? "copy-button is-hidden" : "copy-button"}
-        onClick={copy}
-      >
-        {label}
+    <span className="copy-value">
+      <span className="copy-text">{children}</span>
+      <button type="button" className={copied ? "copy-button is-copied" : "copy-button"} onClick={copy}>
+        {copied ? "Copied" : label}
       </button>
     </span>
   );

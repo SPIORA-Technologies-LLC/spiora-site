@@ -710,45 +710,43 @@ a {
 
 .copy-value {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 2px 12px;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.copy-text {
+  min-width: 0;
 }
 
 .copy-button {
   appearance: none;
-  border: 0;
+  flex: none;
+  margin-left: auto;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid #ff9700;
+  border-radius: 999px;
   background: transparent;
   color: #ff9900;
   font: inherit;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  min-height: 44px;
-  padding: 0;
+  letter-spacing: 0.02em;
   cursor: pointer;
-  opacity: 0;
 }
 
-.copy-value:hover .copy-button,
-.copy-value:focus-within .copy-button {
-  opacity: 1;
+.copy-button:hover {
+  border-color: #ffb300;
+  color: #ffb300;
+  background: rgba(255, 153, 0, 0.12);
 }
 
-.copy-button.is-hidden,
-.copy-value:hover .copy-button.is-hidden,
-.copy-value:focus-within .copy-button.is-hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-@media (hover: none) {
-  .copy-button {
-    opacity: 1;
-  }
-
-  .copy-button.is-hidden {
-    opacity: 0;
-  }
+.copy-button.is-copied {
+  border-color: transparent;
+  background: linear-gradient(90deg, #ffb300 0%, #ff9700 55%, #ff7b00 100%);
+  color: #0a0a0a;
 }
 
 .team-grid {
