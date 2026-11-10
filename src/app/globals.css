@@ -708,6 +708,10 @@ a {
   text-decoration: none;
 }
 
+.contact-static {
+  color: var(--white);
+}
+
 .contact-row:has(.copy-button) {
   position: relative;
 }

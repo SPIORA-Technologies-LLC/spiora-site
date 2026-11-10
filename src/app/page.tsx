@@ -217,7 +217,7 @@ export default function HomePage() {
                   <p className="contact-kicker">{copy.contacts.phoneLabel}</p>
                   <p className="contact-value">
                     <CopyValue text={copy.contacts.phone} label="Copy">
-                      <a href={copy.contacts.phoneHref}>{copy.contacts.phone}</a>
+                      <span className="contact-static">{copy.contacts.phone}</span>
                     </CopyValue>
                   </p>
                 </div>
