@@ -4,11 +4,12 @@ import { useEffect, useRef } from "react";
 
 const VIEW_W = 23532;
 const VIEW_H = 5296;
-const LETTER_MS = 480;
-const LETTER_GAP = 160;
-const DRAIN_MS = 420;
-const RETURN_AT = 1120;
-const RETURN_MS = 680;
+const PACE = 0.85;
+const LETTER_MS = 480 * PACE;
+const LETTER_GAP = 160 * PACE;
+const DRAIN_MS = 420 * PACE;
+const RETURN_AT = 1120 * PACE;
+const RETURN_MS = 680 * PACE;
 const TOTAL_MS = RETURN_AT + RETURN_MS;
 
 function jumpOffset(progress: number) {
