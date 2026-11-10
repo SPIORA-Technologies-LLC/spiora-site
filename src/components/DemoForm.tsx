@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { copy } from "@/content/en";
 import { emptyDemoInput, hasErrors, validateDemo, type DemoInput, type FieldErrors } from "@/lib/demo";
@@ -13,6 +13,60 @@ export function DemoForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState("");
   const keyRef = useRef("");
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    const form = formRef.current;
+    if (!form) return;
+
+    let observer: IntersectionObserver | null = null;
+    let timer = 0;
+
+    const play = () => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const run = () => {
+        form.classList.remove("is-marked");
+        void form.offsetWidth;
+        form.classList.add("is-marked");
+        window.clearTimeout(timer);
+        timer = window.setTimeout(() => form.classList.remove("is-marked"), 1400);
+      };
+
+      observer?.disconnect();
+      const rect = form.getBoundingClientRect();
+      const seen = rect.top < window.innerHeight * 0.72 && rect.bottom > 0;
+      if (seen) {
+        run();
+        return;
+      }
+
+      observer = new IntersectionObserver((entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        observer?.disconnect();
+        observer = null;
+        run();
+      }, { threshold: 0.35 });
+      observer.observe(form);
+    };
+
+    const onClick = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const link = target.closest("a");
+      if (!link) return;
+      const href = link.getAttribute("href") ?? "";
+      if (href !== "/#demo" && href !== "#demo") return;
+      play();
+    };
+
+    document.addEventListener("click", onClick);
+    return () => {
+      document.removeEventListener("click", onClick);
+      observer?.disconnect();
+      window.clearTimeout(timer);
+    };
+  }, []);
 
   function update(field: keyof DemoInput, value: string) {
     setValues((current) => ({ ...current, [field]: value }));
@@ -68,7 +122,13 @@ export function DemoForm() {
   }
 
   return (
-    <form className="form-card" noValidate onSubmit={onSubmit} aria-busy={status === "sending"}>
+    <form
+      ref={formRef}
+      className="form-card"
+      noValidate
+      onSubmit={onSubmit}
+      aria-busy={status === "sending"}
+    >
       <div className="form-pair">
         <Field
           id="demo-name"
