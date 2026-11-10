@@ -929,15 +929,15 @@ a {
 }
 
 .form-card.is-marked .field label {
-  animation: demo-twitch 280ms ease both;
+  animation: demo-twitch 75ms ease both;
 }
 
 .form-card.is-marked .form-pair .field:nth-child(2) label {
-  animation-delay: 80ms;
+  animation-delay: 75ms;
 }
 
 .form-card.is-marked > .field label {
-  animation-delay: 160ms;
+  animation-delay: 150ms;
 }
 
 @keyframes demo-twitch {
