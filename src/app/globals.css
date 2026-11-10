@@ -734,9 +734,20 @@ a {
   opacity: 1;
 }
 
+.copy-button.is-hidden,
+.copy-value:hover .copy-button.is-hidden,
+.copy-value:focus-within .copy-button.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
 @media (hover: none) {
   .copy-button {
     opacity: 1;
+  }
+
+  .copy-button.is-hidden {
+    opacity: 0;
   }
 }
 
