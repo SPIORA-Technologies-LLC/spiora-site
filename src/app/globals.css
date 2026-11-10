@@ -244,12 +244,12 @@ a {
 }
 
 .btn-primary {
-  background: var(--gradient-brand);
+  background: linear-gradient(90deg, #ffb300 0%, #ff9700 55%, #ff7b00 100%);
   color: #0a0a0a;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: var(--gradient-brand-hover);
+  background: linear-gradient(90deg, #ffc233 0%, #ffa21a 55%, #ff8a1a 100%);
   transform: translateY(-1px);
 }
 
