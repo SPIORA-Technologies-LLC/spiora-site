@@ -732,6 +732,14 @@ a {
   flex: 0 0 auto;
 }
 
+.contact-value a.contact-app-link {
+  min-height: 0;
+  display: inline-flex;
+  line-height: 0;
+  color: inherit;
+  text-decoration: none;
+}
+
 .contact-row:has(.copy-button) {
   position: relative;
 }

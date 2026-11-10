@@ -209,6 +209,7 @@ export const copy = {
     phoneLabel: "Phone",
     phone: "+421 944 615 008",
     phoneHref: "tel:+421944615008",
+    telegram: "https://t.me/Di_Ar_Da",
   },
   demo: {
     title: "Request a SPIORA demo",
