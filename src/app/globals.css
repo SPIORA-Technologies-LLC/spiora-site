@@ -928,41 +928,25 @@ a {
   font-weight: 700;
 }
 
-.demo-char {
-  display: inline-block;
+.form-card.is-marked .field label {
+  animation: demo-twitch 280ms ease both;
 }
 
-.form-card.is-marked .demo-char {
-  animation: demo-jump 480ms linear both;
+.form-card.is-marked .form-pair .field:nth-child(2) label {
+  animation-delay: 80ms;
 }
 
-@keyframes demo-jump {
-  0% { transform: translateY(0); }
-  4% { transform: translateY(-3.52px); }
-  8% { transform: translateY(-6.34px); }
-  12% { transform: translateY(-8.54px); }
-  16% { transform: translateY(-10.19px); }
-  20% { transform: translateY(-11.38px); }
-  24% { transform: translateY(-12.17px); }
-  28% { transform: translateY(-12.65px); }
-  32% { transform: translateY(-12.9px); }
-  36% { transform: translateY(-12.99px); }
-  40% { transform: translateY(-13px); }
-  44% { transform: translateY(-12.8px); }
-  48% { transform: translateY(-12.19px); }
-  52% { transform: translateY(-11.17px); }
-  56% { transform: translateY(-9.75px); }
-  60% { transform: translateY(-7.92px); }
-  64% { transform: translateY(-5.69px); }
-  68% { transform: translateY(-3.05px); }
-  72% { transform: translateY(0); }
-  76% { transform: translateY(-1.74px); }
-  80% { transform: translateY(-3.13px); }
-  84% { transform: translateY(-3.9px); }
-  88% { transform: translateY(-3.9px); }
-  92% { transform: translateY(-3.13px); }
-  96% { transform: translateY(-1.74px); }
-  100% { transform: translateY(0); }
+.form-card.is-marked > .field label {
+  animation-delay: 160ms;
+}
+
+@keyframes demo-twitch {
+  0%,
+  100% { transform: translateX(0); }
+  20% { transform: translateX(-2px); }
+  40% { transform: translateX(2px); }
+  60% { transform: translateX(-1px); }
+  80% { transform: translateX(1px); }
 }
 
 .field input {
@@ -1017,7 +1001,6 @@ a {
 }
 
 .form-status {
-  min-height: 1.5em;
   font-size: 0.9375rem;
 }
 
