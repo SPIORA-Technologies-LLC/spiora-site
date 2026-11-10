@@ -924,29 +924,69 @@ a {
 }
 
 .field label {
+  position: relative;
+  width: fit-content;
   font-size: 0.875rem;
   font-weight: 700;
 }
 
+.field label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ffb300 0%, #ff9700 55%, #ff7b00 100%);
+  transform: scaleX(0);
+  transform-origin: left center;
+  opacity: 0;
+}
+
 .form-card.is-marked .field label {
-  animation: demo-twitch 75ms ease both;
+  background-image: linear-gradient(
+    90deg,
+    #ffffff 0%,
+    #ffffff 33%,
+    #ffb300 42%,
+    #ff9700 50%,
+    #ff7b00 58%,
+    #ffffff 67%,
+    #ffffff 100%
+  );
+  background-size: 300% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: demo-shimmer 880ms ease both;
 }
 
-.form-card.is-marked .form-pair .field:nth-child(2) label {
-  animation-delay: 75ms;
+.form-card.is-marked .field label::after {
+  animation: demo-line 880ms ease both;
 }
 
-.form-card.is-marked > .field label {
-  animation-delay: 150ms;
+.form-card.is-marked .form-pair .field:nth-child(2) label,
+.form-card.is-marked .form-pair .field:nth-child(2) label::after {
+  animation-delay: 880ms;
 }
 
-@keyframes demo-twitch {
-  0%,
-  100% { transform: translateX(0); }
-  20% { transform: translateX(-8px); }
-  40% { transform: translateX(8px); }
-  60% { transform: translateX(-4px); }
-  80% { transform: translateX(4px); }
+.form-card.is-marked > .field label,
+.form-card.is-marked > .field label::after {
+  animation-delay: 1760ms;
+}
+
+@keyframes demo-shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: 0% 0; }
+}
+
+@keyframes demo-line {
+  0% { transform: scaleX(0); opacity: 0; }
+  18% { transform: scaleX(1); opacity: 1; }
+  62% { transform: scaleX(1); opacity: 1; }
+  100% { transform: scaleX(1); opacity: 0; }
 }
 
 .field input {
