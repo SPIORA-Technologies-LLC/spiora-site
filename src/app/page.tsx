@@ -20,6 +20,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { CopyValue } from "@/components/CopyValue";
 import { DemoForm } from "@/components/DemoForm";
 import { EnlargeableShot } from "@/components/EnlargeableShot";
 import { Shot } from "@/components/Shot";
@@ -184,9 +185,14 @@ export default function HomePage() {
                 <div>
                   <p className="contact-kicker">{copy.contacts.company}</p>
                   <p className="contact-value">
-                    {copy.contacts.street}
-                    <br />
-                    {copy.contacts.city}
+                    <CopyValue
+                      text={`${copy.contacts.street}, ${copy.contacts.city}`}
+                      label="Copy"
+                    >
+                      {copy.contacts.street}
+                      <br />
+                      {copy.contacts.city}
+                    </CopyValue>
                   </p>
                 </div>
               </div>
@@ -197,7 +203,9 @@ export default function HomePage() {
                 <div>
                   <p className="contact-kicker">{copy.contacts.emailLabel}</p>
                   <p className="contact-value">
-                    <a href={`mailto:${copy.contacts.email}`}>{copy.contacts.email}</a>
+                    <CopyValue text={copy.contacts.email} label="Copy">
+                      <a href={`mailto:${copy.contacts.email}`}>{copy.contacts.email}</a>
+                    </CopyValue>
                   </p>
                 </div>
               </div>
@@ -209,7 +217,6 @@ export default function HomePage() {
                   <p className="contact-kicker">{copy.contacts.phoneLabel}</p>
                   <p className="contact-value">
                     <a href={copy.contacts.phoneHref}>{copy.contacts.phone}</a>
-                    <span>{copy.contacts.channels}</span>
                   </p>
                 </div>
               </div>
