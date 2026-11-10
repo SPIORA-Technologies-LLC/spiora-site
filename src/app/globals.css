@@ -118,8 +118,7 @@ a {
   z-index: 30;
   height: var(--header-height);
   overflow: visible;
-  background: rgba(10, 10, 10, 0.82);
-  backdrop-filter: blur(14px);
+  background: #0a0a0a;
   border-bottom: 1px solid var(--border-soft);
 }
 
