@@ -714,6 +714,24 @@ a {
   color: var(--white);
 }
 
+.contact-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-apps {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.contact-app {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+}
+
 .contact-row:has(.copy-button) {
   position: relative;
 }
