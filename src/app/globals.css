@@ -280,7 +280,7 @@ a {
 
 .dark-sections {
   background:
-    linear-gradient(180deg, transparent 0%, #0a0a0a 100%),
+    linear-gradient(180deg, transparent 0, transparent calc(100% - 96px), #0a0a0a 100%),
     linear-gradient(90deg, #131313 0%, #191919 100%);
 }
 
