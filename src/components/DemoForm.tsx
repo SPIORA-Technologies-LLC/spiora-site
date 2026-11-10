@@ -30,7 +30,7 @@ export function DemoForm() {
         void form.offsetWidth;
         form.classList.add("is-marked");
         window.clearTimeout(timer);
-        timer = window.setTimeout(() => form.classList.remove("is-marked"), 1400);
+        timer = window.setTimeout(() => form.classList.remove("is-marked"), 2100);
       };
 
       observer?.disconnect();
@@ -134,6 +134,7 @@ export function DemoForm() {
           id="demo-name"
           name="name"
           label={copy.demo.name}
+          waveStart={0}
           autoComplete="name"
           maxLength={80}
           value={values.name}
@@ -144,6 +145,7 @@ export function DemoForm() {
           id="demo-company"
           name="company"
           label={copy.demo.company}
+          waveStart={waveLength(copy.demo.name)}
           autoComplete="organization"
           maxLength={120}
           value={values.company}
@@ -156,6 +158,7 @@ export function DemoForm() {
         name="email"
         type="email"
         label={copy.demo.email}
+        waveStart={waveLength(copy.demo.name) + waveLength(copy.demo.company)}
         autoComplete="email"
         inputMode="email"
         maxLength={254}
@@ -181,10 +184,30 @@ export function DemoForm() {
   );
 }
 
+function waveLength(text: string) {
+  return [...text].filter((char) => char !== " ").length;
+}
+
+function WaveText({ text, start }: { text: string; start: number }) {
+  let index = start;
+
+  return [...text].map((char, position) => {
+    if (char === " ") return " ";
+    const delay = index * 60;
+    index += 1;
+    return (
+      <span key={position} className="demo-char" style={{ animationDelay: `${delay}ms` }}>
+        {char}
+      </span>
+    );
+  });
+}
+
 function Field({
   id,
   name,
   label,
+  waveStart,
   value,
   error,
   onChange,
@@ -196,6 +219,7 @@ function Field({
   id: string;
   name: string;
   label: string;
+  waveStart: number;
   value: string;
   error?: string;
   onChange: (value: string) => void;
@@ -208,7 +232,9 @@ function Field({
 
   return (
     <div className="field">
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id}>
+        <WaveText text={label} start={waveStart} />
+      </label>
       <input
         id={id}
         name={name}
