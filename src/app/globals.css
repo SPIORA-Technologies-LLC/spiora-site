@@ -651,6 +651,8 @@ a {
 }
 
 .contact-panel {
+  display: grid;
+  grid-auto-rows: 1fr;
   background: var(--gray-800);
   border: 1px solid var(--border-soft);
   border-radius: 16px;
