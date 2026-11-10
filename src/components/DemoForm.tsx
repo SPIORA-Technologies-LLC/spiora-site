@@ -30,7 +30,7 @@ export function DemoForm() {
         void form.offsetWidth;
         form.classList.add("is-marked");
         window.clearTimeout(timer);
-        timer = window.setTimeout(() => form.classList.remove("is-marked"), 2100);
+        timer = window.setTimeout(() => form.classList.remove("is-marked"), 1600);
       };
 
       observer?.disconnect();
@@ -193,7 +193,7 @@ function WaveText({ text, start }: { text: string; start: number }) {
 
   return [...text].map((char, position) => {
     if (char === " ") return " ";
-    const delay = index * 60;
+    const delay = index * 50;
     index += 1;
     return (
       <span key={position} className="demo-char" style={{ animationDelay: `${delay}ms` }}>
