@@ -960,21 +960,21 @@ a {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: demo-shimmer 880ms ease both;
+  animation: demo-shimmer 520ms ease both;
 }
 
 .form-card.is-marked .field label::after {
-  animation: demo-line 880ms ease both;
+  animation: demo-line 520ms ease both;
 }
 
 .form-card.is-marked .form-pair .field:nth-child(2) label,
 .form-card.is-marked .form-pair .field:nth-child(2) label::after {
-  animation-delay: 880ms;
+  animation-delay: 520ms;
 }
 
 .form-card.is-marked > .field label,
 .form-card.is-marked > .field label::after {
-  animation-delay: 1760ms;
+  animation-delay: 1040ms;
 }
 
 @keyframes demo-shimmer {

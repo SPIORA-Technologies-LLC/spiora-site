@@ -30,7 +30,7 @@ export function DemoForm() {
         void form.offsetWidth;
         form.classList.add("is-marked");
         window.clearTimeout(timer);
-        timer = window.setTimeout(() => form.classList.remove("is-marked"), 2800);
+        timer = window.setTimeout(() => form.classList.remove("is-marked"), 1700);
       };
 
       observer?.disconnect();
