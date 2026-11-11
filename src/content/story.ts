@@ -138,7 +138,20 @@ export const story = {
   approach: {
     title: "Connect the work around every client.",
     lead: "A client record is the starting point. SPIORA brings the related work into the same platform: tasks, documents, communication, meetings, finances, and the client portal.",
-    modes: ["Client record", "Separate tools", "Connected workflow"],
+    modes: [
+      {
+        title: "Client record",
+        body: "Contacts, documents, and status start from one client record.",
+      },
+      {
+        title: "Separate tools",
+        body: "The work around that record can stay split across different tools.",
+      },
+      {
+        title: "Connected workflow",
+        body: "Tasks, documents, communication, meetings, finances, and the client portal share one platform.",
+      },
+    ],
   },
   ownershipFallback: {
     title: "Discuss the setup your team needs.",

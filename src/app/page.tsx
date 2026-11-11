@@ -6,6 +6,7 @@ import { CaseDemo } from "@/components/CaseDemo";
 import { CopyValue } from "@/components/CopyValue";
 import { DemoForm } from "@/components/DemoForm";
 import { HeroPoster } from "@/components/HeroPoster";
+import { Modules } from "@/components/Modules";
 import { Workspaces } from "@/components/Workspaces";
 import { Accordion } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
@@ -104,17 +105,13 @@ export default function HomePage() {
           <div className="section-intro">
             <h2 id="modules-title">{story.modules.title}</h2>
           </div>
-          <div className="module-grid">
-            {story.modules.items.map((item) => (
-              <article className="card" key={item.id}>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-                <p className="scene-note">
-                  {story.modules.illustrative} · {demoCase.caseId}
-                </p>
-              </article>
-            ))}
-          </div>
+          <Modules
+            label={story.modules.title}
+            illustrative={story.modules.illustrative}
+            items={story.modules.items}
+            sampleLabel={story.ai.sampleLabel}
+            sampleBody={story.ai.sampleBody}
+          />
         </Container>
       </Section>
 
@@ -137,9 +134,12 @@ export default function HomePage() {
             <h2 id="approach-title">{story.approach.title}</h2>
             <p className="lead">{story.approach.lead}</p>
           </div>
-          <ul className="mode-list">
+          <ul className="approach-list">
             {story.approach.modes.map((mode) => (
-              <li key={mode}>{mode}</li>
+              <li key={mode.title}>
+                <h3>{mode.title}</h3>
+                <p>{mode.body}</p>
+              </li>
             ))}
           </ul>
           <article className="card stack-gap">
@@ -158,7 +158,7 @@ export default function HomePage() {
             <h2 id="implementation-title">{implementation.title}</h2>
           </div>
           {"items" in implementation ? (
-            <ul className="plain-list">
+            <ul className="discuss-timeline">
               {implementation.items.map((item) => (
                 <li key={item}>{item}</li>
               ))}
