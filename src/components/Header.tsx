@@ -7,6 +7,7 @@ import "@/lib/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { copy } from "@/content/en";
+import { Button } from "@/components/ui/Button";
 
 const links = [
   { href: "/#modules", label: copy.nav.features },
@@ -79,9 +80,9 @@ export function Header({ loginUrl }: HeaderProps) {
               {copy.nav.login}
             </a>
           ) : null}
-          <Link className="btn btn-outline" href="/#demo">
+          <Button variant="outline" href="/#demo">
             {copy.nav.demo}
-          </Link>
+          </Button>
         </nav>
 
         <details
@@ -103,9 +104,9 @@ export function Header({ loginUrl }: HeaderProps) {
                 {copy.nav.login}
               </a>
             ) : null}
-            <Link className="btn btn-outline" href="/#demo" onClick={closeMenu}>
+            <Button variant="outline" href="/#demo" onClick={closeMenu}>
               {copy.nav.demo}
-            </Link>
+            </Button>
           </nav>
         </details>
       </div>

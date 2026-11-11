@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Sora } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import "@/lib/fontawesome";
 import { Footer } from "@/components/Footer";
@@ -14,10 +14,10 @@ const inter = Inter({
   display: "swap",
 });
 
-const sora = Sora({
+const manrope = Manrope({
   subsets: ["latin"],
   weight: ["600", "700"],
-  variable: "--font-sora",
+  variable: "--font-manrope",
   display: "swap",
 });
 
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${sora.variable}`}>
+    <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
       <body>
         <Header loginUrl={loginUrl} />
         {children}

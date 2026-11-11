@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { copy } from "@/content/en";
+import { Button } from "@/components/ui/Button";
 
 const platform = [
   { href: "/#modules", label: copy.nav.features },
@@ -62,9 +63,9 @@ export function Footer() {
             {copy.footer.demo}
           </h2>
           <p className="footer-blurb">{copy.footer.demoLead}</p>
-          <Link className="btn btn-outline" href="/#demo">
+          <Button variant="outline" href="/#demo">
             {copy.nav.demo}
-          </Link>
+          </Button>
         </div>
       </div>
 

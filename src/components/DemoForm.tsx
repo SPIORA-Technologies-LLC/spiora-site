@@ -3,6 +3,8 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { copy } from "@/content/en";
+import { Button } from "@/components/ui/Button";
+import { Field } from "@/components/ui/Field";
 import { emptyDemoInput, hasErrors, validateDemo, type DemoInput, type FieldErrors } from "@/lib/demo";
 
 type Status = "idle" | "sending" | "success" | "error";
@@ -165,9 +167,9 @@ export function DemoForm() {
       />
 
       <div className="form-actions">
-        <button className="btn btn-primary" type="submit" disabled={status === "sending"}>
+        <Button type="submit" disabled={status === "sending"}>
           {status === "sending" ? copy.demo.sending : copy.demo.submit}
-        </button>
+        </Button>
         <p className="form-privacy">
           <Link href="/privacy">{copy.demo.privacy}</Link>
           <span>{copy.demo.privacyHint}</span>
@@ -180,54 +182,5 @@ export function DemoForm() {
         </p>
       ) : null}
     </form>
-  );
-}
-
-function Field({
-  id,
-  name,
-  label,
-  value,
-  error,
-  onChange,
-  type = "text",
-  autoComplete,
-  maxLength,
-  inputMode,
-}: {
-  id: string;
-  name: string;
-  label: string;
-  value: string;
-  error?: string;
-  onChange: (value: string) => void;
-  type?: string;
-  autoComplete: string;
-  maxLength: number;
-  inputMode?: "email" | "text";
-}) {
-  const errorId = `${id}-error`;
-
-  return (
-    <div className="field">
-      <label htmlFor={id}>{label}</label>
-      <input
-        id={id}
-        name={name}
-        type={type}
-        autoComplete={autoComplete}
-        inputMode={inputMode}
-        maxLength={maxLength}
-        value={value}
-        aria-invalid={error ? true : undefined}
-        aria-describedby={error ? errorId : undefined}
-        onChange={(event) => onChange(event.target.value)}
-      />
-      {error ? (
-        <p id={errorId} className="field-error">
-          {error}
-        </p>
-      ) : null}
-    </div>
   );
 }

@@ -1,25 +1,39 @@
 :root {
-  --bg-page: #0a0a0a;
-  --surface-services: #111111;
-  --surface-formula: #1a1a1a;
-  --gray-800: #222222;
-  --white: #ffffff;
-  --gray-300: #b0b0b0;
-  --primary-red: #e82916;
-  --secondary-red: #f4981a;
-  --border-soft: rgba(255, 255, 255, 0.08);
-  --border-burgundy: rgba(232, 41, 22, 0.35);
-  --hero-glow: rgba(244, 152, 26, 0.14);
-  --success: #22c55e;
+  --bg-primary: #080909;
+  --bg-elevated: #121315;
+  --surface: rgba(255, 255, 255, 0.045);
+  --stroke: rgba(255, 255, 255, 0.1);
+  --text-primary: #f4f2ed;
+  --text-secondary: #a6a39c;
+  --brand-500: #ff7a1a;
+  --brand-300: #ffaa55;
+  --success: #63c78b;
   --danger: #ffb4ab;
-  --gradient-brand: linear-gradient(135deg, #f4981a 0%, #e82916 100%);
-  --gradient-brand-hover: linear-gradient(135deg, #e82916 0%, #f4981a 100%);
-  --gradient-hero: linear-gradient(168deg, #0a0a0a 0%, #111111 42%, #1a1a1a 100%);
+  --radius-s: 10px;
+  --radius-m: 18px;
+  --radius-l: 28px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --bg-page: var(--bg-primary);
+  --surface-services: #101112;
+  --surface-formula: var(--bg-elevated);
+  --gray-800: var(--bg-elevated);
+  --white: var(--text-primary);
+  --gray-300: var(--text-secondary);
+  --border-soft: var(--stroke);
+  --border-burgundy: var(--stroke);
   --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.35);
-  --shadow-card: 0 16px 35px rgba(0, 0, 0, 0.3);
   --header-height: 72px;
+  --content-width: 1280px;
   --font-body: var(--font-inter), "Inter", "Segoe UI", sans-serif;
-  --font-display: var(--font-sora), "Sora", var(--font-body);
+  --font-display: var(--font-manrope), "Manrope", var(--font-body);
   color-scheme: dark;
 }
 
@@ -40,7 +54,7 @@ body {
   background: var(--bg-page);
   color: var(--white);
   font-family: var(--font-body);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
   line-height: 1.5;
 }
 
@@ -67,15 +81,15 @@ h3 {
 }
 
 h1 {
-  font-size: 2.25rem;
+  font-size: clamp(2.5rem, 0.6rem + 4.5vw, 5rem);
 }
 
 h2 {
-  font-size: 1.75rem;
+  font-size: clamp(1.75rem, 1rem + 2vw, 3.25rem);
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: clamp(1.25rem, 1rem + 0.6vw, 1.75rem);
 }
 
 a {
@@ -83,7 +97,7 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid var(--secondary-red);
+  outline: 2px solid var(--brand-500);
   outline-offset: 3px;
 }
 
@@ -107,9 +121,9 @@ a {
 }
 
 .container {
-  width: min(1200px, 100%);
+  width: min(var(--content-width), 100%);
   margin-inline: auto;
-  padding-inline: 16px;
+  padding-inline: 20px;
 }
 
 .site-header {
@@ -118,8 +132,8 @@ a {
   z-index: 30;
   height: var(--header-height);
   overflow: visible;
-  background: #0a0a0a;
-  border-bottom: 1px solid var(--border-soft);
+  background: var(--bg-primary);
+  border-bottom: 1px solid var(--stroke);
 }
 
 .header-bar {
@@ -212,8 +226,8 @@ a {
 }
 
 .nav-link:hover {
-  color: #ff9900;
-  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary);
+  background: var(--surface);
 }
 
 .btn {
@@ -243,23 +257,23 @@ a {
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, #ffb300 0%, #ff9700 55%, #ff7b00 100%);
-  color: #0a0a0a;
+  background: var(--brand-500);
+  color: var(--bg-primary);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: linear-gradient(90deg, #ffc233 0%, #ffa21a 55%, #ff8a1a 100%);
-  transform: translateY(-1px);
+  background: var(--brand-300);
+  color: var(--bg-primary);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--white);
-  border-color: var(--border-burgundy);
+  color: var(--text-primary);
+  border-color: var(--stroke);
 }
 
 .btn-outline:hover {
-  color: #ff9900;
+  color: var(--brand-300);
 }
 
 .mobile-nav .btn {
@@ -268,7 +282,7 @@ a {
 }
 
 .section {
-  padding-block: 64px;
+  padding-block: 72px;
   scroll-margin-top: 88px;
 }
 
@@ -279,42 +293,10 @@ a {
   padding-top: 0;
 }
 
-.dark-sections {
-  background: #161616;
-}
-
-.hero {
-  background:
-    radial-gradient(
-      ellipse 130% 58% at 32% 0%,
-      rgba(244, 152, 26, 0.16) 0%,
-      rgba(244, 152, 26, 0.07) 42%,
-      transparent 78%
-    ),
-    radial-gradient(
-      ellipse 72% 52% at 92% 0%,
-      rgba(244, 152, 26, 0.12) 0%,
-      rgba(244, 152, 26, 0.04) 46%,
-      transparent 76%
-    ),
-    linear-gradient(180deg, #0a0a0a 0%, #111111 42%, #161616 100%);
-}
-
+.dark-sections,
+.hero,
 .team-section {
-  background:
-    radial-gradient(
-      ellipse 130% 58% at 32% 100%,
-      rgba(244, 152, 26, 0.16) 0%,
-      rgba(244, 152, 26, 0.07) 42%,
-      transparent 78%
-    ),
-    radial-gradient(
-      ellipse 72% 52% at 92% 100%,
-      rgba(244, 152, 26, 0.12) 0%,
-      rgba(244, 152, 26, 0.04) 46%,
-      transparent 76%
-    ),
-    linear-gradient(180deg, #161616 0%, #111111 58%, #0a0a0a 100%);
+  background: var(--bg-primary);
 }
 
 .hero {
@@ -376,7 +358,9 @@ a {
   display: block;
   width: 100%;
   height: auto;
+  object-fit: contain;
   border-radius: 12px;
+  background: var(--bg-primary);
 }
 
 .lightbox {
@@ -445,8 +429,8 @@ a {
   align-items: center;
   justify-content: center;
   border-radius: 12px;
-  border: 1px solid var(--border-burgundy);
-  color: var(--secondary-red);
+  border: 1px solid var(--stroke);
+  color: var(--text-secondary);
   margin-bottom: 16px;
 }
 
@@ -473,8 +457,8 @@ a {
 .module-features .card-icon:hover,
 .card-grid .card-icon:hover,
 .point-grid .card-icon:hover {
-  background: rgba(255, 123, 0, 0.14);
-  border-color: #e08600;
+  background: var(--surface);
+  border-color: var(--stroke);
 }
 
 .module-features .card:nth-child(1) .card-icon:hover svg {
@@ -679,7 +663,7 @@ a {
   width: 20px;
   height: 20px;
   margin-top: 2px;
-  color: var(--secondary-red);
+  color: var(--text-secondary);
 }
 
 .contact-icon svg {
@@ -762,10 +746,10 @@ a {
   transform: translateY(-50%);
   min-height: 32px;
   padding: 0 12px;
-  border: 1px solid #ff9700;
+  border: 1px solid var(--stroke);
   border-radius: 999px;
   background: transparent;
-  color: #ff9900;
+  color: var(--text-primary);
   font: inherit;
   font-size: 0.75rem;
   font-weight: 700;
@@ -774,15 +758,14 @@ a {
 }
 
 .copy-button:hover {
-  border-color: #ffb300;
-  color: #ffb300;
-  background: rgba(255, 153, 0, 0.12);
+  border-color: var(--text-secondary);
+  color: var(--text-primary);
 }
 
 .copy-button.is-copied {
   border-color: transparent;
-  background: linear-gradient(90deg, #ffb300 0%, #ff9700 55%, #ff7b00 100%);
-  color: #0a0a0a;
+  background: var(--success);
+  color: var(--bg-primary);
 }
 
 .team-grid {
@@ -794,16 +777,8 @@ a {
 .module-features .card,
 .card-grid .card,
 .point-grid .card {
-  border: 1.5px solid transparent;
-  background:
-    linear-gradient(var(--gray-800), var(--gray-800)) padding-box,
-    linear-gradient(
-      160deg,
-      color-mix(in srgb, #ff7b00 78%, #222) 0%,
-      color-mix(in srgb, #ff9700 78%, #222) 78%,
-      color-mix(in srgb, #ffb300 78%, #222) 100%
-    )
-    border-box;
+  border: 1px solid var(--stroke);
+  background: var(--bg-elevated);
 }
 
 .team-card {
@@ -904,8 +879,9 @@ a {
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: var(--gradient-brand);
-  color: #0a0a0a;
+  border: 1px solid var(--stroke);
+  background: var(--surface);
+  color: var(--text-primary);
   font-size: 0.75rem;
   font-weight: 700;
 }
@@ -935,21 +911,22 @@ a {
   padding: 0;
   border-style: solid;
   border-color: var(--border-soft);
-  background: #0a0a0a;
+  background: var(--bg-primary);
 }
 
 .shot-photo img {
   display: block;
   width: 100%;
   height: auto;
+  object-fit: contain;
 }
 
 .badge {
   align-self: flex-start;
   border-radius: 999px;
   padding: 4px 10px;
-  background: rgba(244, 152, 26, 0.16);
-  color: var(--secondary-red);
+  background: var(--surface);
+  color: var(--text-primary);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -1015,7 +992,7 @@ a {
   width: 100%;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #ffb300 0%, #ff9700 55%, #ff7b00 100%);
+  background: var(--brand-500);
   transform: scaleX(0);
   transform-origin: left center;
   opacity: 0;
@@ -1024,13 +1001,13 @@ a {
 .form-card.is-marked .field label {
   background-image: linear-gradient(
     90deg,
-    #ffffff 0%,
-    #ffffff 33%,
-    #ffb300 42%,
-    #ff9700 50%,
-    #ff7b00 58%,
-    #ffffff 67%,
-    #ffffff 100%
+    var(--text-primary) 0%,
+    var(--text-primary) 33%,
+    var(--brand-300) 42%,
+    var(--brand-500) 50%,
+    var(--brand-300) 58%,
+    var(--text-primary) 67%,
+    var(--text-primary) 100%
   );
   background-size: 300% 100%;
   background-repeat: no-repeat;
@@ -1191,7 +1168,7 @@ a {
 }
 
 .footer-col a:hover {
-  color: var(--secondary-red);
+  color: var(--text-primary);
 }
 
 .footer-demo .footer-blurb {
@@ -1239,7 +1216,7 @@ a {
 
 @media (min-width: 640px) {
   .container {
-    padding-inline: 24px;
+    padding-inline: 32px;
   }
 
   .team-grid {
@@ -1253,32 +1230,12 @@ a {
 }
 
 @media (min-width: 900px) {
-  h1 {
-    font-size: 3.5rem;
-  }
-
-  h2 {
-    font-size: 2.25rem;
-  }
-
-  h3 {
-    font-size: 1.75rem;
-  }
-
-  .card h3 {
-    font-size: 1.5rem;
-  }
-
-  .privacy-copy h2 {
-    font-size: 1.75rem;
-  }
-
   .container {
-    padding-inline: 32px;
+    padding-inline: 40px;
   }
 
   .section {
-    padding-block: 96px;
+    padding-block: 112px;
   }
 
   .hero {
@@ -1383,6 +1340,57 @@ a {
     grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
     column-gap: 32px;
   }
+}
+
+.ui-tabs,
+.ui-accordion {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.ui-tablist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.ui-tab,
+.ui-accordion-trigger {
+  min-height: 44px;
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius-s);
+  background: transparent;
+  color: var(--text-primary);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ui-tab {
+  padding: 0 16px;
+}
+
+.ui-tab[aria-selected="true"] {
+  background: var(--brand-500);
+  border-color: transparent;
+  color: var(--bg-primary);
+}
+
+.ui-accordion-item {
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius-m);
+  background: var(--bg-elevated);
+}
+
+.ui-accordion-trigger {
+  width: 100%;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.ui-accordion-panel {
+  padding: 0 16px 16px;
+  color: var(--text-secondary);
 }
 
 @media (prefers-reduced-motion: reduce) {

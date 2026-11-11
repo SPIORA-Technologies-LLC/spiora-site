@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import {
   faBookOpen,
   faCalendarDays,
@@ -24,6 +23,9 @@ import { CopyValue } from "@/components/CopyValue";
 import { DemoForm } from "@/components/DemoForm";
 import { EnlargeableShot } from "@/components/EnlargeableShot";
 import { Shot } from "@/components/Shot";
+import { Button } from "@/components/ui/Button";
+import { Container } from "@/components/ui/Container";
+import { Section } from "@/components/ui/Section";
 import { copy } from "@/content/en";
 
 const workflowIcons = [faFolderOpen, faClock, faHeadset];
@@ -41,15 +43,13 @@ const moduleIcons = [
 export default function HomePage() {
   return (
     <main id="content">
-      <section className="section hero" id="top" aria-labelledby="hero-title">
-        <div className="container hero-grid">
+      <Section id="top" labelledBy="hero-title" className="hero">
+        <Container className="hero-grid">
           <div>
             <h1 id="hero-title">{copy.hero.title}</h1>
             <p className="lead">{copy.hero.lead}</p>
             <div className="hero-actions">
-              <Link className="btn btn-primary" href="/#demo">
-                {copy.hero.cta}
-              </Link>
+              <Button href="/#demo">{copy.hero.cta}</Button>
             </div>
           </div>
           <Shot
@@ -60,8 +60,8 @@ export default function HomePage() {
             alt={copy.hero.shot.alt}
             caption={copy.hero.caption}
           />
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       <div className="dark-sections">
       <section className="section" id="workflow" aria-labelledby="workflow-title">

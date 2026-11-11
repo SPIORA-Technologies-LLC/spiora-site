@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Badge } from "@/components/ui/Badge";
 
 type ShotProps = {
   alt: string;
@@ -21,7 +22,7 @@ export function Shot({ label, title, note, alt, caption, src, width, height, pri
         </div>
       ) : (
         <div className="shot-frame" role="img" aria-label={alt}>
-          <span className="badge">{label}</span>
+          {label ? <Badge>{label}</Badge> : null}
           <p className="shot-title">{title}</p>
           <p className="shot-note">{note}</p>
         </div>

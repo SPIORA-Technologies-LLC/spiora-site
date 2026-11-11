@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useId, useRef, useState } from "react";
+import { useId, useRef, useState } from "react";
+import { Dialog } from "@/components/ui/Dialog";
 
 type EnlargeableShotProps = {
   src: string;
@@ -23,25 +24,6 @@ export function EnlargeableShot({
   const [open, setOpen] = useState(false);
   const titleId = useId();
   const triggerRef = useRef<HTMLButtonElement>(null);
-  const closeRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    closeRef.current?.focus();
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-
-    function onKey(event: KeyboardEvent) {
-      if (event.key === "Escape") setOpen(false);
-    }
-
-    document.addEventListener("keydown", onKey);
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = previousOverflow;
-      triggerRef.current?.focus();
-    };
-  }, [open]);
 
   return (
     <>
@@ -55,19 +37,15 @@ export function EnlargeableShot({
       >
         <Image className="module-shot" src={src} alt="" width={width} height={height} unoptimized />
       </button>
-      {open ? (
-        <div className="lightbox" role="dialog" aria-modal="true" aria-labelledby={titleId} onClick={() => setOpen(false)}>
-          <div className="lightbox-panel" onClick={(event) => event.stopPropagation()}>
-            <p id={titleId} className="lightbox-title">
-              {alt}
-            </p>
-            <button ref={closeRef} type="button" className="lightbox-close" onClick={() => setOpen(false)}>
-              {closeLabel}
-            </button>
-            <Image className="lightbox-shot" src={src} alt={alt} width={width} height={height} unoptimized />
-          </div>
-        </div>
-      ) : null}
+      <Dialog open={open} titleId={titleId} onClose={() => setOpen(false)}>
+        <p id={titleId} className="lightbox-title">
+          {alt}
+        </p>
+        <button type="button" className="lightbox-close" onClick={() => setOpen(false)}>
+          {closeLabel}
+        </button>
+        <Image className="lightbox-shot" src={src} alt={alt} width={width} height={height} unoptimized />
+      </Dialog>
     </>
   );
 }
