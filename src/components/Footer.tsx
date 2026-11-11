@@ -6,14 +6,16 @@ import { copy } from "@/content/en";
 import { Button } from "@/components/ui/Button";
 
 const platform = [
-  { href: "/#modules", label: copy.nav.features },
-  { href: "/#security", label: copy.nav.security },
-  { href: "/privacy", label: copy.footer.privacy },
+  { href: "/#modules", label: "Product" },
+  { href: "/#case", label: "How it works" },
+  { href: "/#security", label: "Security" },
+  { href: "/#implementation", label: "Implementation" },
 ] as const;
 
 const company = [
-  { href: "/#team", label: copy.nav.team },
-  { href: "/#contacts", label: copy.nav.contacts },
+  { href: "/#team", label: "Team" },
+  { href: "/#contacts", label: "Contacts" },
+  { href: "/privacy", label: copy.footer.privacy },
 ] as const;
 
 export function Footer() {

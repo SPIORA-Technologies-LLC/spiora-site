@@ -47,8 +47,10 @@ export const story = {
   },
   beforeAfter: {
     title: "From scattered tools to one connected workflow.",
+    beforeLabel: "Before",
     before:
       "Client records in spreadsheets. Documents in shared drives. Conversations in messengers. Meetings in video apps. Tasks in separate boards. Updates across email and calendars.",
+    afterLabel: "With SPIORA",
     after:
       "Client records, documents, tasks, communication, meetings, payments, and knowledge share one workspace.",
     tools: [
@@ -66,7 +68,9 @@ export const story = {
   },
   spaces: {
     title: "Two workspaces. One connected client journey.",
+    teamTitle: "Team workspace",
     team: "Manage client records, tasks, documents, communication, meetings, and finances.",
+    clientTitle: "Client portal",
     client: "Complete a questionnaire, upload documents, and see case progress and next steps.",
     caption: "Internal work and client-facing information have different visibility.",
     teamView: "Team view",
@@ -127,6 +131,8 @@ export const story = {
     title: "AI support for everyday team work.",
     lead: "Draft emails, translate text, and find answers from your company knowledge base in AI Workspace.",
     sampleLabel: "Sample AI draft — review before use.",
+    sampleBody:
+      "Hello Alex Morgan. This sample draft is about case CASE-024, a residence application. It is an example for review, not a message that has been sent.",
   },
   approach: {
     title: "Connect the work around every client.",

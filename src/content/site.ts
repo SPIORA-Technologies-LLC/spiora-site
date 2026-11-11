@@ -227,7 +227,7 @@ export const copy = {
     name: "Name",
     company: "Company",
     email: "Work email",
-    submit: "Request a demo",
+    submit: "Discuss my workflow",
     sending: "Sending…",
     success: "Request sent",
     privacy: "Privacy policy",
