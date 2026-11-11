@@ -238,28 +238,14 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section id="demo" labelledBy="demo-title">
-        <Container className="final-grid">
-          <div className="section-intro">
-            <h2 id="demo-title">{story.finalCta.title}</h2>
-            <p className="lead">{story.finalCta.lead}</p>
-            <div className="hero-actions">
-              <Button variant="outline" href="/#case">
-                {story.finalCta.secondary}
-              </Button>
+      <div className="reach-band">
+        <Container className="reach-grid">
+          <section className="reach-col" id="contacts" aria-labelledby="contacts-title">
+            <div className="reach-intro">
+              <h2 id="contacts-title">{copy.contacts.title}</h2>
+              <p className="lead">{copy.contacts.lead}</p>
             </div>
-          </div>
-          <DemoForm />
-        </Container>
-      </Section>
-
-      <Section id="contacts" labelledBy="contacts-title">
-        <Container>
-          <div className="section-intro">
-            <h2 id="contacts-title">{copy.contacts.title}</h2>
-            <p className="lead">{copy.contacts.lead}</p>
-          </div>
-          <div className="contact-panel">
+            <div className="contact-panel">
             <div className="contact-row">
               <span className="contact-icon" aria-hidden="true">
                 <FontAwesomeIcon icon={faLocationDot} />
@@ -338,8 +324,22 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+          </section>
+
+          <section className="reach-col" id="demo" aria-labelledby="demo-title">
+            <div className="reach-intro">
+              <h2 id="demo-title">{story.finalCta.title}</h2>
+              <p className="lead">{story.finalCta.lead}</p>
+              <div className="hero-actions">
+                <Button variant="outline" href="/#case">
+                  {story.finalCta.secondary}
+                </Button>
+              </div>
+            </div>
+            <DemoForm />
+          </section>
         </Container>
-      </Section>
+      </div>
     </main>
   );
 }
