@@ -235,7 +235,6 @@ export const copy = {
     sending: "Sending…",
     success: "Thank you. Your request has been received.",
     requiredNote: "Name, company, and work email are required.",
-    emailTeam: "Email the SPIORA team",
     privacy: "Privacy policy",
     privacyHint: "Read how a demo request is handled.",
     checkFields: "Check the highlighted fields.",

@@ -828,10 +828,10 @@ main .section:not(.hero) {
   transform: translateY(-50%);
   min-height: 32px;
   padding: 0 12px;
-  border: 1px solid var(--stroke);
+  border: 1px solid transparent;
   border-radius: 999px;
-  background: transparent;
-  color: var(--text-primary);
+  background: var(--brand-500);
+  color: var(--bg-primary);
   font: inherit;
   font-size: 0.75rem;
   font-weight: 700;
@@ -840,13 +840,13 @@ main .section:not(.hero) {
 }
 
 .copy-button:hover {
-  border-color: var(--text-secondary);
-  color: var(--text-primary);
+  background: var(--brand-300);
+  color: var(--bg-primary);
 }
 
-.copy-button.is-copied {
-  border-color: transparent;
-  background: var(--success);
+.copy-button.is-copied,
+.copy-button.is-copied:hover {
+  background: var(--brand-500);
   color: var(--bg-primary);
 }
 

@@ -178,9 +178,6 @@ export function DemoForm() {
           <Link href="/privacy">{copy.demo.privacy}</Link>
           <span>{copy.demo.privacyHint}</span>
         </p>
-        <p className="form-privacy">
-          <a href={`mailto:${copy.contacts.email}`}>{copy.demo.emailTeam}</a>
-        </p>
       </div>
 
       {message ? (
