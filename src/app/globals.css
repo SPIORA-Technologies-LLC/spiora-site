@@ -226,8 +226,7 @@ a {
 }
 
 .nav-link:hover {
-  color: var(--text-primary);
-  background: var(--surface);
+  color: #ff9900;
 }
 
 .btn {
@@ -273,7 +272,7 @@ a {
 }
 
 .btn-outline:hover {
-  color: var(--brand-300);
+  color: #ff9900;
 }
 
 .mobile-nav .btn {
@@ -1261,7 +1260,7 @@ main .section:not(.hero) {
 }
 
 .footer-col a:hover {
-  color: var(--text-primary);
+  color: #ff9900;
 }
 
 .footer-demo .footer-blurb {

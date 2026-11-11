@@ -14,6 +14,7 @@ const links = [
   { href: "/#case", label: copy.nav.howItWorks },
   { href: "/#security", label: copy.nav.security },
   { href: "/#implementation", label: copy.nav.implementation },
+  { href: "/#team", label: copy.nav.team },
 ] as const;
 
 type HeaderProps = {
