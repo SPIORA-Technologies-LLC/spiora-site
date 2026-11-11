@@ -1575,6 +1575,7 @@ main .section:not(.hero) {
   min-height: 44px;
   color: var(--text-primary);
   font-weight: 700;
+  line-height: 1;
 }
 
 .discuss-timeline li::before {
@@ -1595,7 +1596,7 @@ main .section:not(.hero) {
   .discuss-timeline::before {
     content: "";
     position: absolute;
-    top: 16px;
+    top: 16.5px;
     left: 9px;
     right: 9px;
     height: 1px;
@@ -1603,7 +1604,8 @@ main .section:not(.hero) {
   }
 
   .discuss-timeline li {
-    align-items: flex-start;
+    align-items: center;
+    min-height: 0;
   }
 }
 
