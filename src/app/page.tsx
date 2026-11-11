@@ -223,21 +223,6 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section labelledBy="faq-title">
-        <Container>
-          <div className="section-intro">
-            <h2 id="faq-title">FAQ</h2>
-          </div>
-          <Accordion
-            items={story.faq.map((item, index) => ({
-              id: `faq-${index}`,
-              title: item.question,
-              body: item.answer,
-            }))}
-          />
-        </Container>
-      </Section>
-
       <div className="reach-band">
         <Container className="reach-grid">
           <section className="reach-col" id="contacts" aria-labelledby="contacts-title">
@@ -338,6 +323,21 @@ export default function HomePage() {
           </section>
         </Container>
       </div>
+
+      <Section labelledBy="faq-title">
+        <Container>
+          <div className="section-intro">
+            <h2 id="faq-title">FAQ</h2>
+          </div>
+          <Accordion
+            items={story.faq.map((item, index) => ({
+              id: `faq-${index}`,
+              title: item.question,
+              body: item.answer,
+            }))}
+          />
+        </Container>
+      </Section>
     </main>
   );
 }
