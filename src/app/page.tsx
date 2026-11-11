@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { faEnvelope, faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { BeforeAfter } from "@/components/BeforeAfter";
 import { CaseDemo } from "@/components/CaseDemo";
 import { CopyValue } from "@/components/CopyValue";
 import { DemoForm } from "@/components/DemoForm";
-import { EnlargeableShot } from "@/components/EnlargeableShot";
-import { Shot } from "@/components/Shot";
+import { HeroPoster } from "@/components/HeroPoster";
+import { Workspaces } from "@/components/Workspaces";
 import { Accordion } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -14,7 +15,6 @@ import { demoCase } from "@/content/demo-case";
 import { copy } from "@/content/en";
 import { implementationCopy, story } from "@/content/story";
 
-const portalShot = copy.modules.cards.find((card) => card.image.src === "/shots/client-portal.png")?.image;
 const implementation = implementationCopy();
 
 export default function HomePage() {
@@ -33,14 +33,7 @@ export default function HomePage() {
               </Button>
             </div>
           </div>
-          <Shot
-            src={copy.hero.shot.src}
-            width={copy.hero.shot.width}
-            height={copy.hero.shot.height}
-            priority
-            alt={copy.hero.shot.alt}
-            caption={story.hero.posterCaption}
-          />
+          <HeroPoster />
         </Container>
       </Section>
 
@@ -66,22 +59,16 @@ export default function HomePage() {
           <div className="section-intro">
             <h2 id="workflow-title">{story.beforeAfter.title}</h2>
           </div>
-          <div className="space-grid">
-            <article className="card">
-              <h3>{story.beforeAfter.beforeLabel}</h3>
-              <p>{story.beforeAfter.before}</p>
-              <ul className="tool-list">
-                {story.beforeAfter.tools.map((tool) => (
-                  <li key={tool}>{tool}</li>
-                ))}
-              </ul>
-              <p className="note">{story.beforeAfter.toolsNote}</p>
-            </article>
-            <article className="card">
-              <h3>{story.beforeAfter.afterLabel}</h3>
-              <p>{story.beforeAfter.after}</p>
-            </article>
-          </div>
+          <BeforeAfter
+            title={story.beforeAfter.title}
+            beforeLabel={story.beforeAfter.beforeLabel}
+            before={story.beforeAfter.before}
+            afterLabel={story.beforeAfter.afterLabel}
+            after={story.beforeAfter.after}
+            tools={story.beforeAfter.tools}
+            toolsNote={story.beforeAfter.toolsNote}
+            workspace={story.beforeAfter.workspace}
+          />
         </Container>
       </Section>
 
@@ -100,34 +87,15 @@ export default function HomePage() {
           <div className="section-intro">
             <h2 id="spaces-title">{story.spaces.title}</h2>
           </div>
-          <div className="space-grid">
-            <article className="card">
-              <h3>{story.spaces.teamTitle}</h3>
-              <p>{story.spaces.team}</p>
-              <Shot
-                src={copy.hero.shot.src}
-                width={copy.hero.shot.width}
-                height={copy.hero.shot.height}
-                alt={copy.hero.shot.alt}
-                caption={story.hero.posterCaption}
-              />
-            </article>
-            <article className="card">
-              <h3>{story.spaces.clientTitle}</h3>
-              <p>{story.spaces.client}</p>
-              {portalShot ? (
-                <EnlargeableShot
-                  src={portalShot.src}
-                  alt={portalShot.alt}
-                  width={portalShot.width}
-                  height={portalShot.height}
-                  enlargeLabel={copy.modules.enlarge}
-                  closeLabel={copy.modules.close}
-                />
-              ) : null}
-            </article>
-          </div>
-          <p className="note">{story.spaces.caption}</p>
+          <Workspaces
+            teamTitle={story.spaces.teamTitle}
+            team={story.spaces.team}
+            clientTitle={story.spaces.clientTitle}
+            client={story.spaces.client}
+            teamView={story.spaces.teamView}
+            clientView={story.spaces.clientView}
+            caption={story.spaces.caption}
+          />
         </Container>
       </Section>
 

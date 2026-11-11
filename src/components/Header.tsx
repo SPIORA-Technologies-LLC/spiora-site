@@ -10,10 +10,10 @@ import { copy } from "@/content/en";
 import { Button } from "@/components/ui/Button";
 
 const links = [
-  { href: "/#modules", label: copy.nav.features },
+  { href: "/#modules", label: copy.nav.product },
+  { href: "/#case", label: copy.nav.howItWorks },
   { href: "/#security", label: copy.nav.security },
-  { href: "/#team", label: copy.nav.team },
-  { href: "/#contacts", label: copy.nav.contacts },
+  { href: "/#implementation", label: copy.nav.implementation },
 ] as const;
 
 type HeaderProps = {
@@ -42,7 +42,9 @@ export function Header({ loginUrl }: HeaderProps) {
   }, []);
 
   function closeMenu() {
-    if (detailsRef.current) detailsRef.current.open = false;
+    if (!detailsRef.current?.open) return;
+    detailsRef.current.open = false;
+    summaryRef.current?.focus();
   }
 
   const playLogo = useCallback(() => {
@@ -81,7 +83,7 @@ export function Header({ loginUrl }: HeaderProps) {
             </a>
           ) : null}
           <Button variant="outline" href="/#demo">
-            {copy.nav.demo}
+            {copy.nav.discuss}
           </Button>
         </nav>
 
@@ -105,7 +107,7 @@ export function Header({ loginUrl }: HeaderProps) {
               </a>
             ) : null}
             <Button variant="outline" href="/#demo" onClick={closeMenu}>
-              {copy.nav.demo}
+              {copy.nav.discuss}
             </Button>
           </nav>
         </details>

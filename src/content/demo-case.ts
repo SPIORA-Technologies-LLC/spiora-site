@@ -19,6 +19,52 @@ export const demoCase = {
     markReviewed: "Mark as reviewed",
     viewNextStep: "View next step",
   },
+  statuses: {
+    notSent: "Not sent",
+    inviteSent: "Invite sent",
+    notSubmitted: "Not submitted",
+    submitted: "Submitted",
+    requested: "Requested",
+    uploaded: "Uploaded",
+    reviewed: "Reviewed",
+  },
+  task: {
+    title: "Review the residence application — sample",
+    ownerLabel: "Owner",
+  },
+  agreement: {
+    title: "Team agreement summary",
+    status: "Recorded on the team record",
+    note: "Sample agreement. This is not a legal signature.",
+  },
+  payment: {
+    title: "Finance record",
+    amount: "1,200 — sample",
+    outstanding: "400 outstanding — sample",
+    note: "Illustrative figures. No payment is taken.",
+  },
+  spaces: {
+    documentsLabel: "Documents",
+    teamOnly: "Visible to the team only",
+    clientOnly: "Visible to the client",
+    internalCommentLabel: "Internal comment",
+    internalComment: "Check the file names before the next meeting. Sample note.",
+    managerNoteLabel: "Manager note",
+    managerNote: "Assigned to Case manager. Sample note.",
+    financeLabel: "Company finance",
+    finance: "1,200 — sample",
+    otherClientLabel: "Other client",
+    otherClient: "Another client — sample",
+    illustration:
+      "Illustrative interface. This demonstration does not show a live connection or how production accounts update.",
+  },
+  portal: {
+    closed: { stage: "Portal not opened", next: "The manager sends an invitation." },
+    invited: { stage: "Invite sent", next: "Complete the questionnaire." },
+    submitted: { stage: "Questionnaire submitted", next: "Upload the requested sample documents." },
+    uploaded: { stage: "Documents uploaded", next: "The team reviews the files." },
+    reviewed: { stage: "Documents reviewed", next: "The team continues work on the case." },
+  },
   steps: [
     {
       id: "invitation",

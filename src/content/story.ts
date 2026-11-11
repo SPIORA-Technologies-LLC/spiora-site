@@ -53,6 +53,7 @@ export const story = {
     afterLabel: "With SPIORA",
     after:
       "Client records, documents, tasks, communication, meetings, payments, and knowledge share one workspace.",
+    workspace: ["Client records", "Documents", "Tasks", "Communication", "Meetings", "Payments", "Knowledge"],
     tools: [
       "Spreadsheets",
       "Messengers",
