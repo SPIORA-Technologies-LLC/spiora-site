@@ -218,15 +218,20 @@ a {
   display: inline-flex;
   align-items: center;
   padding: 0 12px;
-  border-radius: 12px;
+  border: 1px solid transparent;
+  border-radius: 10px;
   color: var(--gray-300);
   font-size: 0.875rem;
   text-decoration: none;
-  transition: color 180ms ease, background-color 180ms ease;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
 }
 
 .nav-link:hover {
   color: #ff9900;
+  border-color: var(--stroke);
 }
 
 .btn {
@@ -700,11 +705,15 @@ main .section:not(.hero) {
 .reach-form {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 16px;
   background: var(--gray-800);
   border: 1px solid var(--border-soft);
   border-radius: 24px;
-  padding: 18px 18px 8px;
+  padding: 20px;
+}
+
+.reach-form .hero-actions {
+  margin-top: 0;
 }
 
 .reach-form .btn-primary {
@@ -719,7 +728,20 @@ main .section:not(.hero) {
   background: transparent;
   border: 0;
   border-radius: 0;
-  padding: 8px 0 0;
+  padding: 0;
+  gap: 16px;
+}
+
+.reach-form .form-pair {
+  gap: 16px;
+}
+
+.reach-form .form-actions {
+  gap: 16px;
+}
+
+.reach-form .form-privacy a {
+  min-height: 0;
 }
 
 .contact-panel {
