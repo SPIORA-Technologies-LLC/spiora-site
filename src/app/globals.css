@@ -1628,25 +1628,40 @@ main .section:not(.hero) {
   animation: discuss-shimmer 400ms ease both;
 }
 
-.discuss-timeline.is-marked li:nth-child(2) span {
+.discuss-timeline.is-marked li::before {
+  animation: discuss-hop 400ms ease both;
+}
+
+.discuss-timeline.is-marked li:nth-child(2) span,
+.discuss-timeline.is-marked li:nth-child(2)::before {
   animation-delay: 400ms;
 }
 
-.discuss-timeline.is-marked li:nth-child(3) span {
+.discuss-timeline.is-marked li:nth-child(3) span,
+.discuss-timeline.is-marked li:nth-child(3)::before {
   animation-delay: 800ms;
 }
 
-.discuss-timeline.is-marked li:nth-child(4) span {
+.discuss-timeline.is-marked li:nth-child(4) span,
+.discuss-timeline.is-marked li:nth-child(4)::before {
   animation-delay: 1200ms;
 }
 
-.discuss-timeline.is-marked li:nth-child(5) span {
+.discuss-timeline.is-marked li:nth-child(5) span,
+.discuss-timeline.is-marked li:nth-child(5)::before {
   animation-delay: 1600ms;
 }
 
 @keyframes discuss-shimmer {
   0% { background-position: 100% 0; }
   100% { background-position: 0% 0; }
+}
+
+@keyframes discuss-hop {
+  0% { transform: translateY(0); }
+  40% { transform: translateY(-7px); }
+  70% { transform: translateY(1px); }
+  100% { transform: translateY(0); }
 }
 
 .tool-list li,
