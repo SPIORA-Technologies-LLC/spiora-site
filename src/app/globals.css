@@ -1625,23 +1625,23 @@ main .section:not(.hero) {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: discuss-shimmer 520ms ease both;
+  animation: discuss-shimmer 400ms ease both;
 }
 
 .discuss-timeline.is-marked li:nth-child(2) span {
-  animation-delay: 520ms;
+  animation-delay: 400ms;
 }
 
 .discuss-timeline.is-marked li:nth-child(3) span {
-  animation-delay: 1040ms;
+  animation-delay: 800ms;
 }
 
 .discuss-timeline.is-marked li:nth-child(4) span {
-  animation-delay: 1560ms;
+  animation-delay: 1200ms;
 }
 
 .discuss-timeline.is-marked li:nth-child(5) span {
-  animation-delay: 2080ms;
+  animation-delay: 1600ms;
 }
 
 @keyframes discuss-shimmer {

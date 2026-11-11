@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-const STEP_MS = 520;
+const STEP_MS = 400;
 const HOLD_MS = 140;
 
 type DiscussTimelineProps = {
