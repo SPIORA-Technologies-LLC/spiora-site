@@ -234,7 +234,6 @@ export const copy = {
     submit: "Discuss my workflow",
     sending: "Sending…",
     success: "Thank you. Your request has been received.",
-    requiredNote: "Name, company, and work email are required.",
     privacy: "Privacy policy",
     checkFields: "Check the highlighted fields.",
     unavailable: "Demo requests are temporarily unavailable.",

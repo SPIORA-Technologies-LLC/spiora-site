@@ -131,7 +131,6 @@ export function DemoForm() {
       onSubmit={onSubmit}
       aria-busy={status === "sending"}
     >
-      <p className="note">{copy.demo.requiredNote}</p>
       <div className="form-pair">
         <Field
           id="demo-name"

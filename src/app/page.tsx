@@ -142,13 +142,6 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-          <article className="card stack-gap">
-            <h3>{story.ownershipFallback.title}</h3>
-            <p>{story.ownershipFallback.body}</p>
-            <div className="hero-actions">
-              <Button href="/#demo">{story.ownershipFallback.cta}</Button>
-            </div>
-          </article>
         </Container>
       </Section>
 

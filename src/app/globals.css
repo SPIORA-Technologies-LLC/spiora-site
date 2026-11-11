@@ -708,6 +708,14 @@ main .section:not(.hero) {
   padding: 18px 18px 8px;
 }
 
+.reach-form .btn-primary {
+  background: #ff9900;
+}
+
+.reach-form .btn-primary:hover:not(:disabled) {
+  background: #ffb300;
+}
+
 .reach-form .form-card {
   background: transparent;
   border: 0;
@@ -830,7 +838,7 @@ main .section:not(.hero) {
   padding: 0 12px;
   border: 1px solid transparent;
   border-radius: 999px;
-  background: var(--brand-500);
+  background: #ff9900;
   color: var(--bg-primary);
   font: inherit;
   font-size: 0.75rem;
@@ -840,13 +848,13 @@ main .section:not(.hero) {
 }
 
 .copy-button:hover {
-  background: var(--brand-300);
+  background: #ffb300;
   color: var(--bg-primary);
 }
 
 .copy-button.is-copied,
 .copy-button.is-copied:hover {
-  background: var(--brand-500);
+  background: #ff9900;
   color: var(--bg-primary);
 }
 
