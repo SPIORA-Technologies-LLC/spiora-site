@@ -92,7 +92,8 @@ export function CaseDemo() {
         ))}
       </ol>
 
-      <div className="case-scene" aria-live="polite">
+      <div className="case-scene">
+        <div key={step.id} className="case-scene-body" aria-live="polite">
         <p className="case-progress">
           Step {index + 1} of {total}
         </p>
@@ -189,6 +190,7 @@ export function CaseDemo() {
             <p>Next action · {portal.next}</p>
           </div>
         ) : null}
+        </div>
 
         <div className="case-controls">
           {index < total - 1 ? (

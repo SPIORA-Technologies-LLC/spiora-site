@@ -9,6 +9,7 @@ type FieldProps = {
   autoComplete: string;
   maxLength: number;
   inputMode?: "email" | "text";
+  required?: boolean;
 };
 
 export function Field({
@@ -22,6 +23,7 @@ export function Field({
   autoComplete,
   maxLength,
   inputMode,
+  required = false,
 }: FieldProps) {
   const errorId = `${id}-error`;
 
@@ -35,6 +37,8 @@ export function Field({
         autoComplete={autoComplete}
         inputMode={inputMode}
         maxLength={maxLength}
+        required={required}
+        aria-required={required || undefined}
         value={value}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}

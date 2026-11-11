@@ -20,6 +20,7 @@ export function HeroPoster() {
           width={copy.hero.shot.width}
           height={copy.hero.shot.height}
           priority
+          sizes="(min-width: 900px) 560px, 100vw"
         />
       </div>
       <figcaption>{story.hero.posterCaption}</figcaption>

@@ -131,6 +131,7 @@ export function DemoForm() {
       onSubmit={onSubmit}
       aria-busy={status === "sending"}
     >
+      <p className="note">{copy.demo.requiredNote}</p>
       <div className="form-pair">
         <Field
           id="demo-name"
@@ -138,6 +139,7 @@ export function DemoForm() {
           label={copy.demo.name}
           autoComplete="name"
           maxLength={80}
+          required
           value={values.name}
           error={errors.name}
           onChange={(value) => update("name", value)}
@@ -148,6 +150,7 @@ export function DemoForm() {
           label={copy.demo.company}
           autoComplete="organization"
           maxLength={120}
+          required
           value={values.company}
           error={errors.company}
           onChange={(value) => update("company", value)}
@@ -161,6 +164,7 @@ export function DemoForm() {
         autoComplete="email"
         inputMode="email"
         maxLength={254}
+        required
         value={values.email}
         error={errors.email}
         onChange={(value) => update("email", value)}
@@ -173,6 +177,9 @@ export function DemoForm() {
         <p className="form-privacy">
           <Link href="/privacy">{copy.demo.privacy}</Link>
           <span>{copy.demo.privacyHint}</span>
+        </p>
+        <p className="form-privacy">
+          <a href={`mailto:${copy.contacts.email}`}>{copy.demo.emailTeam}</a>
         </p>
       </div>
 

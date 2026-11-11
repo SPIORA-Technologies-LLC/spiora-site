@@ -1,9 +1,9 @@
 export const copy = {
   brand: "SPIORA",
   meta: {
-    title: "SPIORA — A digital office for immigration and consulting teams",
+    title: "SPIORA — One system for client work",
     description:
-      "Run clients, documents, tasks, and communications in one workspace. Clients see their case status and next steps in a personal portal.",
+      "Connect clients, cases, documents, tasks, communication, and payments in one workspace, with a separate portal for clients.",
     privacyTitle: "Privacy policy",
     privacyDescription:
       "How the SPIORA marketing site handles a request for a product demo.",
@@ -233,12 +233,14 @@ export const copy = {
     email: "Work email",
     submit: "Discuss my workflow",
     sending: "Sending…",
-    success: "Request sent",
+    success: "Thank you. Your request has been received.",
+    requiredNote: "Name, company, and work email are required.",
+    emailTeam: "Email the SPIORA team",
     privacy: "Privacy policy",
     privacyHint: "Read how a demo request is handled.",
     checkFields: "Check the highlighted fields.",
     unavailable: "Demo requests are temporarily unavailable.",
-    failed: "We could not send your request. Please try again.",
+    failed: "We couldn’t send your request. Please try again or email us.",
     rateLimit: "Too many requests. Please try again later.",
     inProgress: "This request is already being sent.",
     errors: {

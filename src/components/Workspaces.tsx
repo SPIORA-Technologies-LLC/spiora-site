@@ -182,7 +182,7 @@ export function Workspaces({
           </div>
         </article>
 
-        <article className="space-pane" data-pane="client" aria-live="polite">
+        <article className="space-pane" data-pane="client">
           <h3>{clientTitle}</h3>
           <p>{client}</p>
           <p className="case-kicker">
@@ -193,7 +193,9 @@ export function Workspaces({
             {documents.map((name) => (
               <li key={name} className="space-doc">
                 <span>{name}</span>
-                <strong className="case-status">{demoCase.statuses[statusOf(name)]}</strong>
+                <strong className={name === lastMarked ? "case-status is-synced" : "case-status"}>
+                  {demoCase.statuses[statusOf(name)]}
+                </strong>
               </li>
             ))}
           </ul>

@@ -747,6 +747,7 @@ main .section:not(.hero) {
   margin-top: 2px;
   color: var(--gray-300);
   font-size: 0.875rem;
+  overflow-wrap: anywhere;
 }
 
 .contact-value a {
@@ -1102,6 +1103,10 @@ main .section:not(.hero) {
   18% { transform: scaleX(1); opacity: 1; }
   62% { transform: scaleX(1); opacity: 1; }
   100% { transform: scaleX(1); opacity: 0; }
+}
+
+.field {
+  min-width: 0;
 }
 
 .field input {
@@ -1782,6 +1787,7 @@ button.space-doc {
   font-weight: 700;
   text-align: left;
   cursor: pointer;
+  transition: border-color 180ms ease;
 }
 
 .module-tab[aria-selected="true"] {
@@ -1884,6 +1890,63 @@ button.space-doc {
   .case-scene {
     position: sticky;
     top: calc(var(--header-height) + 16px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-tools li {
+    animation: tool-settle 1000ms ease both;
+  }
+
+  .case-scene-body {
+    animation: scene-in 600ms ease;
+  }
+
+  .case-status.is-synced {
+    animation: status-sync 650ms ease;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (max-width: 899px) {
+  .hero-tools li {
+    animation-duration: 480ms;
+  }
+
+  .case-scene-body,
+  .case-status.is-synced {
+    animation-duration: 350ms;
+  }
+}
+
+@keyframes tool-settle {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes scene-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes status-sync {
+  from {
+    color: var(--brand-300);
+  }
+
+  to {
+    color: inherit;
   }
 }
 
