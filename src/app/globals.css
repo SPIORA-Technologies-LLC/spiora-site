@@ -867,6 +867,7 @@ main .section:not(.hero) {
   display: flex;
   flex-direction: column;
   padding: 12px;
+  border-color: var(--brand-500);
 }
 
 .team-photo {

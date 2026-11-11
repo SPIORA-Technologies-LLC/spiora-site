@@ -176,7 +176,6 @@ export function DemoForm() {
         </Button>
         <p className="form-privacy">
           <Link href="/privacy">{copy.demo.privacy}</Link>
-          <span>{copy.demo.privacyHint}</span>
         </p>
       </div>
 
