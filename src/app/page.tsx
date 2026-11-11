@@ -5,6 +5,7 @@ import { BeforeAfter } from "@/components/BeforeAfter";
 import { CaseDemo } from "@/components/CaseDemo";
 import { CopyValue } from "@/components/CopyValue";
 import { DemoForm } from "@/components/DemoForm";
+import { DiscussTimeline } from "@/components/DiscussTimeline";
 import { HeroPoster } from "@/components/HeroPoster";
 import { Modules } from "@/components/Modules";
 import { Workspaces } from "@/components/Workspaces";
@@ -150,13 +151,7 @@ export default function HomePage() {
           <div className="section-intro">
             <h2 id="implementation-title">{implementation.title}</h2>
           </div>
-          {"items" in implementation ? (
-            <ul className="discuss-timeline">
-              {implementation.items.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          ) : null}
+          {"items" in implementation ? <DiscussTimeline items={implementation.items} /> : null}
         </Container>
       </Section>
 

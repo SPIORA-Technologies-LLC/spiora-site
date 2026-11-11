@@ -1609,6 +1609,46 @@ main .section:not(.hero) {
   }
 }
 
+.discuss-timeline.is-marked li span {
+  background-image: linear-gradient(
+    90deg,
+    var(--text-primary) 0%,
+    var(--text-primary) 33%,
+    #ffb300 42%,
+    #ff9900 50%,
+    #ff7b00 58%,
+    var(--text-primary) 67%,
+    var(--text-primary) 100%
+  );
+  background-size: 300% 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: discuss-shimmer 520ms ease both;
+}
+
+.discuss-timeline.is-marked li:nth-child(2) span {
+  animation-delay: 520ms;
+}
+
+.discuss-timeline.is-marked li:nth-child(3) span {
+  animation-delay: 1040ms;
+}
+
+.discuss-timeline.is-marked li:nth-child(4) span {
+  animation-delay: 1560ms;
+}
+
+.discuss-timeline.is-marked li:nth-child(5) span {
+  animation-delay: 2080ms;
+}
+
+@keyframes discuss-shimmer {
+  0% { background-position: 100% 0; }
+  100% { background-position: 0% 0; }
+}
+
 .tool-list li,
 .plain-list li,
 .mode-list li {
