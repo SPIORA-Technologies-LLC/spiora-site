@@ -241,10 +241,8 @@ export default function HomePage() {
       <div className="reach-band">
         <Container className="reach-grid">
           <section className="reach-col" id="contacts" aria-labelledby="contacts-title">
-            <div className="reach-intro">
-              <h2 id="contacts-title">{copy.contacts.title}</h2>
-              <p className="lead">{copy.contacts.lead}</p>
-            </div>
+            <h2 id="contacts-title">{copy.contacts.title}</h2>
+            <p className="lead">{copy.contacts.lead}</p>
             <div className="contact-panel">
             <div className="contact-row">
               <span className="contact-icon" aria-hidden="true">
@@ -327,16 +325,16 @@ export default function HomePage() {
           </section>
 
           <section className="reach-col" id="demo" aria-labelledby="demo-title">
-            <div className="reach-intro">
-              <h2 id="demo-title">{story.finalCta.title}</h2>
-              <p className="lead">{story.finalCta.lead}</p>
+            <h2 id="demo-title">{story.finalCta.title}</h2>
+            <p className="lead">{story.finalCta.lead}</p>
+            <div className="reach-form">
               <div className="hero-actions">
                 <Button variant="outline" href="/#case">
                   {story.finalCta.secondary}
                 </Button>
               </div>
+              <DemoForm />
             </div>
-            <DemoForm />
           </section>
         </Container>
       </div>
