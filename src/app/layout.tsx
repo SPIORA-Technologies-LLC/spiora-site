@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s — SPIORA",
   },
   description: copy.meta.description,
-  applicationName: "SPIORA",
+  applicationName: copy.brand,
   alternates: siteUrl
     ? {
         canonical: "/",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    siteName: "SPIORA",
+    siteName: copy.brand,
     title: copy.meta.title,
     description: copy.meta.description,
     url: siteUrl || undefined,

@@ -23,7 +23,7 @@ export function Footer() {
           <Link
             className="footer-brand-link"
             href="/#top"
-            aria-label="SPIORA"
+            aria-label={copy.brand}
             onClick={() => window.dispatchEvent(new Event("spiora-logo-play"))}
           >
             <Image className="footer-logo" src="/logo2.svg" alt="" width={178} height={40} unoptimized />

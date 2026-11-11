@@ -53,11 +53,11 @@ export default function HomePage() {
             </div>
           </div>
           <Shot
-            src="/shots/team-workspace.png"
-            width={1024}
-            height={556}
+            src={copy.hero.shot.src}
+            width={copy.hero.shot.width}
+            height={copy.hero.shot.height}
             priority
-            alt={copy.hero.shotAlt}
+            alt={copy.hero.shot.alt}
             caption={copy.hero.caption}
           />
         </div>
@@ -187,7 +187,8 @@ export default function HomePage() {
                   <p className="contact-value">
                     <CopyValue
                       text={`${copy.contacts.street}, ${copy.contacts.city}`}
-                      label="Copy"
+                      label={copy.contacts.copy}
+                      copiedLabel={copy.contacts.copied}
                     >
                       {copy.contacts.street}
                       <br />
@@ -203,7 +204,11 @@ export default function HomePage() {
                 <div>
                   <p className="contact-kicker">{copy.contacts.emailLabel}</p>
                   <p className="contact-value">
-                    <CopyValue text={copy.contacts.email} label="Copy">
+                    <CopyValue
+                      text={copy.contacts.email}
+                      label={copy.contacts.copy}
+                      copiedLabel={copy.contacts.copied}
+                    >
                       <a href={`mailto:${copy.contacts.email}`}>{copy.contacts.email}</a>
                     </CopyValue>
                   </p>
@@ -216,7 +221,11 @@ export default function HomePage() {
                 <div>
                   <p className="contact-kicker">{copy.contacts.phoneLabel}</p>
                   <p className="contact-value">
-                    <CopyValue text={copy.contacts.phone} label="Copy">
+                    <CopyValue
+                      text={copy.contacts.phone}
+                      label={copy.contacts.copy}
+                      copiedLabel={copy.contacts.copied}
+                    >
                       <span className="contact-static contact-phone">
                         {copy.contacts.phone}
                         <span className="contact-apps">
@@ -225,7 +234,7 @@ export default function HomePage() {
                             href={copy.contacts.whatsapp}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="WhatsApp"
+                            aria-label={copy.contacts.whatsappLabel}
                           >
                             <svg className="contact-app" viewBox="0 0 448 512" aria-hidden="true">
                               <path
@@ -239,7 +248,7 @@ export default function HomePage() {
                             href={copy.contacts.telegram}
                             target="_blank"
                             rel="noopener noreferrer"
-                            aria-label="Telegram"
+                            aria-label={copy.contacts.telegramLabel}
                           >
                             <svg className="contact-app" viewBox="0 0 496 512" aria-hidden="true">
                               <path

@@ -1,0 +1,66 @@
+export const demoCase = {
+  client: "Alex Morgan",
+  caseId: "CASE-024",
+  type: "Residence application",
+  documents: ["Identity document — sample", "Application questionnaire — sample"],
+  manager: "Case manager",
+  posterCaption: "Illustrative workflow using synthetic data.",
+  interactiveCaption:
+    "Interactive illustration. No invitation is sent and no files or payments are processed.",
+  title: "Follow one client case through SPIORA.",
+  lead: "Explore how information moves between the client portal and the team workspace.",
+  actions: {
+    previous: "Previous",
+    next: "Next",
+    restart: "Restart demo",
+    sendInvitation: "Send invitation",
+    submitQuestionnaire: "Submit questionnaire",
+    uploadSample: "Upload sample document",
+    markReviewed: "Mark as reviewed",
+    viewNextStep: "View next step",
+  },
+  steps: [
+    {
+      id: "invitation",
+      title: "Invitation",
+      body: "A manager invites the client to their portal.",
+      change: "Client card shows Invite sent.",
+    },
+    {
+      id: "questionnaire",
+      title: "Questionnaire",
+      body: "The client completes their details in one place.",
+      change: "Questionnaire shows Submitted.",
+    },
+    {
+      id: "documents",
+      title: "Documents",
+      body: "The client uploads the requested files for review.",
+      change: "Document moves from Uploaded to Reviewed as a separate action.",
+    },
+    {
+      id: "tasks",
+      title: "Team tasks",
+      body: "The team tracks owners, deadlines, and work on the case.",
+      change: "A related task and its owner.",
+    },
+    {
+      id: "agreement",
+      title: "Agreement",
+      body: "Agreement information stays connected to the client record.",
+      change: "Team-side agreement summary. No legal signature.",
+    },
+    {
+      id: "payment",
+      title: "Payment status",
+      body: "The team records payments and outstanding balances against the client.",
+      change: "A finance record. No payment form.",
+    },
+    {
+      id: "portal",
+      title: "Portal update",
+      body: "The client sees the current stage and their next action.",
+      change: "The stage and next action visible to the client.",
+    },
+  ],
+} as const;

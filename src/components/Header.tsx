@@ -64,7 +64,7 @@ export function Header({ loginUrl }: HeaderProps) {
         {copy.skip}
       </a>
       <div className="container header-bar">
-        <Link className="logo-link" href="/#top" aria-label="SPIORA" onClick={playLogo}>
+        <Link className="logo-link" href="/#top" aria-label={copy.brand} onClick={playLogo}>
           <HeaderLogo playing={logoPlaying} onDone={finishLogo} />
         </Link>
 
