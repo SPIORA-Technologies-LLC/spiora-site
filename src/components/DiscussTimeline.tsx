@@ -23,13 +23,13 @@ export function DiscussTimeline({ items }: DiscussTimelineProps) {
 
     const placeArrow = () => {
       const first = list.querySelector("li span");
-      const last = list.querySelector("li:last-child span");
-      if (!first || !last) return;
+      const lastCircle = list.querySelector("li:last-child");
+      if (!first || !lastCircle) return;
       const listBox = list.getBoundingClientRect();
       const firstBox = first.getBoundingClientRect();
-      const lastBox = last.getBoundingClientRect();
-      list.style.setProperty("--discuss-arrow-x", `${firstBox.left - listBox.left - 12}px`);
-      list.style.setProperty("--discuss-arrow-travel", `${lastBox.right - firstBox.left}px`);
+      const circleBox = lastCircle.getBoundingClientRect();
+      list.style.setProperty("--discuss-arrow-x", `${firstBox.left - listBox.left - 28}px`);
+      list.style.setProperty("--discuss-arrow-travel", `${circleBox.left - firstBox.left}px`);
       list.style.setProperty("--discuss-arrow-duration", `${items.length * STEP_MS}ms`);
     };
 

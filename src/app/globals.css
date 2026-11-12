@@ -1680,10 +1680,10 @@ main .section:not(.hero) {
     position: absolute;
     top: 10px;
     left: var(--discuss-arrow-x, 0px);
-    width: 12px;
+    width: 28px;
     height: 14px;
     background: #ff9900;
-    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    clip-path: polygon(0 4.5px, 15px 4.5px, 15px 0, 28px 7px, 15px 14px, 15px 9.5px, 0 9.5px);
     opacity: 0;
     pointer-events: none;
     z-index: 2;
@@ -1696,13 +1696,18 @@ main .section:not(.hero) {
 }
 
 @keyframes discuss-arrow {
-  from {
+  0% {
     opacity: 1;
     transform: translateX(0);
   }
 
-  to {
+  99% {
     opacity: 1;
+    transform: translateX(var(--discuss-arrow-travel, 0px));
+  }
+
+  100% {
+    opacity: 0;
     transform: translateX(var(--discuss-arrow-travel, 0px));
   }
 }
