@@ -1536,13 +1536,21 @@ main .section:not(.hero) {
 }
 
 .ui-accordion-trigger {
+  display: block;
   width: 100%;
-  padding: 12px 16px;
+  padding: 16px;
+  border: 0;
+  border-radius: 0;
   text-align: left;
 }
 
+.ui-accordion-trigger[aria-expanded="true"] {
+  min-height: 0;
+  padding-bottom: 0;
+}
+
 .ui-accordion-panel {
-  padding: 0 16px 16px;
+  padding: 13.5px 16px 16px;
   color: var(--text-secondary);
 }
 
