@@ -1511,7 +1511,7 @@ main .section:not(.hero) {
 
 @media (min-width: 900px) {
   .ui-accordion {
-    max-width: 64%;
+    max-width: 74%;
   }
 }
 
@@ -1776,7 +1776,7 @@ main .section:not(.hero) {
   gap: 8px;
   align-content: start;
   min-width: 0;
-  border: 1px solid var(--stroke);
+  border: 1px solid var(--brand-500);
   border-radius: var(--radius-m);
   background: var(--bg-elevated);
   padding: 24px;
