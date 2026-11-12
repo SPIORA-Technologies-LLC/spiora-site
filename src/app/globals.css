@@ -1637,24 +1637,42 @@ main .section:not(.hero) {
 
 @media (min-width: 900px) {
   .discuss-timeline {
-    grid-template-columns: repeat(4, minmax(0, 1fr)) max-content;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     position: relative;
     padding-top: 8px;
-  }
-
-  .discuss-timeline::before {
-    content: "";
-    position: absolute;
-    top: 16.5px;
-    left: 9px;
-    right: 0;
-    height: 1px;
-    background: var(--stroke);
   }
 
   .discuss-timeline li {
     align-items: center;
     min-height: 0;
+    position: relative;
+  }
+
+  .discuss-timeline li::before {
+    z-index: 1;
+  }
+
+  .discuss-timeline li::after {
+    content: "";
+    position: absolute;
+    top: 8.5px;
+    left: 0;
+    right: -12px;
+    height: 1px;
+    background: var(--stroke);
+    z-index: 0;
+  }
+
+  .discuss-timeline li:first-child::after {
+    left: 9px;
+  }
+
+  .discuss-timeline li:last-child {
+    justify-self: start;
+  }
+
+  .discuss-timeline li:last-child::after {
+    right: 0;
   }
 }
 
