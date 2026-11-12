@@ -2117,12 +2117,6 @@ button.space-doc {
   margin-top: 16px;
 }
 
-.sample-draft {
-  max-width: 40rem;
-  border-color: var(--brand-500);
-  white-space: pre-wrap;
-}
-
 .final-grid {
   display: grid;
   gap: 24px;

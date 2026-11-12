@@ -110,19 +110,6 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section labelledBy="ai-title">
-        <Container>
-          <div className="section-intro">
-            <h2 id="ai-title">{story.ai.title}</h2>
-            <p className="lead">{story.ai.lead}</p>
-          </div>
-          <article className="card sample-draft">
-            <h3>{story.ai.sampleLabel}</h3>
-            <p>{story.ai.sampleBody}</p>
-          </article>
-        </Container>
-      </Section>
-
       <Section labelledBy="approach-title">
         <Container>
           <div className="section-intro">
