@@ -51,40 +51,35 @@ export function DiscussTimeline({ items }: DiscussTimelineProps) {
       if (list.isConnected) placeArrow();
     });
 
-    const play = () => {
+    const run = () => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-      const run = () => {
-        placeArrow();
-        list.classList.remove("is-marked");
-        void list.offsetWidth;
-        list.classList.add("is-marked");
-        window.clearTimeout(timer);
-        timer = window.setTimeout(
-          () => list.classList.remove("is-marked"),
-          items.length * STEP_MS + HOLD_MS,
-        );
-      };
-
-      observer?.disconnect();
-      const rect = list.getBoundingClientRect();
-      const seen = rect.top < window.innerHeight * 0.72 && rect.bottom > 0;
-      if (seen) {
-        run();
-        return;
-      }
-
-      observer = new IntersectionObserver(
-        (entries) => {
-          if (!entries.some((entry) => entry.isIntersecting)) return;
-          observer?.disconnect();
-          observer = null;
-          run();
-        },
-        { threshold: 0.35 },
+      placeArrow();
+      list.classList.remove("is-marked");
+      void list.offsetWidth;
+      list.classList.add("is-marked");
+      window.clearTimeout(timer);
+      timer = window.setTimeout(
+        () => list.classList.remove("is-marked"),
+        items.length * STEP_MS + HOLD_MS,
       );
-      observer.observe(list);
     };
+
+    let seen = false;
+    let skipFirstView = true;
+    observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.some((entry) => entry.isIntersecting);
+        if (skipFirstView) {
+          skipFirstView = false;
+          seen = visible;
+          return;
+        }
+        if (visible && !seen) run();
+        seen = visible;
+      },
+      { threshold: 0.35 },
+    );
+    observer.observe(list);
 
     const onClick = (event: MouseEvent) => {
       const target = event.target;
@@ -93,7 +88,9 @@ export function DiscussTimeline({ items }: DiscussTimelineProps) {
       if (!link) return;
       const href = link.getAttribute("href") ?? "";
       if (href !== "/#implementation" && href !== "#implementation") return;
-      play();
+      const rect = list.getBoundingClientRect();
+      const inView = rect.bottom > 0 && rect.top < window.innerHeight;
+      if (inView) run();
     };
 
     document.addEventListener("click", onClick);
