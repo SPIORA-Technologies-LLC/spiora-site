@@ -1700,11 +1700,11 @@ main .section:not(.hero) {
     clip-path: var(--discuss-arrow-clip, none);
     pointer-events: none;
     z-index: 2;
-    animation: discuss-arrow-fade var(--discuss-arrow-duration, 2000ms) linear both;
+    animation: discuss-arrow-fade var(--discuss-arrow-duration, 1500ms) linear both;
   }
 
   .discuss-timeline.is-marked .discuss-arrow::before {
-    animation: discuss-arrow var(--discuss-arrow-duration, 2000ms) linear both;
+    animation: discuss-arrow var(--discuss-arrow-duration, 1500ms) linear both;
   }
 }
 
@@ -1746,31 +1746,31 @@ main .section:not(.hero) {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: discuss-shimmer 400ms ease both;
+  animation: discuss-shimmer 300ms ease both;
 }
 
 .discuss-timeline.is-marked li::before {
-  animation: discuss-hop 400ms ease both;
+  animation: discuss-hop 300ms ease both;
 }
 
 .discuss-timeline.is-marked li:nth-child(2) span,
 .discuss-timeline.is-marked li:nth-child(2)::before {
-  animation-delay: 400ms;
+  animation-delay: 300ms;
 }
 
 .discuss-timeline.is-marked li:nth-child(3) span,
 .discuss-timeline.is-marked li:nth-child(3)::before {
-  animation-delay: 800ms;
+  animation-delay: 600ms;
 }
 
 .discuss-timeline.is-marked li:nth-child(4) span,
 .discuss-timeline.is-marked li:nth-child(4)::before {
-  animation-delay: 1200ms;
+  animation-delay: 900ms;
 }
 
 .discuss-timeline.is-marked li:nth-child(5) span,
 .discuss-timeline.is-marked li:nth-child(5)::before {
-  animation-delay: 1600ms;
+  animation-delay: 1200ms;
 }
 
 @keyframes discuss-shimmer {
