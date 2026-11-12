@@ -26,17 +26,21 @@ export function Accordion({ items }: AccordionProps) {
         const expanded = open.includes(item.id);
         return (
           <div className="ui-accordion-item" key={item.id}>
-            <button
-              id={`${baseId}-${item.id}-button`}
-              className="ui-accordion-trigger"
-              type="button"
-              aria-expanded={expanded}
-              aria-controls={`${baseId}-${item.id}-panel`}
-              onClick={() => toggle(item.id)}
-            >
-              {item.title}
-            </button>
-            <div id={`${baseId}-${item.id}-panel`} role="region" aria-labelledby={`${baseId}-${item.id}-button`} hidden={!expanded}>
+            <div className="ui-accordion-row">
+              <p className="ui-accordion-title" id={`${baseId}-${item.id}-title`}>
+                {item.title}
+              </p>
+              <button
+                className="ui-accordion-toggle"
+                type="button"
+                aria-expanded={expanded}
+                aria-controls={`${baseId}-${item.id}-panel`}
+                onClick={() => toggle(item.id)}
+              >
+                {expanded ? "Close" : "Open"}
+              </button>
+            </div>
+            <div id={`${baseId}-${item.id}-panel`} role="region" aria-labelledby={`${baseId}-${item.id}-title`} hidden={!expanded}>
               <div className="ui-accordion-panel">{item.body}</div>
             </div>
           </div>
