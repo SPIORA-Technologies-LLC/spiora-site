@@ -20,20 +20,29 @@ export function DiscussTimeline({ items }: DiscussTimelineProps) {
     let timer = 0;
 
     const placeArrow = () => {
-      const first = list.querySelector("li span");
-      const lastCircle = list.querySelector("li:last-child");
-      if (!first || !lastCircle || !first.firstChild) return;
+      const itemsInList = list.querySelectorAll("li");
+      const lineItem = itemsInList[0];
+      const lastCircle = itemsInList[itemsInList.length - 1];
+      const first = lineItem?.querySelector("span");
+      if (!first || !lineItem || !lastCircle) return;
       const listBox = list.getBoundingClientRect();
       const firstBox = first.getBoundingClientRect();
       const circleBox = lastCircle.getBoundingClientRect();
-      const range = document.createRange();
-      range.selectNodeContents(first.firstChild);
-      const glyphs = range.getBoundingClientRect();
-      const arrowHeight = 8;
+      const lineCenter = lineItem.getBoundingClientRect().top - listBox.top + 9;
+      const holes = [...list.querySelectorAll("li span")].map((span) => {
+        const box = span.getBoundingClientRect();
+        const left = box.left - listBox.left - 1;
+        const right = box.right - listBox.left + 1;
+        return `M${left} 0 H${right} V8 H${left} Z`;
+      });
       list.style.setProperty("--discuss-arrow-x", `${firstBox.left - listBox.left - 20}px`);
       list.style.setProperty("--discuss-arrow-travel", `${circleBox.left - firstBox.left}px`);
-      list.style.setProperty("--discuss-arrow-top", `${glyphs.top - listBox.top - arrowHeight - 2}px`);
+      list.style.setProperty("--discuss-arrow-top", `${lineCenter - 4}px`);
       list.style.setProperty("--discuss-arrow-duration", `${items.length * STEP_MS}ms`);
+      list.style.setProperty(
+        "--discuss-arrow-clip",
+        `path(evenodd, "M0 0 H${list.clientWidth} V8 H0 Z ${holes.join(" ")}")`,
+      );
     };
 
     placeArrow();
@@ -103,6 +112,7 @@ export function DiscussTimeline({ items }: DiscussTimelineProps) {
           <span>{item}</span>
         </li>
       ))}
+      <span className="discuss-arrow" aria-hidden="true" />
     </ul>
   );
 }

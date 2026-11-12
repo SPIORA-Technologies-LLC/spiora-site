@@ -1635,6 +1635,10 @@ main .section:not(.hero) {
   background: var(--bg-primary) url("/logo-o.svg") center / contain no-repeat;
 }
 
+.discuss-arrow {
+  display: none;
+}
+
 @media (min-width: 900px) {
   .discuss-timeline {
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -1667,47 +1671,62 @@ main .section:not(.hero) {
     left: 9px;
   }
 
-  .discuss-timeline li:last-child {
+  .discuss-timeline li:last-of-type {
     justify-self: start;
   }
 
-  .discuss-timeline li:last-child::after {
+  .discuss-timeline li:last-of-type::after {
     right: 0;
   }
 
-  .discuss-timeline::before {
+  .discuss-arrow::before {
     content: "";
     position: absolute;
-    top: var(--discuss-arrow-top, -3px);
+    top: 0;
     left: var(--discuss-arrow-x, 0px);
     width: 20px;
     height: 8px;
     background: #ff9900;
     clip-path: polygon(0 3px, 12px 3px, 12px 0, 20px 4px, 12px 8px, 12px 5px, 0 5px);
-    opacity: 0;
-    pointer-events: none;
-    z-index: 2;
   }
 
-  .discuss-timeline.is-marked::before {
+  .discuss-timeline.is-marked .discuss-arrow {
+    display: block;
+    position: absolute;
+    top: var(--discuss-arrow-top, 13px);
+    left: 0;
+    width: 100%;
+    height: 8px;
+    clip-path: var(--discuss-arrow-clip, none);
+    pointer-events: none;
+    z-index: 2;
+    animation: discuss-arrow-fade var(--discuss-arrow-duration, 2000ms) linear both;
+  }
+
+  .discuss-timeline.is-marked .discuss-arrow::before {
     animation: discuss-arrow var(--discuss-arrow-duration, 2000ms) linear both;
   }
 }
 
 @keyframes discuss-arrow {
   0% {
-    opacity: 1;
     transform: translateX(0);
   }
 
+  99%,
+  100% {
+    transform: translateX(var(--discuss-arrow-travel, 0px));
+  }
+}
+
+@keyframes discuss-arrow-fade {
+  0%,
   99% {
     opacity: 1;
-    transform: translateX(var(--discuss-arrow-travel, 0px));
   }
 
   100% {
     opacity: 0;
-    transform: translateX(var(--discuss-arrow-travel, 0px));
   }
 }
 
