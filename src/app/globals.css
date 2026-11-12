@@ -1436,7 +1436,7 @@ main .section:not(.hero) {
   }
 
   .reach-col > h2 {
-    align-self: end;
+    align-self: start;
   }
 
   .reach-col > .lead {
