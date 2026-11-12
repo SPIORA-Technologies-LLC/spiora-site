@@ -697,7 +697,8 @@ main .section:not(.hero) {
 }
 
 #security-title,
-#demo-title {
+#demo-title,
+#modules-title {
   white-space: pre-line;
   text-wrap: wrap;
 }
@@ -2026,8 +2027,7 @@ button.space-doc {
 }
 
 .module-switcher,
-.module-list,
-.module-scene {
+.module-list {
   display: grid;
   gap: 16px;
 }
@@ -2069,24 +2069,15 @@ button.space-doc {
   display: none;
 }
 
-.module-scene {
-  gap: 8px;
-  margin-top: 16px;
-}
-
-.module-row {
-  display: flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 12px;
-  border: 1px solid var(--stroke);
-  border-radius: var(--radius-s);
-  background: var(--bg-primary);
-}
-
-.module-row.is-current {
-  border-color: var(--brand-500);
-}
+.module-inline[data-module="crm"] { min-height: 465px; }
+.module-inline[data-module="tasks"] { min-height: 417px; }
+.module-inline[data-module="chat"] { min-height: 305px; }
+.module-inline[data-module="calendar"] { min-height: 360px; }
+.module-inline[data-module="finance"] { min-height: 336px; }
+.module-inline[data-module="analytics"] { min-height: 369px; }
+.module-inline[data-module="knowledge"] { min-height: 335px; }
+.module-inline[data-module="ai"] { min-height: 355px; }
+.module-inline[data-module="roles"] { min-height: 412px; }
 
 @media (max-width: 899px) {
   .module-switcher.is-enhanced .module-inline[hidden] {
@@ -2107,6 +2098,16 @@ button.space-doc {
   .module-switcher.is-enhanced .module-stage {
     display: block;
   }
+
+  .module-stage[data-module="crm"] { min-height: 367px; }
+  .module-stage[data-module="tasks"] { min-height: 345px; }
+  .module-stage[data-module="chat"] { min-height: 258px; }
+  .module-stage[data-module="calendar"] { min-height: 262px; }
+  .module-stage[data-module="finance"] { min-height: 314px; }
+  .module-stage[data-module="analytics"] { min-height: 322px; }
+  .module-stage[data-module="knowledge"] { min-height: 237px; }
+  .module-stage[data-module="ai"] { min-height: 232px; }
+  .module-stage[data-module="roles"] { min-height: 314px; }
 }
 
 .case-controls {

@@ -78,8 +78,7 @@ export const story = {
     clientView: "Client view",
   },
   modules: {
-    title: "Nine modules. One shared context.",
-    illustrative: "Illustrative interface",
+    title: "Nine modules\nOne shared context",
     items: [
       {
         id: "crm",

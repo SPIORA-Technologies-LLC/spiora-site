@@ -106,13 +106,7 @@ export default function HomePage() {
           <div className="section-intro">
             <h2 id="modules-title">{story.modules.title}</h2>
           </div>
-          <Modules
-            label={story.modules.title}
-            illustrative={story.modules.illustrative}
-            items={story.modules.items}
-            sampleLabel={story.ai.sampleLabel}
-            sampleBody={story.ai.sampleBody}
-          />
+          <Modules label={story.modules.title} items={story.modules.items} />
         </Container>
       </Section>
 
