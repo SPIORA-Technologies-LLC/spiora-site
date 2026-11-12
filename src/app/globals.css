@@ -696,6 +696,12 @@ main .section:not(.hero) {
   margin-bottom: 0;
 }
 
+#security-title,
+#demo-title {
+  white-space: pre-line;
+  text-wrap: wrap;
+}
+
 .reach-intro .lead,
 .reach-col > .lead {
   margin-top: 12px;

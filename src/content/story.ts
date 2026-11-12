@@ -159,7 +159,7 @@ export const story = {
     cta: "Discuss your workflow",
   },
   security: {
-    title: "Separate spaces. Role-based access.",
+    title: "Separate spaces\nRole-based access",
     lead: "Employee access is assigned by role. The team workspace and client portal are separate areas.",
     points: [
       {
@@ -200,7 +200,7 @@ export const story = {
     },
   ],
   finalCta: {
-    title: "Explore how workflow could look",
+    title: "Explore how workflow\ncould look in SPIORA",
     lead: "Show us how one client case works today.",
     primary: "Discuss my workflow",
     secondary: "Explore the interactive demo",
