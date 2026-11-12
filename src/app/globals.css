@@ -698,7 +698,8 @@ main .section:not(.hero) {
 
 #security-title,
 #demo-title,
-#modules-title {
+#modules-title,
+#spaces-title {
   white-space: pre-line;
   text-wrap: wrap;
 }
@@ -1955,7 +1956,8 @@ main .section:not(.hero) {
 
 .space-pane {
   min-width: 0;
-  border: 1px solid var(--stroke);
+  height: 100%;
+  border: 1px solid var(--brand-500);
   border-radius: var(--radius-m);
   background: var(--bg-elevated);
   padding: 24px;
@@ -2139,6 +2141,10 @@ button.space-doc {
   .case-demo {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     align-items: start;
+  }
+
+  .spaces-panes {
+    align-items: stretch;
   }
 
   #security .space-grid {

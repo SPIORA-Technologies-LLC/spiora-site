@@ -94,9 +94,6 @@ export default function HomePage() {
             team={story.spaces.team}
             clientTitle={story.spaces.clientTitle}
             client={story.spaces.client}
-            teamView={story.spaces.teamView}
-            clientView={story.spaces.clientView}
-            caption={story.spaces.caption}
           />
         </Container>
       </Section>

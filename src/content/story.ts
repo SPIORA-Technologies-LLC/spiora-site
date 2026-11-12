@@ -68,14 +68,11 @@ export const story = {
     toolsNote: "An example of a scattered stack, not a list of SPIORA integrations.",
   },
   spaces: {
-    title: "Two workspaces. One connected client journey.",
+    title: "Two workspaces\nOne client journey",
     teamTitle: "Team workspace",
     team: "Manage client records, tasks, documents, communication, meetings, and finances.",
     clientTitle: "Client portal",
     client: "Complete a questionnaire, upload documents, and see case progress and next steps.",
-    caption: "Internal work and client-facing information have different visibility.",
-    teamView: "Team view",
-    clientView: "Client view",
   },
   modules: {
     title: "Nine modules\nOne shared context",
