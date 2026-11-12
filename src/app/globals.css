@@ -1674,6 +1674,37 @@ main .section:not(.hero) {
   .discuss-timeline li:last-child::after {
     right: 0;
   }
+
+  .discuss-timeline::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: var(--discuss-arrow-x, 0px);
+    width: 12px;
+    height: 14px;
+    background: #ff9900;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .discuss-timeline.is-marked::before,
+  .discuss-timeline.is-traveling::before {
+    animation: discuss-arrow var(--discuss-arrow-duration, 2000ms) linear both;
+  }
+}
+
+@keyframes discuss-arrow {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(var(--discuss-arrow-travel, 0px));
+  }
 }
 
 .discuss-timeline.is-marked li span {

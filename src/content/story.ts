@@ -196,7 +196,7 @@ export const story = {
     {
       question: "How long does implementation take?",
       answer:
-        "The timeline depends on the agreed scope. Discuss your workflow with the SPIORA team to clarify the setup and launch plan.",
+        "The timeline depends on agreed scope. Discuss your workflow with SPIORA team to clarify the setup and launch plan.",
     },
   ],
   finalCta: {
