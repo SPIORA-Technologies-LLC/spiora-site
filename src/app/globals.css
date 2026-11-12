@@ -381,13 +381,6 @@ main .section:not(.hero) {
   font-size: 0.875rem;
 }
 
-.eyebrow {
-  margin: 0 0 12px;
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-  font-weight: 700;
-}
-
 .band {
   background: var(--surface-services);
 }

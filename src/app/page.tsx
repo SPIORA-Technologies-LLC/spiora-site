@@ -25,7 +25,6 @@ export default function HomePage() {
       <Section id="top" labelledBy="hero-title" className="hero">
         <Container className="hero-grid">
           <div>
-            <p className="eyebrow">{story.hero.eyebrow}</p>
             <h1 id="hero-title">{story.hero.title}</h1>
             <p className="lead">{story.hero.lead}</p>
             <div className="hero-actions">

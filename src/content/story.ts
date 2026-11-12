@@ -20,7 +20,6 @@ export const story = {
     discuss: "Discuss your workflow",
   },
   hero: {
-    eyebrow: "One platform for immigration and consulting teams",
     title: "Every client journey. Every team workflow. One SPIORA system.",
     lead: "Manage clients, cases, documents, tasks, communication, and payments in one workspace. Give clients a portal with their case status, documents, and next steps.",
     primary: "See SPIORA in action",
@@ -70,9 +69,9 @@ export const story = {
   spaces: {
     title: "Two workspaces\nOne client journey",
     teamTitle: "Team workspace",
-    team: "Manage client records, tasks, documents, communication, meetings, and finances.",
+    team: "Manage client records, tasks, documents, communication, meetings and finances.",
     clientTitle: "Client portal",
-    client: "Complete a questionnaire, upload documents, and see case progress and next steps.",
+    client: "Complete a questionnaire, upload documents and see case progress with next steps.",
   },
   modules: {
     title: "Nine modules\nOne shared context",
