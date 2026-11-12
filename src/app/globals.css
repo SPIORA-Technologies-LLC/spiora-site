@@ -1958,9 +1958,17 @@ main .section:not(.hero) {
   min-width: 0;
   height: 100%;
   border: 1px solid var(--brand-500);
-  border-radius: var(--radius-m);
+  border-radius: 20px;
   background: var(--bg-elevated);
-  padding: 24px;
+  padding: 1.25rem;
+}
+
+.space-pane h3 {
+  font-size: 1.25rem;
+}
+
+.space-pane p {
+  margin-top: 8px;
 }
 
 .space-pane h4 {
