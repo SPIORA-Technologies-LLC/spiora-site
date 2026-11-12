@@ -244,7 +244,7 @@ export default function HomePage() {
                 <p className="contact-kicker">{copy.contacts.emailLabel}</p>
                 <p className="contact-value">
                   <CopyValue text={copy.contacts.email} label={copy.contacts.copy} copiedLabel={copy.contacts.copied}>
-                    <a href={`mailto:${copy.contacts.email}`}>{copy.contacts.email}</a>
+                    <a className="contact-email" href={`mailto:${copy.contacts.email}`}>{copy.contacts.email}</a>
                   </CopyValue>
                 </p>
               </div>
