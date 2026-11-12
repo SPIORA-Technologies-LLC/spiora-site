@@ -163,7 +163,7 @@ export default function HomePage() {
           </div>
           <div className="space-grid">
             {story.security.points.map((point) => (
-              <article className="card" key={point.title}>
+              <article className="card security-card" key={point.title}>
                 <h3>{point.title}</h3>
                 <p>{point.body}</p>
               </article>
