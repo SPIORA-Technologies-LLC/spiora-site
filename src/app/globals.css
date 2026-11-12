@@ -2112,6 +2112,7 @@ button.space-doc {
 
 .sample-draft {
   max-width: 40rem;
+  border-color: var(--brand-500);
   white-space: pre-wrap;
 }
 

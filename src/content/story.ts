@@ -129,14 +129,14 @@ export const story = {
     ],
   },
   ai: {
-    title: "AI support for everyday team work.",
+    title: "AI support for everyday team work",
     lead: "Draft emails, translate text, and find answers from your company knowledge base in AI Workspace.",
     sampleLabel: "Sample AI draft — review before use.",
     sampleBody:
       "Hello Alex Morgan. This sample draft is about case CASE-024, a residence application. It is an example for review, not a message that has been sent.",
   },
   approach: {
-    title: "Connect the work around every client.",
+    title: "Connect the work around every client",
     lead: "A client record is the starting point. SPIORA brings the related work into the same platform: tasks, documents, communication, meetings, finances, and the client portal.",
     modes: [
       {
