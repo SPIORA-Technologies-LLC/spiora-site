@@ -169,12 +169,12 @@ export const story = {
     {
       question: "Is SPIORA a CRM?",
       answer:
-        "CRM is part of SPIORA. The platform also brings together tasks, documents, communication, calendars, finances, analytics, knowledge, AI, and a client portal.",
+        "CRM is part of SPIORA. The platform also brings together tasks, documents, communication, calendars, finances, analytics, AI knowledge and a client portal.",
     },
     {
       question: "What can clients do in the portal?",
       answer:
-        "Clients can complete a questionnaire, upload documents, and see their case status and next steps.",
+        "Clients can complete a questionnaire, upload documents and see their case status with next steps.",
     },
     {
       question: "What can employees access?",
