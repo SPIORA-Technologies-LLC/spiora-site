@@ -2059,7 +2059,7 @@ button.space-doc {
 .module-stage,
 .module-inline {
   min-width: 0;
-  border: 1px solid var(--stroke);
+  border: 1px solid var(--brand-500);
   border-radius: var(--radius-m);
   background: var(--bg-elevated);
   padding: 24px;
