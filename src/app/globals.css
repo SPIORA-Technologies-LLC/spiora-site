@@ -1773,18 +1773,13 @@ main .section:not(.hero) {
   transition: transform 180ms ease, margin 180ms ease;
 }
 
-.ui-accordion-row[aria-expanded="true"] {
-  align-items: flex-end;
-  padding-bottom: 0;
-}
-
 .ui-accordion-row[aria-expanded="true"] .ui-accordion-icon {
   margin-top: 4px;
   transform: rotate(-135deg);
 }
 
 .ui-accordion-panel {
-  padding: 14.5px 12px 16px;
+  padding: 14.5px 12px 32px;
   color: var(--text-secondary);
 }
 
@@ -1970,31 +1965,31 @@ main .section:not(.hero) {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: discuss-shimmer 650ms ease both;
+  animation: discuss-shimmer 300ms ease both;
 }
 
 .discuss-timeline.is-marked li::before {
-  animation: discuss-hop 650ms ease both;
+  animation: discuss-hop 300ms ease both;
 }
 
 .discuss-timeline.is-marked li:nth-child(2) span,
 .discuss-timeline.is-marked li:nth-child(2)::before {
-  animation-delay: 650ms;
+  animation-delay: 300ms;
 }
 
 .discuss-timeline.is-marked li:nth-child(3) span,
 .discuss-timeline.is-marked li:nth-child(3)::before {
-  animation-delay: 1300ms;
+  animation-delay: 600ms;
 }
 
 .discuss-timeline.is-marked li:nth-child(4) span,
 .discuss-timeline.is-marked li:nth-child(4)::before {
-  animation-delay: 1950ms;
+  animation-delay: 900ms;
 }
 
 .discuss-timeline.is-marked li:nth-child(5) span,
 .discuss-timeline.is-marked li:nth-child(5)::before {
-  animation-delay: 2600ms;
+  animation-delay: 1200ms;
 }
 
 @keyframes discuss-shimmer {
