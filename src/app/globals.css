@@ -920,7 +920,8 @@ main .section:not(.hero) {
 }
 
 .contact-value a {
-  min-height: 44px;
+  min-height: 0;
+  line-height: 21px;
   display: inline-flex;
   align-items: center;
   color: var(--white);
