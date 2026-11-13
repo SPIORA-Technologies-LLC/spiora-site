@@ -27,7 +27,7 @@ export function Footer() {
           aria-label={copy.brand}
           onClick={() => window.dispatchEvent(new Event("spiora-logo-play"))}
         >
-          <Image className="footer-logo" src="/logo-wordmark.svg" alt="" width={330} height={48} unoptimized />
+          <Image className="footer-logo" src="/logo2.svg" alt="" width={200} height={45} unoptimized />
         </Link>
         <p className="footer-blurb">{copy.footer.blurb}</p>
 

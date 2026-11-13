@@ -1321,7 +1321,7 @@ main .section:not(.hero) {
 .site-footer {
   position: relative;
   overflow: hidden;
-  padding-top: 88px;
+  padding-top: 40px;
   background: var(--bg-page);
   border-top: 1px solid var(--border-soft);
   text-align: center;
@@ -1329,10 +1329,10 @@ main .section:not(.hero) {
 
 .footer-glow {
   position: absolute;
-  top: -260px;
+  top: -170px;
   left: 50%;
-  width: min(900px, 140vw);
-  height: 520px;
+  width: min(620px, 120vw);
+  height: 320px;
   translate: -50% 0;
   background: radial-gradient(closest-side, rgba(255, 140, 0, 0.32), rgba(255, 110, 0, 0.1) 45%, transparent 75%);
   pointer-events: none;
@@ -1352,15 +1352,15 @@ main .section:not(.hero) {
 }
 
 .site-footer .footer-logo {
-  width: min(330px, 70vw);
+  width: min(200px, 56vw);
   height: auto;
   max-width: none;
 }
 
 .footer-blurb {
-  margin-top: 18px;
+  margin-top: 8px;
   color: var(--gray-300);
-  font-size: 1.0625rem;
+  font-size: 0.9375rem;
   line-height: 1.45;
 }
 
@@ -1369,8 +1369,8 @@ main .section:not(.hero) {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 4px 0;
-  margin: 40px 0 0;
+  gap: 0;
+  margin: 18px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -1383,17 +1383,17 @@ main .section:not(.hero) {
 .footer-nav li + li::before {
   content: "";
   width: 1px;
-  height: 22px;
+  height: 16px;
   background: var(--stroke);
 }
 
 .footer-nav a {
-  min-height: 44px;
+  min-height: 36px;
   display: inline-flex;
   align-items: center;
-  padding: 0 28px;
+  padding: 0 18px;
   color: var(--text-primary);
-  font-size: 1.0625rem;
+  font-size: 0.9375rem;
   text-decoration: none;
   transition: color 180ms ease;
 }
@@ -1403,13 +1403,13 @@ main .section:not(.hero) {
 }
 
 .footer-social a {
-  padding: 0 0 0 28px;
+  padding: 0 0 0 18px;
 }
 
 .footer-social svg {
-  width: 34px;
-  height: 34px;
-  padding: 7px;
+  width: 28px;
+  height: 28px;
+  padding: 6px;
   border: 1.5px solid var(--text-secondary);
   border-radius: 7px;
   color: var(--text-secondary);
@@ -1423,8 +1423,8 @@ main .section:not(.hero) {
 
 .footer-bottom {
   position: relative;
-  margin-top: 48px;
-  padding-block: 28px 40px;
+  margin-top: 16px;
+  padding-block: 10px 14px;
 }
 
 .footer-line {
@@ -1453,13 +1453,13 @@ main .section:not(.hero) {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 4px 12px;
+  gap: 0 12px;
   color: var(--gray-300);
-  font-size: 1rem;
+  font-size: 0.875rem;
 }
 
 .footer-bottom a {
-  min-height: 44px;
+  min-height: 32px;
   display: inline-flex;
   align-items: center;
   color: var(--gray-300);
@@ -1473,7 +1473,7 @@ main .section:not(.hero) {
 
 @media (max-width: 899px) {
   .site-footer {
-    padding-top: 64px;
+    padding-top: 32px;
   }
 
   .footer-blurb {
@@ -1483,7 +1483,7 @@ main .section:not(.hero) {
 
   .footer-nav ul {
     flex-direction: column;
-    margin-top: 28px;
+    margin-top: 12px;
   }
 
   .footer-nav li + li::before {
