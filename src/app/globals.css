@@ -457,12 +457,6 @@ main .section:not(.hero) {
   margin-bottom: 32px;
 }
 
-.explain-intro {
-  border: 1px solid var(--brand-500);
-  border-radius: 20px;
-  padding: 1.25rem;
-}
-
 .card-grid,
 .module-features,
 .point-grid {
@@ -1801,6 +1795,10 @@ main .section:not(.hero) {
 .plain-grid {
   display: grid;
   gap: 16px;
+}
+
+.audience-grid .card {
+  border-color: var(--brand-500);
 }
 
 .tool-list,

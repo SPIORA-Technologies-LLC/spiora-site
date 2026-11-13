@@ -42,7 +42,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
 
       <Section labelledBy="explain-title">
         <Container>
-          <div className="section-intro explain-intro">
+          <div className="section-intro">
             <h2 id="explain-title">{story.explain.title}</h2>
             <p className="lead">{story.explain.lead}</p>
           </div>
