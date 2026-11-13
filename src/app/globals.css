@@ -1773,13 +1773,18 @@ main .section:not(.hero) {
   transition: transform 180ms ease, margin 180ms ease;
 }
 
+.ui-accordion-row[aria-expanded="true"] {
+  align-items: flex-end;
+  padding-bottom: 0;
+}
+
 .ui-accordion-row[aria-expanded="true"] .ui-accordion-icon {
   margin-top: 4px;
   transform: rotate(-135deg);
 }
 
 .ui-accordion-panel {
-  padding: 13.5px 12px 16px;
+  padding: 14.5px 12px 16px;
   color: var(--text-secondary);
 }
 
@@ -1874,13 +1879,13 @@ main .section:not(.hero) {
     right: 0;
   }
 
-  html[lang="ru"] .discuss-timeline {
+  .discuss-timeline {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
   }
 
-  html[lang="ru"] .discuss-timeline::before {
+  .discuss-timeline::before {
     content: "";
     position: absolute;
     top: 16.5px;
@@ -1890,11 +1895,11 @@ main .section:not(.hero) {
     background: var(--stroke);
   }
 
-  html[lang="ru"] .discuss-timeline li {
+  .discuss-timeline li {
     flex: 0 0 auto;
   }
 
-  html[lang="ru"] .discuss-timeline li::after {
+  .discuss-timeline li::after {
     content: none;
   }
 
