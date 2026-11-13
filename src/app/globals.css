@@ -1896,6 +1896,30 @@ main .section:not(.hero) {
     right: 0;
   }
 
+  html[lang="ru"] .discuss-timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  html[lang="ru"] .discuss-timeline::before {
+    content: "";
+    position: absolute;
+    top: 16.5px;
+    left: 9px;
+    right: 0;
+    height: 1px;
+    background: var(--stroke);
+  }
+
+  html[lang="ru"] .discuss-timeline li {
+    flex: 0 0 auto;
+  }
+
+  html[lang="ru"] .discuss-timeline li::after {
+    content: none;
+  }
+
   .discuss-arrow::before {
     content: "";
     position: absolute;
