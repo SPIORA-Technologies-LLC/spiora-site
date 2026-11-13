@@ -279,11 +279,6 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               <p className="lead">{story.finalCta.lead}</p>
             </div>
             <div className="reach-form">
-              <div className="hero-actions">
-                <Button variant="outline" href={anchor("case")}>
-                  {story.finalCta.secondary}
-                </Button>
-              </div>
               <DemoForm />
             </div>
           </section>

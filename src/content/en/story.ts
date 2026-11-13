@@ -185,7 +185,7 @@ export const story = {
     },
   ],
   finalCta: {
-    title: "Explore how workflow\ncould look in SPIORA",
+    title: "Let’s see how SPIORA\nfits your workflow",
     lead: "Show us how one client case works today.",
     primary: "Discuss my workflow",
     secondary: "Explore the interactive demo",
