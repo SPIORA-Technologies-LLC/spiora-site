@@ -7,7 +7,7 @@ export const demoCase = {
   posterCaption: "Illustrative workflow using synthetic data.",
   interactiveCaption:
     "Demo mode: a fictional client, nothing is actually sent.",
-  title: "Follow one client case through SPIORA.",
+  title: "Follow your client’s journey through SPIORA.",
   lead: "Explore how information moves between the client portal and the team workspace.",
   labels: {
     step: "Step {current} of {total}",
