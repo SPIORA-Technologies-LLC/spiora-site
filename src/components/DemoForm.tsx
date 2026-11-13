@@ -61,7 +61,7 @@ export function DemoForm() {
       const link = target.closest("a");
       if (!link) return;
       const href = link.getAttribute("href") ?? "";
-      if (!/^(\/(ru)?)?#demo$/.test(href)) return;
+      if (!/^(\/(en|ru)?)?#demo$/.test(href)) return;
       play();
     };
 

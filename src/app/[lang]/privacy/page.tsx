@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getDictionary } from "@/content";
-import { isLocale, localePath } from "@/i18n/config";
+import { defaultLocale, isLocale, localePath } from "@/i18n/config";
 
 type PageProps = { params: Promise<{ lang: string }> };
 
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           languages: {
             en: localePath("en", "/privacy"),
             ru: localePath("ru", "/privacy"),
-            "x-default": localePath("en", "/privacy"),
+            "x-default": localePath(defaultLocale, "/privacy"),
           },
         }
       : undefined,

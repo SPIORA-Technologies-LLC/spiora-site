@@ -6,7 +6,7 @@ import "@/lib/fontawesome";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { getDictionary } from "@/content";
-import { htmlLang, isLocale, localePath, locales, ogLocale, type Locale } from "@/i18n/config";
+import { defaultLocale, htmlLang, isLocale, localePath, locales, ogLocale, type Locale } from "@/i18n/config";
 import { LocaleProvider } from "@/i18n/LocaleProvider";
 import { publicSite } from "@/lib/site";
 import "../globals.css";
@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: LayoutParams): Promise<Metada
           languages: {
             en: localePath("en", "/"),
             ru: localePath("ru", "/"),
-            "x-default": localePath("en", "/"),
+            "x-default": localePath(defaultLocale, "/"),
           },
         }
       : undefined,

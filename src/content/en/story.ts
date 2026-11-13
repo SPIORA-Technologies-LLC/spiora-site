@@ -1,14 +1,14 @@
 export const story = {
   anchors: {
-    top: "/#top",
-    workflow: "/#workflow",
-    modules: "/#modules",
-    case: "/#case",
-    security: "/#security",
-    implementation: "/#implementation",
-    team: "/#team",
-    contacts: "/#contacts",
-    demo: "/#demo",
+    top: "/en#top",
+    workflow: "/en#workflow",
+    modules: "/en#modules",
+    case: "/en#case",
+    security: "/en#security",
+    implementation: "/en#implementation",
+    team: "/en#team",
+    contacts: "/en#contacts",
+    demo: "/en#demo",
   },
   nav: {
     product: "Product",
@@ -197,8 +197,8 @@ export const story = {
 
 export const implementation = {
   fallback: {
-    title: "What we discuss before implementation",
-    items: ["Workflow", "Modules", "Roles", "Data", "Timeline"],
+    title: "What we discuss before implementing SPIORA",
+    items: ["Your business processes", "Required modules", "Team roles", "Data and security", "Implementation timeline"],
   },
   confirmed: {
     title: "Start with your real client workflow.",

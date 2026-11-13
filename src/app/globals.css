@@ -1731,9 +1731,14 @@ main .section:not(.hero) {
   }
 
   .discuss-timeline li {
-    align-items: center;
+    align-items: flex-start;
     min-height: 0;
     position: relative;
+  }
+
+  .discuss-timeline li span {
+    padding-top: 1px;
+    line-height: 1.2;
   }
 
   .discuss-timeline li::before {

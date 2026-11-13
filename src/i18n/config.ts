@@ -2,7 +2,7 @@ export const locales = ["en", "ru"] as const;
 
 export type Locale = (typeof locales)[number];
 
-export const defaultLocale: Locale = "en";
+export const defaultLocale: Locale = "ru";
 
 export const localeNames: Record<Locale, { short: string; full: string }> = {
   en: { short: "EN", full: "English" },
@@ -17,7 +17,7 @@ export function isLocale(value: unknown): value is Locale {
   return typeof value === "string" && (locales as readonly string[]).includes(value);
 }
 
-/** URL prefix for a locale. English lives at the root, Russian under /ru. */
+/** URL prefix for a locale. Russian lives at the root, English under /en. */
 export function localePrefix(locale: Locale): string {
   return locale === defaultLocale ? "" : `/${locale}`;
 }

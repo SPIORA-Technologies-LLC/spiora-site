@@ -87,7 +87,7 @@ export function DiscussTimeline({ items }: DiscussTimelineProps) {
       const link = target.closest("a");
       if (!link) return;
       const href = link.getAttribute("href") ?? "";
-      if (!/^(\/(ru)?)?#implementation$/.test(href)) return;
+      if (!/^(\/(en|ru)?)?#implementation$/.test(href)) return;
       const rect = list.getBoundingClientRect();
       const inView = rect.bottom > 0 && rect.top < window.innerHeight;
       if (inView) run();

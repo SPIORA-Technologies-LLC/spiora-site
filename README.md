@@ -1,6 +1,6 @@
 # SPIORA marketing site
 
-Marketing page for SPIORA, a digital office for immigration and consulting teams. English is served at `/`, Russian at `/ru`. The EN/RU switcher in the header keeps the reader on the same page and section.
+Marketing page for SPIORA, a digital office for immigration and consulting teams. Russian is the default at `/`; English is served at `/en`. Old `/ru` links redirect to `/`. The EN/RU switcher in the header keeps the reader on the same page and section.
 
 ## Commands
 

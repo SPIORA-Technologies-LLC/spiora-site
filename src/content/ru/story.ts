@@ -2,15 +2,15 @@ import type { ImplementationCopy, StoryCopy } from "../index";
 
 export const story: StoryCopy = {
   anchors: {
-    top: "/ru#top",
-    workflow: "/ru#workflow",
-    modules: "/ru#modules",
-    case: "/ru#case",
-    security: "/ru#security",
-    implementation: "/ru#implementation",
-    team: "/ru#team",
-    contacts: "/ru#contacts",
-    demo: "/ru#demo",
+    top: "/#top",
+    workflow: "/#workflow",
+    modules: "/#modules",
+    case: "/#case",
+    security: "/#security",
+    implementation: "/#implementation",
+    team: "/#team",
+    contacts: "/#contacts",
+    demo: "/#demo",
   },
   nav: {
     product: "Продукт",
@@ -197,8 +197,8 @@ export const story: StoryCopy = {
 
 export const implementation: ImplementationCopy = {
   fallback: {
-    title: "Что обсуждаем перед внедрением",
-    items: ["Процессы", "Модули", "Роли", "Данные", "Сроки"],
+    title: "Что обсуждаем перед внедрением SPIORA",
+    items: ["Ваши бизнес-процессы", "Необходимые модули", "Роли в команде", "Данные и безопасность", "Сроки внедрения"],
   },
   confirmed: {
     title: "Начинаем с ваших реальных процессов.",
