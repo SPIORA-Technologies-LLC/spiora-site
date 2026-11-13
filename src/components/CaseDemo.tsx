@@ -2,13 +2,15 @@
 
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import type { DemoCaseCopy } from "@/content";
+import { FocusShot } from "@/components/FocusShot";
+import type { DemoCaseCopy, SiteCopy } from "@/content";
+import { caseStepShots, shots } from "@/content/shots";
 
 type DocumentStatus = "requested" | "uploaded" | "reviewed";
 
 const initialDocuments: DocumentStatus = "requested";
 
-export function CaseDemo({ demoCase }: { demoCase: DemoCaseCopy }) {
+export function CaseDemo({ demoCase, shotAlts }: { demoCase: DemoCaseCopy; shotAlts: SiteCopy["shotAlts"] }) {
   const [index, setIndex] = useState(0);
   const [invited, setInvited] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -16,6 +18,7 @@ export function CaseDemo({ demoCase }: { demoCase: DemoCaseCopy }) {
   const stepRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const total = demoCase.steps.length;
   const step = demoCase.steps[index];
+  const stepShot = caseStepShots[step.id];
 
   function move(next: number, focus = false) {
     const clamped = Math.min(total - 1, Math.max(0, next));
@@ -93,6 +96,9 @@ export function CaseDemo({ demoCase }: { demoCase: DemoCaseCopy }) {
       </ol>
 
       <div className="case-scene">
+        {stepShot ? (
+          <FocusShot image={shots[stepShot.shot]} alt={shotAlts[stepShot.shot]} focus={stepShot.focus} />
+        ) : null}
         <div key={step.id} className="case-scene-body" aria-live="polite">
         <p className="case-progress">
           {demoCase.labels.step.replace("{current}", String(index + 1)).replace("{total}", String(total))}

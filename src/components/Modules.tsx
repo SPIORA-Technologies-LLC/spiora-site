@@ -1,6 +1,9 @@
 "use client";
 
 import { useEffect, useRef, useState, type KeyboardEvent } from "react";
+import { EnlargeableShot } from "@/components/EnlargeableShot";
+import type { SiteCopy } from "@/content";
+import { moduleShots, shots } from "@/content/shots";
 
 type ModuleItem = {
   id: string;
@@ -8,12 +11,18 @@ type ModuleItem = {
   body: string;
 };
 
-type ModulesProps = {
+type ShotLabels = {
+  shotAlts: SiteCopy["shotAlts"];
+  enlargeLabel: string;
+  closeLabel: string;
+};
+
+type ModulesProps = ShotLabels & {
   label: string;
   items: readonly ModuleItem[];
 };
 
-export function Modules({ label, items }: ModulesProps) {
+export function Modules({ label, items, ...labels }: ModulesProps) {
   const [active, setActive] = useState(items[0]?.id ?? "");
   const [enhanced, setEnhanced] = useState(false);
   const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -75,7 +84,7 @@ export function Modules({ label, items }: ModulesProps) {
                 aria-labelledby={`module-tab-${item.id}`}
                 hidden={enhanced && !isSelected}
               >
-                <ModulePanel item={item} />
+                <ModulePanel item={item} {...labels} />
               </div>
             </div>
           );
@@ -88,17 +97,29 @@ export function Modules({ label, items }: ModulesProps) {
         role="tabpanel"
         aria-labelledby={`module-tab-${current.id}`}
       >
-        <ModulePanel item={current} />
+        <ModulePanel key={current.id} item={current} {...labels} />
       </div>
     </div>
   );
 }
 
-function ModulePanel({ item }: { item: ModuleItem }) {
+function ModulePanel({ item, shotAlts, enlargeLabel, closeLabel }: { item: ModuleItem } & ShotLabels) {
+  const key = moduleShots[item.id];
+  const image = key ? shots[key] : null;
   return (
-    <>
+    <div className="module-panel">
       <h3>{item.title}</h3>
       <p>{item.body}</p>
-    </>
+      {key && image ? (
+        <EnlargeableShot
+          src={image.src}
+          alt={shotAlts[key]}
+          width={image.width}
+          height={image.height}
+          enlargeLabel={enlargeLabel}
+          closeLabel={closeLabel}
+        />
+      ) : null}
+    </div>
   );
 }

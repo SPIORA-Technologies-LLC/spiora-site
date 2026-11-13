@@ -14,6 +14,17 @@ export const copy = {
     language: "Language",
     switchTo: "Switch to Russian",
   },
+  shotAlts: {
+    workspace: "SPIORA team workspace with clients, tasks, who is online, and the November calendar.",
+    portal: "SPIORA client portal with a personal account, process status, and a submitted questionnaire.",
+    tasks: "SPIORA team tasks with status counts and a task list.",
+    finance: "SPIORA client settlements with contract amounts, payments, and margins.",
+    team: "SPIORA team list with employee roles and online status.",
+    calendar: "SPIORA calendar for November 2026 with personal and company events.",
+    analytics: "SPIORA analytics overview with clients, leads, cases, and deadlines.",
+    library: "SPIORA library with search and an empty materials list.",
+    ai: "SPIORA AI Workspace with a client summary, chat history, and a message box.",
+  },
   nav: {
     label: "Primary",
     features: "Features",

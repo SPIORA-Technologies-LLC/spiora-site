@@ -81,7 +81,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             <h2 id="case-title">{demoCase.title}</h2>
             <p className="lead">{demoCase.lead}</p>
           </div>
-          <CaseDemo demoCase={demoCase} />
+          <CaseDemo demoCase={demoCase} shotAlts={copy.shotAlts} />
         </Container>
       </Section>
 
@@ -104,7 +104,13 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           <div className="section-intro">
             <h2 id="modules-title">{story.modules.title}</h2>
           </div>
-          <Modules label={story.modules.title} items={story.modules.items} />
+          <Modules
+            label={story.modules.title}
+            items={story.modules.items}
+            shotAlts={copy.shotAlts}
+            enlargeLabel={copy.modules.enlarge}
+            closeLabel={copy.modules.close}
+          />
         </Container>
       </Section>
 
