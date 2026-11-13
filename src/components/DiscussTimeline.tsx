@@ -2,8 +2,8 @@
 
 import { useEffect, useRef } from "react";
 
-const STEP_MS = 300;
-const HOLD_MS = 140;
+const STEP_MS = 400;
+const HOLD_MS = 180;
 
 type DiscussTimelineProps = {
   items: readonly string[];

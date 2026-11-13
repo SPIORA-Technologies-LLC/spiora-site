@@ -1612,7 +1612,7 @@ main .section:not(.hero) {
   }
 
   .reach-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     grid-template-rows: auto auto;
     column-gap: 40px;
     row-gap: 0;
@@ -1632,7 +1632,7 @@ main .section:not(.hero) {
 
   .reach-band .contact-panel,
   .reach-band .reach-form {
-    align-self: start;
+    align-self: stretch;
     border-radius: 24px;
   }
 
@@ -1770,13 +1770,20 @@ main .section:not(.hero) {
   transition: transform 180ms ease, margin 180ms ease;
 }
 
+.ui-accordion-row[aria-expanded="true"] {
+  align-items: center;
+  min-height: 0;
+  padding-top: 16px;
+  padding-bottom: 0;
+}
+
 .ui-accordion-row[aria-expanded="true"] .ui-accordion-icon {
   margin-top: 4px;
   transform: rotate(-135deg);
 }
 
 .ui-accordion-panel {
-  padding: 14.5px 12px 32px;
+  padding: 8px 12px 9.5px;
   color: var(--text-secondary);
 }
 
@@ -1916,11 +1923,11 @@ main .section:not(.hero) {
     clip-path: var(--discuss-arrow-clip, none);
     pointer-events: none;
     z-index: 2;
-    animation: discuss-arrow-fade var(--discuss-arrow-duration, 1500ms) linear both;
+    animation: discuss-arrow-fade var(--discuss-arrow-duration, 2000ms) linear both;
   }
 
   .discuss-timeline.is-marked .discuss-arrow::before {
-    animation: discuss-arrow var(--discuss-arrow-duration, 1500ms) linear both;
+    animation: discuss-arrow var(--discuss-arrow-duration, 2000ms) linear both;
   }
 }
 
@@ -1962,31 +1969,31 @@ main .section:not(.hero) {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: discuss-shimmer 300ms ease both;
+  animation: discuss-shimmer 400ms ease both;
 }
 
 .discuss-timeline.is-marked li::before {
-  animation: discuss-hop 300ms ease both;
+  animation: discuss-hop 400ms ease both;
 }
 
 .discuss-timeline.is-marked li:nth-child(2) span,
 .discuss-timeline.is-marked li:nth-child(2)::before {
-  animation-delay: 300ms;
+  animation-delay: 400ms;
 }
 
 .discuss-timeline.is-marked li:nth-child(3) span,
 .discuss-timeline.is-marked li:nth-child(3)::before {
-  animation-delay: 600ms;
+  animation-delay: 800ms;
 }
 
 .discuss-timeline.is-marked li:nth-child(4) span,
 .discuss-timeline.is-marked li:nth-child(4)::before {
-  animation-delay: 900ms;
+  animation-delay: 1200ms;
 }
 
 .discuss-timeline.is-marked li:nth-child(5) span,
 .discuss-timeline.is-marked li:nth-child(5)::before {
-  animation-delay: 1200ms;
+  animation-delay: 1600ms;
 }
 
 @keyframes discuss-shimmer {
