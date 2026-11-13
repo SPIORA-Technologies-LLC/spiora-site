@@ -1429,25 +1429,6 @@ main .section:not(.hero) {
   color: #ff9900;
 }
 
-.footer-social a {
-  padding: 0 0 0 18px;
-}
-
-.footer-social svg {
-  width: 28px;
-  height: 28px;
-  padding: 6px;
-  border: 1.5px solid var(--text-secondary);
-  border-radius: 7px;
-  color: var(--text-secondary);
-  transition: color 180ms ease, border-color 180ms ease;
-}
-
-.footer-social a:hover svg {
-  color: #ff9900;
-  border-color: #ff9900;
-}
-
 .footer-bottom {
   position: relative;
   margin-top: 16px;
@@ -1522,9 +1503,6 @@ main .section:not(.hero) {
     font-size: 0.875rem;
   }
 
-  .footer-social a {
-    padding: 8px 0 0;
-  }
 
   .footer-bottom p {
     flex-direction: column;
