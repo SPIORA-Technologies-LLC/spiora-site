@@ -122,7 +122,7 @@ export const story = {
   },
   approach: {
     title: "Connect the work around every client",
-    lead: "A client record is the starting point. SPIORA brings the related work into the same platform: tasks, documents, communication, meetings, finances, and the client portal.",
+    lead: "A client record is the starting point. SPIORA brings the related work into the same platform: tasks, documents, communication, meetings, finances and the client portal.",
     modes: [
       {
         title: "Client record",

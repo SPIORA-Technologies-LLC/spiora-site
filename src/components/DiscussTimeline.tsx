@@ -29,11 +29,17 @@ export function DiscussTimeline({ items }: DiscussTimelineProps) {
       const firstBox = first.getBoundingClientRect();
       const circleBox = lastCircle.getBoundingClientRect();
       const lineCenter = lineItem.getBoundingClientRect().top - listBox.top + 9;
-      const holes = [...list.querySelectorAll("li span")].map((span) => {
+      const spans = [...list.querySelectorAll("li span")];
+      const holes = spans.map((span) => {
         const box = span.getBoundingClientRect();
         const left = box.left - listBox.left - 1;
         const right = box.right - listBox.left + 1;
         return `M${left} 0 H${right} V8 H${left} Z`;
+      });
+      spans.forEach((span, index) => {
+        const box = span.getBoundingClientRect();
+        const distance = box.left + box.width / 2 - firstBox.left;
+        list.style.setProperty(`--discuss-stop-${index + 1}`, `${distance}px`);
       });
       list.style.setProperty("--discuss-arrow-x", `${firstBox.left - listBox.left - 20}px`);
       list.style.setProperty("--discuss-arrow-travel", `${circleBox.left - firstBox.left}px`);

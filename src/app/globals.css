@@ -1942,9 +1942,25 @@ main .section:not(.hero) {
     transform: translateX(0);
   }
 
-  99%,
+  10% {
+    transform: translateX(var(--discuss-stop-1, 0px));
+  }
+
+  30% {
+    transform: translateX(var(--discuss-stop-2, 0px));
+  }
+
+  50% {
+    transform: translateX(var(--discuss-stop-3, 0px));
+  }
+
+  70% {
+    transform: translateX(var(--discuss-stop-4, 0px));
+  }
+
+  90%,
   100% {
-    transform: translateX(var(--discuss-arrow-travel, 0px));
+    transform: translateX(var(--discuss-stop-5, var(--discuss-arrow-travel, 0px)));
   }
 }
 
@@ -1975,7 +1991,7 @@ main .section:not(.hero) {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: discuss-shimmer 400ms ease both;
+  animation: discuss-shimmer 400ms linear both;
 }
 
 .discuss-timeline.is-marked li::before {
