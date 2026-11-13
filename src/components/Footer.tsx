@@ -19,7 +19,6 @@ export function Footer() {
 
   return (
     <footer className="site-footer">
-      <div className="footer-glow" aria-hidden="true" />
       <div className="container footer-main">
         <Link
           className="footer-brand-link"
