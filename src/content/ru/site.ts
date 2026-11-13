@@ -239,7 +239,7 @@ export const copy: SiteCopy = {
     whatsappLabel: "WhatsApp",
     telegram: "https://t.me/Di_Ar_Da",
     telegramLabel: "Telegram",
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/company/spiora-technologies-limited-liability-company/",
     linkedinLabel: "LinkedIn",
   },
   demo: {
