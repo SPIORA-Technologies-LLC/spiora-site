@@ -25,20 +25,20 @@ export const story = {
     posterCaption: "Illustrative workflow using synthetic data.",
   },
   explain: {
-    title: "One connected system for client work.",
-    lead: "SPIORA connects the client record with the work around it: tasks, documents, communication, calendars, payments, knowledge, analytics, AI, and a client portal.",
+    title: "One connected system for client work",
+    lead: "SPIORA connects the client record with the work around it: tasks, documents, communication, calendars, payments, knowledge, analytics, AI and a client portal.",
     audiences: [
       {
         title: "For leaders",
-        body: "A shared view of clients, cases, deadlines, workload, and finances.",
+        body: "A shared view of clients, cases, deadlines, workload and finances.",
       },
       {
         title: "For teams",
-        body: "One place to work across conversations, files, tasks, and calendars.",
+        body: "One place to work across conversations, files, tasks and calendars.",
       },
       {
         title: "For clients",
-        body: "A clear view of what is done, what is needed, and what comes next.",
+        body: "A clear view of what is done, what is needed and what comes next.",
       },
     ],
   },
@@ -126,7 +126,7 @@ export const story = {
     modes: [
       {
         title: "Client record",
-        body: "Contacts, documents, and status start from one client record.",
+        body: "Contacts, documents and status start from one client record.",
       },
       {
         title: "Separate tools",
@@ -134,7 +134,7 @@ export const story = {
       },
       {
         title: "Connected workflow",
-        body: "Tasks, documents, communication, meetings, finances, and the client portal share one platform.",
+        body: "Tasks, documents, communication, meetings, finances and the client portal share one platform.",
       },
     ],
   },
@@ -149,7 +149,7 @@ export const story = {
     points: [
       {
         title: "Team permissions",
-        body: "Each employee sees the clients, tasks, and documents their role allows.",
+        body: "Each employee sees the clients, tasks and documents their role allows.",
       },
       {
         title: "A separate client portal",
