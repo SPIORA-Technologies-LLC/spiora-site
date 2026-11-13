@@ -240,6 +240,7 @@ export const copy: SiteCopy = {
     telegram: "https://t.me/Di_Ar_Da",
     telegramLabel: "Telegram",
     linkedin: "",
+    linkedinLabel: "LinkedIn",
   },
   demo: {
     title: "Запросите демо SPIORA",

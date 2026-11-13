@@ -924,6 +924,26 @@ main .section:not(.hero) {
   text-decoration: none;
 }
 
+.contact-value a.contact-linkedin {
+  gap: 6px;
+  transition: color 180ms ease;
+}
+
+.contact-value a.contact-linkedin span {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.contact-value a.contact-linkedin:hover,
+.contact-value a.contact-linkedin:hover span {
+  color: #ff9900;
+}
+
+.contact-value a.contact-linkedin:hover span {
+  transform: translate(2px, -2px);
+}
+
 .contact-value a.contact-email,
 .contact-value a.contact-email:hover {
   color: var(--white);
@@ -1281,6 +1301,13 @@ main .section:not(.hero) {
 }
 
 @container demo (min-width: 440px) {
+  .form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 24px;
+  }
+
   .form-actions .btn {
     width: fit-content;
     justify-self: start;
@@ -1295,11 +1322,22 @@ main .section:not(.hero) {
 }
 
 .form-privacy a {
-  color: var(--white);
-  min-height: 44px;
+  min-height: 32px;
   display: inline-flex;
   align-items: center;
   width: fit-content;
+  color: var(--text-secondary);
+  font-size: 0.8125rem;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.18);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: color 180ms ease, text-decoration-color 180ms ease;
+}
+
+.form-privacy a:hover {
+  color: var(--text-primary);
+  text-decoration-color: #ff9900;
 }
 
 .form-status {

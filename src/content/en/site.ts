@@ -239,6 +239,7 @@ export const copy = {
     telegram: "https://t.me/Di_Ar_Da",
     telegramLabel: "Telegram",
     linkedin: "",
+    linkedinLabel: "LinkedIn",
   },
   demo: {
     title: "Request a SPIORA demo",
