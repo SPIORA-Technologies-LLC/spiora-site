@@ -890,8 +890,8 @@ main .section:not(.hero) {
   align-items: center;
   justify-content: center;
   width: 20px;
-  height: 20px;
-  margin-top: 2px;
+  height: 21px;
+  margin-top: 0;
   color: var(--text-secondary);
 }
 
@@ -903,6 +903,7 @@ main .section:not(.hero) {
 .contact-kicker {
   font-size: 0.875rem;
   font-weight: 600;
+  line-height: 21px;
 }
 
 .contact-value {
@@ -1636,11 +1637,7 @@ main .section:not(.hero) {
   }
 
   .reach-band .contact-row {
-    align-items: center;
-  }
-
-  .reach-band .contact-icon {
-    margin-top: 0;
+    align-items: start;
   }
 
   .scenario {
