@@ -49,7 +49,7 @@ export const story = {
       "Client records in spreadsheets. Documents in shared drives. Conversations in messengers. Meetings in video apps. Tasks in separate boards. Updates across email and calendars.",
     afterLabel: "With SPIORA",
     after:
-      "Client records, documents, tasks, communication, meetings, payments, and knowledge share one workspace.",
+      "Client records, documents, tasks, communication, meetings, payments and knowledge share one workspace.",
     workspace: ["Client records", "Documents", "Tasks", "Communication", "Meetings", "Payments", "Knowledge"],
     tools: [
       "Spreadsheets",
@@ -76,12 +76,12 @@ export const story = {
       {
         id: "crm",
         title: "CRM",
-        body: "Keep contacts, documents, statuses, and interaction history in one client record.",
+        body: "Keep contacts, documents, statuses and interaction history in one client record.",
       },
       {
         id: "tasks",
         title: "Tasks",
-        body: "Give each task an owner, a deadline, a status, comments, and files.",
+        body: "Give each task an owner, a deadline, a status, comments and files.",
       },
       {
         id: "chat",
@@ -91,27 +91,27 @@ export const story = {
       {
         id: "calendar",
         title: "Calendar and meetings",
-        body: "Bring personal and team events, reminders, and meetings into one view.",
+        body: "Bring personal and team events, reminders and meetings into one view.",
       },
       {
         id: "finance",
         title: "Finance",
-        body: "Keep agreements, payments, and balances connected to the client.",
+        body: "Keep agreements, payments and balances connected to the client.",
       },
       {
         id: "analytics",
         title: "Analytics",
-        body: "Review cases, deadlines, and team workload in one overview.",
+        body: "Review cases, deadlines and team workload in one overview.",
       },
       {
         id: "knowledge",
         title: "Knowledge base",
-        body: "Find procedures, templates, and instructions where the team works.",
+        body: "Find procedures, templates and instructions where the team works.",
       },
       {
         id: "ai",
         title: "AI Workspace",
-        body: "Draft emails, translate text, and find answers from the company knowledge base.",
+        body: "Draft emails, translate text and find answers from the company knowledge base.",
       },
       {
         id: "roles",
