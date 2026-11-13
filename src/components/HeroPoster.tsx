@@ -12,7 +12,10 @@ export function HeroPoster({ copy, story }: { copy: SiteCopy; story: StoryCopy }
           ))}
         </ul>
       </div>
-      <div className="shot-frame shot-photo">
+      <div className="shot-frame shot-photo hero-shot">
+        <span className="footnote-mark" aria-hidden="true">
+          *
+        </span>
         <Image
           src={copy.hero.shot.src}
           alt={copy.hero.shot.alt}
@@ -22,8 +25,10 @@ export function HeroPoster({ copy, story }: { copy: SiteCopy; story: StoryCopy }
           sizes="(min-width: 900px) 560px, 100vw"
         />
       </div>
-      <figcaption>{story.hero.posterCaption}</figcaption>
-      <p className="note">{story.beforeAfter.toolsNote}</p>
+      <figcaption>
+        <span aria-hidden="true">* </span>
+        {story.hero.posterCaption}
+      </figcaption>
     </figure>
   );
 }

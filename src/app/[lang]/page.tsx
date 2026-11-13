@@ -69,7 +69,6 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             afterLabel={story.beforeAfter.afterLabel}
             after={story.beforeAfter.after}
             tools={story.beforeAfter.tools}
-            toolsNote={story.beforeAfter.toolsNote}
             workspace={story.beforeAfter.workspace}
           />
         </Container>

@@ -426,6 +426,22 @@ main .section:not(.hero) {
   text-align: center;
 }
 
+.hero-shot {
+  position: relative;
+}
+
+.footnote-mark {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 14px;
+  color: #ff9900;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
 .hero-poster figcaption {
   margin-top: 12px;
   color: var(--text-secondary);
@@ -2207,6 +2223,143 @@ main .section:not(.hero) {
   .compare.is-enhanced .compare-stage {
     transition: none !important;
   }
+}
+
+/* Chaos vortex */
+.compare-arena {
+  position: relative;
+}
+
+.compare-chaos li {
+  position: relative;
+}
+
+.compare-arena.is-swirling {
+  height: 380px;
+  margin-top: 16px;
+  overflow: hidden;
+  border-radius: 16px;
+  background:
+    radial-gradient(closest-side, rgba(255, 70, 40, 0.1), transparent 75%),
+    repeating-radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 28px);
+  animation: arena-in 500ms ease both;
+}
+
+.compare-arena.is-swirling .compare-chaos {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+}
+
+.compare.is-enhanced.is-before .compare-arena.is-swirling .compare-chaos li {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  white-space: nowrap;
+  animation: none;
+  transition: none;
+  will-change: transform, opacity;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+}
+
+.compare-rings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.compare-rings span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+  translate: -50% -50%;
+  animation: ring-spin 18s linear infinite;
+}
+
+.compare-rings span:nth-child(1) {
+  width: 88%;
+  height: 82%;
+}
+
+.compare-rings span:nth-child(2) {
+  width: 60%;
+  height: 56%;
+  border-color: rgba(255, 140, 0, 0.18);
+  animation-duration: 12s;
+  animation-direction: reverse;
+}
+
+.compare-rings span:nth-child(3) {
+  width: 30%;
+  height: 28%;
+  animation-duration: 7s;
+}
+
+.compare-badge {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  min-width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #ff3b30;
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+}
+
+.compare-badge.is-on {
+  animation: badge-pop 1700ms ease both;
+}
+
+.compare-badge.is-on::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid #ff3b30;
+  animation: badge-ping 900ms ease-out both;
+}
+
+@media (min-width: 900px) {
+  .compare-arena.is-swirling {
+    height: 360px;
+  }
+}
+
+@keyframes arena-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ring-spin {
+  to { rotate: 360deg; }
+}
+
+@keyframes badge-pop {
+  0% { opacity: 0; transform: scale(0); }
+  14% { opacity: 1; transform: scale(1.3); }
+  24% { transform: scale(1); }
+  80% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0.6); }
+}
+
+@keyframes badge-ping {
+  from { opacity: 0.9; transform: scale(1); }
+  to { opacity: 0; transform: scale(2.2); }
 }
 
 @keyframes compare-drift {

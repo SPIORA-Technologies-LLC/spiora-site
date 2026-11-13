@@ -62,7 +62,6 @@ export const story = {
       "Email",
       "CRM",
     ],
-    toolsNote: "An example of a scattered stack, not a list of SPIORA integrations.",
   },
   spaces: {
     title: "Two workspaces\nOne client journey",
