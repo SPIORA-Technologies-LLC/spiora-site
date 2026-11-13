@@ -41,7 +41,7 @@ export const copy = {
     closeMenu: "Close menu",
   },
   hero: {
-    title: "A digital office for immigration and consulting teams",
+    title: "Clients, team, and processes — in one digital office",
     lead: "Run clients, documents, tasks, and communications in one workspace. Clients see their case status and next steps in a personal portal.",
     cta: "Request a demo",
     shot: {
@@ -268,7 +268,7 @@ export const copy = {
   },
   footer: {
     slogan: "ONE PLATFORM. INFINITE SOLUTIONS.",
-    blurb: "A digital office for immigration and consulting teams",
+    blurb: "Clients, team, and processes — in one digital office",
     platform: "Platform",
     company: "Company",
     demo: "Demo",
