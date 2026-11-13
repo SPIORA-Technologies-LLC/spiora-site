@@ -894,50 +894,6 @@ main .section:not(.hero) {
   text-decoration: none;
 }
 
-.contact-row:has(.copy-button) {
-  position: relative;
-}
-
-.copy-value {
-  display: block;
-  width: 100%;
-  padding-right: 84px;
-}
-
-.copy-text {
-  min-width: 0;
-}
-
-.copy-button {
-  appearance: none;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  min-height: 32px;
-  padding: 0 12px;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  background: #ff9900;
-  color: var(--bg-primary);
-  font: inherit;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-}
-
-.copy-button:hover {
-  background: #ffb300;
-  color: var(--bg-primary);
-}
-
-.copy-button.is-copied,
-.copy-button.is-copied:hover {
-  background: #ff9900;
-  color: var(--bg-primary);
-}
-
 .team-grid {
   display: grid;
   gap: 12px;
@@ -1601,16 +1557,26 @@ main .section:not(.hero) {
 }
 
 .ui-accordion-row {
+  appearance: none;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 10px 12px;
+  gap: 16px;
+  min-height: 56px;
+  padding: 10px 20px 10px 12px;
+  border: 0;
+  border-radius: var(--radius-m);
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
-.ui-accordion-item:has([aria-expanded="true"]) .ui-accordion-row {
-  align-items: flex-end;
-  padding-bottom: 0;
+.ui-accordion-row:focus-visible {
+  outline: 2px solid #ff9900;
+  outline-offset: 2px;
 }
 
 .ui-accordion-title {
@@ -1618,28 +1584,27 @@ main .section:not(.hero) {
   color: var(--text-primary);
   font-size: 1rem;
   font-weight: 700;
+  transition: color 180ms ease;
 }
 
-.ui-accordion-toggle {
-  appearance: none;
+.ui-accordion-row:hover .ui-accordion-title {
+  color: #ff9900;
+}
+
+.ui-accordion-icon {
   flex: 0 0 auto;
-  min-height: 32px;
-  padding: 0 12px;
-  border: 1px solid transparent;
-  border-radius: 999px;
-  background: #ff9900;
-  color: var(--bg-primary);
-  font: inherit;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-  cursor: pointer;
+  width: 9px;
+  height: 9px;
+  margin-top: -4px;
+  border-right: 2px solid var(--text-secondary);
+  border-bottom: 2px solid var(--text-secondary);
+  transform: rotate(45deg);
+  transition: transform 180ms ease, margin 180ms ease;
 }
 
-.ui-accordion-toggle:hover {
-  background: #ffb300;
-  color: var(--bg-primary);
+.ui-accordion-row[aria-expanded="true"] .ui-accordion-icon {
+  margin-top: 4px;
+  transform: rotate(-135deg);
 }
 
 .ui-accordion-panel {

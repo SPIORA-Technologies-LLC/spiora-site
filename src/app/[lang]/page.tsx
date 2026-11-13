@@ -3,7 +3,6 @@ import { faEnvelope, faLocationDot, faPhone } from "@fortawesome/free-solid-svg-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import { CaseDemo } from "@/components/CaseDemo";
-import { CopyValue } from "@/components/CopyValue";
 import { DemoForm } from "@/components/DemoForm";
 import { DiscussTimeline } from "@/components/DiscussTimeline";
 import { HeroPoster } from "@/components/HeroPoster";
@@ -206,15 +205,9 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               <div>
                 <p className="contact-kicker">{copy.contacts.company}</p>
                 <p className="contact-value">
-                  <CopyValue
-                    text={`${copy.contacts.street}, ${copy.contacts.city}`}
-                    label={copy.contacts.copy}
-                    copiedLabel={copy.contacts.copied}
-                  >
                     {copy.contacts.street}
                     <br />
                     {copy.contacts.city}
-                  </CopyValue>
                 </p>
               </div>
             </div>
@@ -225,9 +218,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               <div>
                 <p className="contact-kicker">{copy.contacts.emailLabel}</p>
                 <p className="contact-value">
-                  <CopyValue text={copy.contacts.email} label={copy.contacts.copy} copiedLabel={copy.contacts.copied}>
                     <a className="contact-email" href={`mailto:${copy.contacts.email}`}>{copy.contacts.email}</a>
-                  </CopyValue>
                 </p>
               </div>
             </div>
@@ -238,7 +229,6 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               <div>
                 <p className="contact-kicker">{copy.contacts.phoneLabel}</p>
                 <p className="contact-value">
-                  <CopyValue text={copy.contacts.phone} label={copy.contacts.copy} copiedLabel={copy.contacts.copied}>
                     <span className="contact-static contact-phone">
                       {copy.contacts.phone}
                       <span className="contact-apps">
@@ -272,7 +262,6 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                         </a>
                       </span>
                     </span>
-                  </CopyValue>
                 </p>
               </div>
             </div>
@@ -302,8 +291,6 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             <h2 id="faq-title">{copy.ui.faqTitle}</h2>
           </div>
           <Accordion
-            openLabel={copy.ui.open}
-            closeLabel={copy.ui.close}
             items={story.faq.map((item, index) => ({
               id: `faq-${index}`,
               title: item.question,

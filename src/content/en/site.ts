@@ -11,8 +11,6 @@ export const copy = {
   skip: "Skip to content",
   ui: {
     faqTitle: "FAQ",
-    open: "Open",
-    close: "Close",
     language: "Language",
     switchTo: "Switch to Russian",
   },
@@ -229,8 +227,6 @@ export const copy = {
     whatsappLabel: "WhatsApp",
     telegram: "https://t.me/Di_Ar_Da",
     telegramLabel: "Telegram",
-    copy: "Copy",
-    copied: "Copied",
   },
   demo: {
     title: "Request a SPIORA demo",

@@ -10,11 +10,9 @@ type AccordionItem = {
 
 type AccordionProps = {
   items: AccordionItem[];
-  openLabel?: string;
-  closeLabel?: string;
 };
 
-export function Accordion({ items, openLabel = "Open", closeLabel = "Close" }: AccordionProps) {
+export function Accordion({ items }: AccordionProps) {
   const baseId = useId();
   const [open, setOpen] = useState<string[]>([]);
 
@@ -28,20 +26,18 @@ export function Accordion({ items, openLabel = "Open", closeLabel = "Close" }: A
         const expanded = open.includes(item.id);
         return (
           <div className="ui-accordion-item" key={item.id}>
-            <div className="ui-accordion-row">
-              <p className="ui-accordion-title" id={`${baseId}-${item.id}-title`}>
+            <button
+              className="ui-accordion-row"
+              type="button"
+              aria-expanded={expanded}
+              aria-controls={`${baseId}-${item.id}-panel`}
+              onClick={() => toggle(item.id)}
+            >
+              <span className="ui-accordion-title" id={`${baseId}-${item.id}-title`}>
                 {item.title}
-              </p>
-              <button
-                className="ui-accordion-toggle"
-                type="button"
-                aria-expanded={expanded}
-                aria-controls={`${baseId}-${item.id}-panel`}
-                onClick={() => toggle(item.id)}
-              >
-                {expanded ? closeLabel : openLabel}
-              </button>
-            </div>
+              </span>
+              <span className="ui-accordion-icon" aria-hidden="true" />
+            </button>
             <div id={`${baseId}-${item.id}-panel`} role="region" aria-labelledby={`${baseId}-${item.id}-title`} hidden={!expanded}>
               <div className="ui-accordion-panel">{item.body}</div>
             </div>

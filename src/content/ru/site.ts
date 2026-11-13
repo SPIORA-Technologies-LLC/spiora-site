@@ -12,8 +12,6 @@ export const copy: SiteCopy = {
   skip: "Перейти к содержанию",
   ui: {
     faqTitle: "Частые вопросы",
-    open: "Открыть",
-    close: "Закрыть",
     language: "Язык",
     switchTo: "Switch to English",
   },
@@ -230,8 +228,6 @@ export const copy: SiteCopy = {
     whatsappLabel: "WhatsApp",
     telegram: "https://t.me/Di_Ar_Da",
     telegramLabel: "Telegram",
-    copy: "Скопировать",
-    copied: "Скопировано",
   },
   demo: {
     title: "Запросите демо SPIORA",
