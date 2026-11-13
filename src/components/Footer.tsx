@@ -2,30 +2,31 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { copy } from "@/content/en";
 import { Button } from "@/components/ui/Button";
-
-const platform = [
-  { href: "/#modules", label: "Product" },
-  { href: "/#case", label: "How it works" },
-  { href: "/#security", label: "Security" },
-  { href: "/#implementation", label: "Implementation" },
-] as const;
-
-const company = [
-  { href: "/#team", label: "Team" },
-  { href: "/#contacts", label: "Contacts" },
-  { href: "/privacy", label: copy.footer.privacy },
-] as const;
+import { anchorHref, localePath } from "@/i18n/config";
+import { useDictionary, useLocale } from "@/i18n/LocaleProvider";
 
 export function Footer() {
+  const locale = useLocale();
+  const { copy } = useDictionary();
+  const platform = [
+    { href: anchorHref(locale, "modules"), label: copy.nav.product },
+    { href: anchorHref(locale, "case"), label: copy.nav.howItWorks },
+    { href: anchorHref(locale, "security"), label: copy.nav.security },
+    { href: anchorHref(locale, "implementation"), label: copy.nav.implementation },
+  ];
+  const company = [
+    { href: anchorHref(locale, "team"), label: copy.nav.team },
+    { href: anchorHref(locale, "contacts"), label: copy.nav.contacts },
+    { href: localePath(locale, "/privacy"), label: copy.footer.privacy },
+  ];
   return (
     <footer className="site-footer">
       <div className="container footer-main">
         <div className="footer-brand">
           <Link
             className="footer-brand-link"
-            href="/#top"
+            href={anchorHref(locale, "top")}
             aria-label={copy.brand}
             onClick={() => window.dispatchEvent(new Event("spiora-logo-play"))}
           >
@@ -65,7 +66,7 @@ export function Footer() {
             {copy.footer.demo}
           </h2>
           <p className="footer-blurb">{copy.footer.demoLead}</p>
-          <Button variant="outline" href="/#demo">
+          <Button variant="outline" href={anchorHref(locale, "demo")}>
             {copy.nav.demo}
           </Button>
         </div>

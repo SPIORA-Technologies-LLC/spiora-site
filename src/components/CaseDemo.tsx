@@ -2,13 +2,13 @@
 
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { demoCase } from "@/content/demo-case";
+import type { DemoCaseCopy } from "@/content";
 
 type DocumentStatus = "requested" | "uploaded" | "reviewed";
 
 const initialDocuments: DocumentStatus = "requested";
 
-export function CaseDemo() {
+export function CaseDemo({ demoCase }: { demoCase: DemoCaseCopy }) {
   const [index, setIndex] = useState(0);
   const [invited, setInvited] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -95,7 +95,7 @@ export function CaseDemo() {
       <div className="case-scene">
         <div key={step.id} className="case-scene-body" aria-live="polite">
         <p className="case-progress">
-          Step {index + 1} of {total}
+          {demoCase.labels.step.replace("{current}", String(index + 1)).replace("{total}", String(total))}
         </p>
         <p className="case-kicker">
           {demoCase.client} · {demoCase.caseId} · {demoCase.type}
@@ -106,7 +106,7 @@ export function CaseDemo() {
         {step.id === "invitation" ? (
           <div className="case-record">
             <p>
-              Client card · <strong className="case-status">{invited ? demoCase.statuses.inviteSent : demoCase.statuses.notSent}</strong>
+              {demoCase.labels.clientCard} · <strong className="case-status">{invited ? demoCase.statuses.inviteSent : demoCase.statuses.notSent}</strong>
             </p>
             {invited ? null : (
               <Button type="button" onClick={() => setInvited(true)}>
@@ -119,7 +119,7 @@ export function CaseDemo() {
         {step.id === "questionnaire" ? (
           <div className="case-record">
             <p>
-              Questionnaire ·{" "}
+              {demoCase.labels.questionnaire} ·{" "}
               <strong className="case-status">
                 {submitted ? demoCase.statuses.submitted : demoCase.statuses.notSubmitted}
               </strong>
@@ -185,9 +185,11 @@ export function CaseDemo() {
         {step.id === "portal" ? (
           <div className="case-record">
             <p>
-              Stage · <strong className="case-status">{portal.stage}</strong>
+              {demoCase.labels.stage} · <strong className="case-status">{portal.stage}</strong>
             </p>
-            <p>Next action · {portal.next}</p>
+            <p>
+              {demoCase.labels.nextAction} · {portal.next}
+            </p>
           </div>
         ) : null}
         </div>

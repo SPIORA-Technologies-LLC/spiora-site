@@ -9,6 +9,13 @@ export const copy = {
       "How the SPIORA marketing site handles a request for a product demo.",
   },
   skip: "Skip to content",
+  ui: {
+    faqTitle: "FAQ",
+    open: "Open",
+    close: "Close",
+    language: "Language",
+    switchTo: "Switch to Russian",
+  },
   nav: {
     label: "Primary",
     features: "Features",

@@ -6,16 +6,10 @@ import { HeaderLogo } from "@/components/HeaderLogo";
 import "@/lib/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { copy } from "@/content/en";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/Button";
-
-const links = [
-  { href: "/#modules", label: copy.nav.product },
-  { href: "/#case", label: copy.nav.howItWorks },
-  { href: "/#security", label: copy.nav.security },
-  { href: "/#implementation", label: copy.nav.implementation },
-  { href: "/#team", label: copy.nav.team },
-] as const;
+import { anchorHref } from "@/i18n/config";
+import { useDictionary, useLocale } from "@/i18n/LocaleProvider";
 
 type HeaderProps = {
   loginUrl: string;
@@ -24,6 +18,16 @@ type HeaderProps = {
 const LOGO_MOTION = "(prefers-reduced-motion: reduce)";
 
 export function Header({ loginUrl }: HeaderProps) {
+  const locale = useLocale();
+  const { copy } = useDictionary();
+  const links = [
+    { href: anchorHref(locale, "modules"), label: copy.nav.product },
+    { href: anchorHref(locale, "case"), label: copy.nav.howItWorks },
+    { href: anchorHref(locale, "security"), label: copy.nav.security },
+    { href: anchorHref(locale, "implementation"), label: copy.nav.implementation },
+    { href: anchorHref(locale, "team"), label: copy.nav.team },
+  ];
+  const demoHref = anchorHref(locale, "demo");
   const detailsRef = useRef<HTMLDetailsElement>(null);
   const summaryRef = useRef<HTMLElement>(null);
   const [open, setOpen] = useState(false);
@@ -68,7 +72,7 @@ export function Header({ loginUrl }: HeaderProps) {
         {copy.skip}
       </a>
       <div className="container header-bar">
-        <Link className="logo-link" href="/#top" aria-label={copy.brand} onClick={playLogo}>
+        <Link className="logo-link" href={anchorHref(locale, "top")} aria-label={copy.brand} onClick={playLogo}>
           <HeaderLogo playing={logoPlaying} onDone={finishLogo} />
         </Link>
 
@@ -83,9 +87,10 @@ export function Header({ loginUrl }: HeaderProps) {
               {copy.nav.login}
             </a>
           ) : null}
-          <Button variant="outline" href="/#demo">
+          <Button variant="outline" href={demoHref}>
             {copy.nav.discuss}
           </Button>
+          <LanguageSwitcher />
         </nav>
 
         <details
@@ -107,9 +112,10 @@ export function Header({ loginUrl }: HeaderProps) {
                 {copy.nav.login}
               </a>
             ) : null}
-            <Button variant="outline" href="/#demo" onClick={closeMenu}>
+            <Button variant="outline" href={demoHref} onClick={closeMenu}>
               {copy.nav.discuss}
             </Button>
+            <LanguageSwitcher />
           </nav>
         </details>
       </div>

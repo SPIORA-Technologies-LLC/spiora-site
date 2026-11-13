@@ -1,4 +1,4 @@
-import { copy } from "@/content/en";
+import type { SiteCopy } from "@/content";
 
 export type DemoInput = {
   name: string;
@@ -18,12 +18,16 @@ export function emptyDemoInput(): DemoInput {
   return { name: "", company: "", email: "" };
 }
 
-export function validateDemo(input: DemoInput): { errors: FieldErrors; value: DemoInput } {
+export type DemoErrorMessages = SiteCopy["demo"]["errors"];
+
+export function validateDemo(
+  input: DemoInput,
+  messages: DemoErrorMessages,
+): { errors: FieldErrors; value: DemoInput } {
   const name = input.name.trim();
   const company = input.company.trim();
   const email = input.email.trim();
   const errors: FieldErrors = {};
-  const messages = copy.demo.errors;
 
   if (!name) errors.name = messages.nameRequired;
   else if (name.length > 80) errors.name = messages.nameLength;

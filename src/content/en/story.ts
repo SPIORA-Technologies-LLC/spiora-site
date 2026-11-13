@@ -1,5 +1,3 @@
-import { publication } from "./claims";
-
 export const story = {
   anchors: {
     top: "/#top",
@@ -198,26 +196,22 @@ export const story = {
   footer: ["Product", "How it works", "Security", "Implementation", "Team", "Contacts", "Privacy policy"],
 } as const;
 
-const implementationFallback = {
-  title: "What we discuss before implementation",
-  items: ["Workflow", "Modules", "Roles", "Data", "Timeline"],
+export const implementation = {
+  fallback: {
+    title: "What we discuss before implementation",
+    items: ["Workflow", "Modules", "Roles", "Data", "Timeline"],
+  },
+  confirmed: {
+    title: "Start with your real client workflow.",
+    note: "The implementation scope and timeline are agreed after reviewing your requirements.",
+    steps: [
+      "Understand your current workflow.",
+      "Agree on modules, roles, and scope.",
+      "Configure the platform.",
+      "Prepare data and test the workflow.",
+      "Review a working version.",
+      "Validate the setup together.",
+      "Launch with the team.",
+    ],
+  },
 } as const;
-
-const confirmedImplementation = {
-  title: "Start with your real client workflow.",
-  note: "The implementation scope and timeline are agreed after reviewing your requirements.",
-  steps: [
-    "Understand your current workflow.",
-    "Agree on modules, roles, and scope.",
-    "Configure the platform.",
-    "Prepare data and test the workflow.",
-    "Review a working version.",
-    "Validate the setup together.",
-    "Launch with the team.",
-  ],
-} as const;
-
-export function implementationCopy() {
-  if (!publication.confirmedImplementation) return implementationFallback;
-  return confirmedImplementation;
-}

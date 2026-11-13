@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-import { copy } from "@/content/en";
+import { getDictionary } from "@/content";
+import { defaultLocale, isLocale } from "@/i18n/config";
 import { validateDemo, hasErrors, type DemoInput } from "@/lib/demo";
 import { demoChannel } from "@/lib/site";
 
@@ -73,6 +74,7 @@ function asText(value: unknown): string {
 }
 
 export async function POST(request: Request) {
+  let copy = getDictionary(defaultLocale).copy;
   const raw = await request.text();
   if (raw.length > MAX_BODY) {
     return json({ ok: false, error: "validation", message: copy.demo.checkFields }, 400);
@@ -89,11 +91,17 @@ export async function POST(request: Request) {
     return json({ ok: false, error: "validation", message: copy.demo.checkFields }, 400);
   }
 
-  const { errors, value } = validateDemo({
-    name: asText(parsed.name),
-    company: asText(parsed.company),
-    email: asText(parsed.email),
-  });
+  const locale = isLocale(parsed.locale) ? parsed.locale : defaultLocale;
+  copy = getDictionary(locale).copy;
+
+  const { errors, value } = validateDemo(
+    {
+      name: asText(parsed.name),
+      company: asText(parsed.company),
+      email: asText(parsed.email),
+    },
+    copy.demo.errors,
+  );
 
   if (hasErrors(errors)) {
     return json({ ok: false, error: "validation", message: copy.demo.checkFields, fields: errors }, 400);
@@ -132,7 +140,7 @@ export async function POST(request: Request) {
         name: value.name,
         company: value.company,
         email: value.email,
-        locale: "en",
+        locale,
         source: "spiora-marketing-site",
       }),
       signal: AbortSignal.timeout(8000),

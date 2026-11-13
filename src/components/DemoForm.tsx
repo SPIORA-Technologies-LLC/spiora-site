@@ -2,14 +2,17 @@
 
 import { FormEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { copy } from "@/content/en";
 import { Button } from "@/components/ui/Button";
 import { Field } from "@/components/ui/Field";
+import { localePath } from "@/i18n/config";
+import { useDictionary, useLocale } from "@/i18n/LocaleProvider";
 import { emptyDemoInput, hasErrors, validateDemo, type DemoInput, type FieldErrors } from "@/lib/demo";
 
 type Status = "idle" | "sending" | "success" | "error";
 
 export function DemoForm() {
+  const locale = useLocale();
+  const { copy } = useDictionary();
   const [values, setValues] = useState<DemoInput>(emptyDemoInput);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<Status>("idle");
@@ -58,7 +61,7 @@ export function DemoForm() {
       const link = target.closest("a");
       if (!link) return;
       const href = link.getAttribute("href") ?? "";
-      if (href !== "/#demo" && href !== "#demo") return;
+      if (!/^(\/(ru)?)?#demo$/.test(href)) return;
       play();
     };
 
@@ -78,7 +81,7 @@ export function DemoForm() {
     event.preventDefault();
     if (status === "sending") return;
 
-    const result = validateDemo(values);
+    const result = validateDemo(values, copy.demo.errors);
     setErrors(result.errors);
     if (hasErrors(result.errors)) {
       setStatus("error");
@@ -97,7 +100,7 @@ export function DemoForm() {
           "Content-Type": "application/json",
           "Idempotency-Key": keyRef.current,
         },
-        body: JSON.stringify(result.value),
+        body: JSON.stringify({ ...result.value, locale }),
       });
       const data = (await response.json().catch(() => null)) as {
         ok?: boolean;
@@ -174,7 +177,7 @@ export function DemoForm() {
           {status === "sending" ? copy.demo.sending : copy.demo.submit}
         </Button>
         <p className="form-privacy">
-          <Link href="/privacy">{copy.demo.privacy}</Link>
+          <Link href={localePath(locale, "/privacy")}>{copy.demo.privacy}</Link>
         </p>
       </div>
 

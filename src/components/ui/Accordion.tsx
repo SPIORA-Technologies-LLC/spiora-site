@@ -10,9 +10,11 @@ type AccordionItem = {
 
 type AccordionProps = {
   items: AccordionItem[];
+  openLabel?: string;
+  closeLabel?: string;
 };
 
-export function Accordion({ items }: AccordionProps) {
+export function Accordion({ items, openLabel = "Open", closeLabel = "Close" }: AccordionProps) {
   const baseId = useId();
   const [open, setOpen] = useState<string[]>([]);
 
@@ -37,7 +39,7 @@ export function Accordion({ items }: AccordionProps) {
                 aria-controls={`${baseId}-${item.id}-panel`}
                 onClick={() => toggle(item.id)}
               >
-                {expanded ? "Close" : "Open"}
+                {expanded ? closeLabel : openLabel}
               </button>
             </div>
             <div id={`${baseId}-${item.id}-panel`} role="region" aria-labelledby={`${baseId}-${item.id}-title`} hidden={!expanded}>

@@ -1,8 +1,7 @@
 import Image from "next/image";
-import { copy } from "@/content/en";
-import { story } from "@/content/story";
+import type { SiteCopy, StoryCopy } from "@/content";
 
-export function HeroPoster() {
+export function HeroPoster({ copy, story }: { copy: SiteCopy; story: StoryCopy }) {
   return (
     <figure className="hero-poster">
       <div className="hero-system">

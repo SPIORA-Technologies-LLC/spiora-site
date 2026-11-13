@@ -13,13 +13,16 @@ import { Accordion } from "@/components/ui/Accordion";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Section } from "@/components/ui/Section";
-import { demoCase } from "@/content/demo-case";
-import { copy } from "@/content/en";
-import { implementationCopy, story } from "@/content/story";
+import { notFound } from "next/navigation";
+import { getDictionary } from "@/content";
+import { anchorHref, isLocale } from "@/i18n/config";
 
-const implementation = implementationCopy();
+export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  if (!isLocale(lang)) notFound();
+  const { copy, story, demoCase, implementation } = getDictionary(lang);
+  const anchor = (id: string) => anchorHref(lang, id);
 
-export default function HomePage() {
   return (
     <main id="content">
       <Section id="top" labelledBy="hero-title" className="hero">
@@ -28,13 +31,13 @@ export default function HomePage() {
             <h1 id="hero-title">{story.hero.title}</h1>
             <p className="lead">{story.hero.lead}</p>
             <div className="hero-actions">
-              <Button href="/#case">{story.hero.primary}</Button>
-              <Button variant="outline" href="/#demo">
+              <Button href={anchor("case")}>{story.hero.primary}</Button>
+              <Button variant="outline" href={anchor("demo")}>
                 {story.hero.secondary}
               </Button>
             </div>
           </div>
-          <HeroPoster />
+          <HeroPoster copy={copy} story={story} />
         </Container>
       </Section>
 
@@ -79,7 +82,7 @@ export default function HomePage() {
             <h2 id="case-title">{demoCase.title}</h2>
             <p className="lead">{demoCase.lead}</p>
           </div>
-          <CaseDemo />
+          <CaseDemo demoCase={demoCase} />
         </Container>
       </Section>
 
@@ -147,7 +150,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="hero-actions">
-            <Button variant="outline" href="/#demo">
+            <Button variant="outline" href={anchor("demo")}>
               {story.security.cta}
             </Button>
           </div>
@@ -283,7 +286,7 @@ export default function HomePage() {
             </div>
             <div className="reach-form">
               <div className="hero-actions">
-                <Button variant="outline" href="/#case">
+                <Button variant="outline" href={anchor("case")}>
                   {story.finalCta.secondary}
                 </Button>
               </div>
@@ -296,9 +299,11 @@ export default function HomePage() {
       <Section labelledBy="faq-title">
         <Container>
           <div className="section-intro">
-            <h2 id="faq-title">FAQ</h2>
+            <h2 id="faq-title">{copy.ui.faqTitle}</h2>
           </div>
           <Accordion
+            openLabel={copy.ui.open}
+            closeLabel={copy.ui.close}
             items={story.faq.map((item, index) => ({
               id: `faq-${index}`,
               title: item.question,

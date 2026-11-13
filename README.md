@@ -1,6 +1,6 @@
 # SPIORA marketing site
 
-English marketing page for SPIORA, a digital office for immigration and consulting teams. Russian copy from the brief is not published. The owner asked for an English site.
+Marketing page for SPIORA, a digital office for immigration and consulting teams. English is served at `/`, Russian at `/ru`. The EN/RU switcher in the header keeps the reader on the same page and section.
 
 ## Commands
 
@@ -20,7 +20,7 @@ Copy `.env.example` to `.env.local`. Leave a value empty until it is approved.
 
 | Variable | Purpose |
 |---|---|
-| `NEXT_PUBLIC_SITE_URL` | Public origin, no trailing slash. Turns on canonical, hreflang `en`, and the sitemap. |
+| `NEXT_PUBLIC_SITE_URL` | Public origin, no trailing slash. Turns on canonical, hreflang `en`/`ru`, and the sitemap. |
 | `NEXT_PUBLIC_PLATFORM_LOGIN_URL` | Platform login URL. The header link stays hidden until this is set. |
 | `NEXT_PUBLIC_SALES_EMAIL` | Approved sales address. The footer shows it only when set. |
 | `DEMO_WEBHOOK_URL` | HTTPS endpoint that receives demo requests. |
@@ -34,16 +34,17 @@ The route waits at most 8 seconds, forwards an `Idempotency-Key`, and limits eac
 
 1. Start the site with no webhook variables. Submit the form. The fields stay filled and the status says demo requests are temporarily unavailable.
 2. Point `DEMO_WEBHOOK_URL` at an HTTPS collector you control and set `DEMO_WEBHOOK_SECRET`. Restart the server.
-3. Submit a synthetic name, company, and work email. The collector should receive JSON: `name`, `company`, `email`, `locale` (`en`), `source` (`spiora-marketing-site`), plus `Authorization: Bearer …` and `Idempotency-Key`.
+3. Submit a synthetic name, company, and work email. The collector should receive JSON: `name`, `company`, `email`, `locale` (`en` or `ru`), `source` (`spiora-marketing-site`), plus `Authorization: Bearer …` and `Idempotency-Key`.
 4. Submit again while the button says “Sending…”. The button stays disabled until the request finishes.
 5. Send an empty form and an invalid email. Both the page and `POST /api/demo` reject them and keep the typed values.
 
 ## Where to replace copy and visuals
 
-- English copy, menu, errors, alt text, and metadata: `src/content/en.ts`
+- Copy, menu, errors, alt text, and metadata: `src/content/en/*` (English) and `src/content/ru/*` (Russian). Both have the same shape; TypeScript fails the build if a Russian key is missing.
+- Language routing: `src/middleware.ts` and `src/i18n/config.ts`
 - Logo: `public/logo2.svg`, the original SPIORA mark with the slogan. The gray sheet around the export is not shown.
 - Workspace and AI frames: `src/components/Shot.tsx`, used in `src/app/page.tsx`. Replace each frame with an approved screenshot from the demo environment. Synthetic data only: no real names, documents, amounts, messages, or client avatars.
-- Privacy text: `src/app/privacy/page.tsx` and the privacy strings in `src/content/en.ts`
+- Privacy text: `src/app/privacy/page.tsx` and the privacy strings in `src/content/en/site.ts` and `src/content/ru/site.ts`
 
 ## Still needed before production
 

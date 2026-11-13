@@ -9,6 +9,13 @@ export const demoCase = {
     "Interactive illustration. No invitation is sent and no files or payments are processed.",
   title: "Follow one client case through SPIORA.",
   lead: "Explore how information moves between the client portal and the team workspace.",
+  labels: {
+    step: "Step {current} of {total}",
+    clientCard: "Client card",
+    questionnaire: "Questionnaire",
+    stage: "Stage",
+    nextAction: "Next action",
+  },
   actions: {
     previous: "Previous",
     next: "Next",
