@@ -13,6 +13,10 @@ export const copy: SiteCopy = {
   ui: {
     faqTitle: "Частые вопросы",
     language: "Язык",
+    introLabel: "Видео-заставка SPIORA",
+    introSkip: "Пропустить",
+    introSoundOn: "Включить звук",
+    introSoundOff: "Выключить звук",
     switchTo: "Switch to English",
   },
   shotAlts: {

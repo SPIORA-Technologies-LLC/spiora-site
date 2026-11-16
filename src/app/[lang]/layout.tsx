@@ -88,7 +88,7 @@ export default async function RootLayout({
   const locale = await resolveLocale(params);
 
   return (
-    <html lang={htmlLang[locale]} className={`${inter.variable} ${manrope.variable}`}>
+    <html lang={htmlLang[locale]} className={`${inter.variable} ${manrope.variable}`} suppressHydrationWarning>
       <body>
         <LocaleProvider locale={locale}>
           <Header loginUrl={loginUrl} />

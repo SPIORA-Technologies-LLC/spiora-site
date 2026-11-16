@@ -46,6 +46,14 @@ The route waits at most 8 seconds, forwards an `Idempotency-Key`, and limits eac
 - Workspace and AI frames: `src/components/Shot.tsx`, used in `src/app/page.tsx`. Replace each frame with an approved screenshot from the demo environment. Synthetic data only: no real names, documents, amounts, messages, or client avatars.
 - Privacy text: `src/app/privacy/page.tsx` and the privacy strings in `src/content/en/site.ts` and `src/content/ru/site.ts`
 
+## Intro video
+
+The home page opens with a full-screen intro (`src/components/IntroSplash.tsx`). It plays `public/intro/spiora-intro.mp4` muted with a sound button and a skip button, and shows once per browser session. Visitors who prefer reduced motion skip it. To replace the video, encode the new one with:
+
+```bash
+ffmpeg -i source.mp4 -c:v libx264 -preset slow -crf 30 -pix_fmt yuv420p -movflags +faststart -c:a aac -b:a 96k public/intro/spiora-intro.mp4
+```
+
 ## Still needed before production
 
 - Approved login URL

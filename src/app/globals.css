@@ -2952,3 +2952,144 @@ button.space-doc {
     transform: none;
   }
 }
+
+/* ---------- Intro video splash ---------- */
+
+html.intro-active {
+  overflow: hidden;
+}
+
+html.intro-done .intro {
+  display: none;
+}
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  background: #000;
+  opacity: 1;
+  transition: opacity 600ms ease;
+}
+
+.intro.is-leaving {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+@media (max-aspect-ratio: 4 / 3) {
+  .intro-video {
+    object-fit: contain;
+  }
+}
+
+.intro-controls {
+  position: absolute;
+  right: 24px;
+  bottom: 28px;
+  left: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.intro-controls button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  background: rgba(8, 9, 9, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.intro-controls button:hover {
+  border-color: #ff9900;
+  color: #ff9900;
+}
+
+.intro-controls button:focus-visible {
+  outline: 2px solid #ff9900;
+  outline-offset: 3px;
+}
+
+.intro-sound svg {
+  width: 18px;
+  height: 18px;
+}
+
+.intro-sound[aria-pressed="false"] {
+  border-color: rgba(255, 153, 0, 0.7);
+}
+
+.intro-skip span {
+  transition: transform 180ms ease;
+}
+
+.intro-skip:hover span {
+  transform: translateX(3px);
+}
+
+.intro-progress {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.intro-progress span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #ff7b00, #ff9700, #ffb300);
+  transform-origin: left center;
+  transition: transform 250ms linear;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .intro-sound[aria-pressed="false"] {
+    animation: intro-sound-pulse 1.8s ease-in-out infinite;
+  }
+}
+
+@keyframes intro-sound-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 153, 0, 0.45); }
+  50% { box-shadow: 0 0 0 8px rgba(255, 153, 0, 0); }
+}
+
+@media (max-width: 639px) {
+  .intro-controls {
+    right: 16px;
+    bottom: 20px;
+    left: 16px;
+  }
+
+  .intro-controls button {
+    padding: 0 14px;
+  }
+}

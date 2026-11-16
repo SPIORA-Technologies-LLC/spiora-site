@@ -6,6 +6,7 @@ import { CaseDemo } from "@/components/CaseDemo";
 import { DemoForm } from "@/components/DemoForm";
 import { DiscussTimeline } from "@/components/DiscussTimeline";
 import { HeroPoster } from "@/components/HeroPoster";
+import { IntroSplash, introGateScript } from "@/components/IntroSplash";
 import { Modules } from "@/components/Modules";
 import { Workspaces } from "@/components/Workspaces";
 import { Accordion } from "@/components/ui/Accordion";
@@ -24,6 +25,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
 
   return (
     <main id="content">
+      <script dangerouslySetInnerHTML={{ __html: introGateScript }} />
+      <IntroSplash />
       <Section id="top" labelledBy="hero-title" className="hero">
         <Container className="hero-grid">
           <div>
