@@ -32,19 +32,32 @@ export type ShotFocus = { x: number; y: number; zoom: number };
 export type FocusedShot = { shot: ShotKey; focus?: ShotFocus };
 
 /**
- * One screenshot per step of the interactive client case.
- * Steps that share a screenshot zoom into different parts of it, so moving
- * between them pans across the same screen.
+ * One screen of the SPIORA demo per step of the client journey, shot in both
+ * interface languages (public/shots/journey/<locale>/). Contacts and file names
+ * on the shots are replaced with invented ones. Steps that share a screen
+ * zoom into different parts of it, so moving between them pans across it.
  */
-export const caseStepShots: Record<string, FocusedShot> = {
-  invitation: { shot: "workspace" },
-  questionnaire: { shot: "portal", focus: { x: 22, y: 92, zoom: 1.9 } },
-  documents: { shot: "portal", focus: { x: 30, y: 52, zoom: 1.7 } },
-  tasks: { shot: "tasks", focus: { x: 62, y: 78, zoom: 1.35 } },
-  agreement: { shot: "finance", focus: { x: 64, y: 68, zoom: 1.6 } },
-  payment: { shot: "finance", focus: { x: 72, y: 34, zoom: 1.7 } },
-  portal: { shot: "portal" },
+type JourneyShot = { file: string; focus?: ShotFocus };
+
+const journey: Record<string, JourneyShot> = {
+  invitation: { file: "invitation", focus: { x: 62, y: 55, zoom: 1.25 } },
+  questionnaire: { file: "questionnaire", focus: { x: 60, y: 70, zoom: 1.3 } },
+  documents: { file: "documents", focus: { x: 60, y: 62, zoom: 1.3 } },
+  tasks: { file: "tasks", focus: { x: 60, y: 45, zoom: 1.25 } },
+  agreement: { file: "agreement", focus: { x: 38, y: 60, zoom: 1.7 } },
+  payment: { file: "agreement", focus: { x: 60, y: 92, zoom: 1.6 } },
+  portal: { file: "portal", focus: { x: 35, y: 55, zoom: 1.7 } },
 };
+
+export function caseStepShot(stepId: string, locale: string): { image: ShotImage; focus?: ShotFocus } | null {
+  const entry = journey[stepId];
+  if (!entry) return null;
+  const folder = locale === "ru" ? "ru" : "en";
+  return {
+    image: { src: `/shots/journey/${folder}/${entry.file}.webp`, width: 2400, height: 1500 },
+    focus: entry.focus,
+  };
+}
 
 export const moduleShots: Record<string, ShotKey> = {
   crm: "workspace",

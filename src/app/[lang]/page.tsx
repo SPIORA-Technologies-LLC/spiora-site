@@ -88,7 +88,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             <h2 id="case-title">{demoCase.title}</h2>
             <p className="lead">{demoCase.lead}</p>
           </div>
-          <CaseDemo demoCase={demoCase} shotAlts={copy.shotAlts} />
+          <CaseDemo demoCase={demoCase} />
         </Container>
       </Section>
 

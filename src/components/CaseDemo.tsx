@@ -3,14 +3,16 @@
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { FocusShot } from "@/components/FocusShot";
-import type { DemoCaseCopy, SiteCopy } from "@/content";
-import { caseStepShots, shots } from "@/content/shots";
+import type { DemoCaseCopy } from "@/content";
+import { caseStepShot } from "@/content/shots";
+import { useLocale } from "@/i18n/LocaleProvider";
 
 type DocumentStatus = "requested" | "uploaded" | "reviewed";
 
 const initialDocuments: DocumentStatus = "requested";
 
-export function CaseDemo({ demoCase, shotAlts }: { demoCase: DemoCaseCopy; shotAlts: SiteCopy["shotAlts"] }) {
+export function CaseDemo({ demoCase }: { demoCase: DemoCaseCopy }) {
+  const locale = useLocale();
   const [index, setIndex] = useState(0);
   const [invited, setInvited] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -18,7 +20,7 @@ export function CaseDemo({ demoCase, shotAlts }: { demoCase: DemoCaseCopy; shotA
   const stepRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const total = demoCase.steps.length;
   const step = demoCase.steps[index];
-  const stepShot = caseStepShots[step.id];
+  const stepShot = caseStepShot(step.id, locale);
 
   function move(next: number, focus = false) {
     const clamped = Math.min(total - 1, Math.max(0, next));
@@ -97,7 +99,12 @@ export function CaseDemo({ demoCase, shotAlts }: { demoCase: DemoCaseCopy; shotA
 
       <div className="case-scene">
         {stepShot ? (
-          <FocusShot image={shots[stepShot.shot]} alt={shotAlts[stepShot.shot]} focus={stepShot.focus} />
+          <FocusShot
+            image={stepShot.image}
+            alt={`${step.title}. ${step.body}`}
+            focus={stepShot.focus}
+            sizes="(min-width: 900px) 1100px, 200vw"
+          />
         ) : null}
         <div key={step.id} className="case-scene-body" aria-live="polite">
         <p className="case-progress">
