@@ -3025,6 +3025,7 @@ html.intro-done .intro {
 
 .hero {
   position: relative;
+  overflow-x: clip;
 }
 
 .hero-grid {
@@ -3171,7 +3172,7 @@ html.intro-done .intro {
 
 @media (max-width: 639px) {
   .orbit {
-    width: min(100%, 360px);
+    width: min(calc(100% - 72px), 340px);
   }
 
   .orbit-tools span {
