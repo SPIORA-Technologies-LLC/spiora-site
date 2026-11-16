@@ -2,37 +2,15 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAddressBook,
-  faCalendarDays,
-  faCheck,
-  faComments,
-  faEnvelope,
-  faFolderOpen,
-  faListCheck,
-  faTable,
-  faVideo,
-  faWandMagicSparkles,
-} from "@fortawesome/free-solid-svg-icons";
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-
-const toolIcons: IconDefinition[] = [
-  faTable,
-  faComments,
-  faVideo,
-  faFolderOpen,
-  faWandMagicSparkles,
-  faListCheck,
-  faCalendarDays,
-  faEnvelope,
-  faAddressBook,
-];
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { toolBrandIcons } from "@/content/tool-brands";
 
 type Mode = "before" | "after";
 
 type BeforeAfterProps = {
   title: string;
   beforeLabel: string;
+  beforeTitle: string;
   before: string;
   afterLabel: string;
   after: string;
@@ -62,13 +40,22 @@ function makeOrbits(count: number): Orbit[] {
       speed: direction * (0.32 + ((i * 37) % 10) / 34),
       rx: 0.5 + ((i * 53) % 10) / 20,
       ry: 0.42 + ((i * 29) % 10) / 17,
-      wobble: 8 + ((i * 17) % 10) * 1.6,
+      wobble: 5 + ((i * 17) % 10) * 0.9,
       phase: i * 1.7,
     };
   });
 }
 
-export function BeforeAfter({ title, beforeLabel, before, afterLabel, after, tools, workspace }: BeforeAfterProps) {
+export function BeforeAfter({
+  title,
+  beforeLabel,
+  beforeTitle,
+  before,
+  afterLabel,
+  after,
+  tools,
+  workspace,
+}: BeforeAfterProps) {
   const [mode, setMode] = useState<Mode>("before");
   const [enhanced, setEnhanced] = useState(false);
   const [touched, setTouched] = useState(false);
@@ -122,10 +109,10 @@ export function BeforeAfter({ title, beforeLabel, before, afterLabel, after, too
         const depth = Math.sin(angle);
         const reachX = Math.max(0, width / 2 - size.w / 2 - 8);
         const reachY = Math.max(0, height / 2 - size.h / 2 - 8);
-        const x = Math.cos(angle) * reachX * orbit.rx * 0.92 + Math.sin(clock * 1.3 + orbit.phase) * orbit.wobble;
-        const y = depth * reachY * orbit.ry * 0.9 + Math.cos(clock * 1.7 + orbit.phase) * orbit.wobble * 0.6;
-        const rotate = Math.sin(clock * 0.9 + orbit.phase) * 16 + depth * 6;
-        const scale = 0.86 + (depth + 1) * 0.11;
+        const x = Math.cos(angle) * reachX * orbit.rx * 0.74 + Math.sin(clock * 1.3 + orbit.phase) * orbit.wobble;
+        const y = depth * reachY * orbit.ry * 0.78 + Math.cos(clock * 1.7 + orbit.phase) * orbit.wobble * 0.6;
+        const rotate = Math.sin(clock * 0.9 + orbit.phase) * 8 + depth * 3;
+        const scale = 0.9 + (depth + 1) * 0.07;
         poses.current[i] = { x, y, rotate, scale };
         chip.style.transform = `translate(${x - size.w / 2}px, ${y - size.h / 2}px) rotate(${rotate}deg) scale(${scale})`;
         chip.style.zIndex = String(Math.round((depth + 1) * 10) + 1);
@@ -275,7 +262,7 @@ export function BeforeAfter({ title, beforeLabel, before, afterLabel, after, too
 
       <div className="compare-stage">
         <article className="card compare-before" data-state="before" id="workflow-before">
-          <h3>{beforeLabel}</h3>
+          <h3>{beforeTitle}</h3>
           <p>{before}</p>
           <div className={swirling ? "compare-arena is-swirling" : "compare-arena"}>
             {swirling ? (
@@ -293,7 +280,12 @@ export function BeforeAfter({ title, beforeLabel, before, afterLabel, after, too
                     chipRefs.current[index] = node;
                   }}
                 >
-                  <FontAwesomeIcon icon={toolIcons[index]} aria-hidden="true" />
+                  {toolBrandIcons[index] ? (
+                    <svg className="compare-brand" viewBox="0 0 24 24" aria-hidden="true">
+                      <title>{toolBrandIcons[index].title}</title>
+                      <path fill={toolBrandIcons[index].color} d={toolBrandIcons[index].path} />
+                    </svg>
+                  ) : null}
                   <span>{tool}</span>
                   <span
                     className="compare-badge"

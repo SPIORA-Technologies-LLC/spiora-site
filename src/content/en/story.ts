@@ -46,9 +46,10 @@ export const story = {
   },
   beforeAfter: {
     title: "From scattered tools to one connected workflow",
-    beforeLabel: "Before",
+    beforeLabel: "Without SPIORA",
+    beforeTitle: "Chaos across nine tabs",
     before:
-      "Client records in spreadsheets. Documents in shared drives. Conversations in messengers. Meetings in video apps. Tasks in separate boards. Updates across email and calendars.",
+      "The client lives in a spreadsheet, their documents on a cloud drive, agreements in a messenger, calls in a separate video app, tasks on a board. And case updates get lost somewhere between email and the calendar. Every day the team pieces the picture together — and something always slips through.",
     afterLabel: "With SPIORA",
     after:
       "Client records, documents, tasks, communication, meetings, payments and knowledge share one workspace.",

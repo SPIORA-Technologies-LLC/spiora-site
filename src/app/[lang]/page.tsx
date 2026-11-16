@@ -72,6 +72,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           <BeforeAfter
             title={story.beforeAfter.title}
             beforeLabel={story.beforeAfter.beforeLabel}
+            beforeTitle={story.beforeAfter.beforeTitle}
             before={story.beforeAfter.before}
             afterLabel={story.beforeAfter.afterLabel}
             after={story.beforeAfter.after}
