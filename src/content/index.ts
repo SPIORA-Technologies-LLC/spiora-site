@@ -6,6 +6,7 @@ import { implementation as enImplementation, story as enStory } from "./en/story
 import { demoCase as ruDemoCase } from "./ru/demo-case";
 import { copy as ruCopy } from "./ru/site";
 import { implementation as ruImplementation, story as ruStory } from "./ru/story";
+import { typographRu } from "./typography";
 
 /** Same shape as the English copy, with every string literal widened to `string`. */
 export type Widen<T> = T extends string
@@ -31,7 +32,13 @@ export type Dictionary = {
 
 const dictionaries: Record<Locale, Omit<Dictionary, "implementation"> & { allImplementation: ImplementationCopy }> = {
   en: { locale: "en", copy: enCopy, story: enStory, demoCase: enDemoCase, allImplementation: enImplementation },
-  ru: { locale: "ru", copy: ruCopy, story: ruStory, demoCase: ruDemoCase, allImplementation: ruImplementation },
+  ru: {
+    locale: "ru",
+    copy: typographRu(ruCopy),
+    story: typographRu(ruStory),
+    demoCase: typographRu(ruDemoCase),
+    allImplementation: typographRu(ruImplementation),
+  },
 };
 
 export function getDictionary(locale: Locale): Dictionary {

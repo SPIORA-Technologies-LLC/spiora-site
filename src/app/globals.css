@@ -55,7 +55,12 @@ body {
   color: var(--white);
   font-family: var(--font-body);
   font-size: 1.0625rem;
-  line-height: 1.5;
+  line-height: 1.4;
+}
+
+/* Reading column: about 62 characters, never wider (chistaya-verstka). */
+main p {
+  max-width: 62ch;
 }
 
 img,
@@ -439,7 +444,7 @@ main .section:not(.hero) {
   font-family: var(--font-display);
   font-size: 1.75rem;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .hero-poster figcaption {
@@ -892,7 +897,7 @@ main .section:not(.hero) {
   align-items: center;
   justify-content: center;
   width: 20px;
-  height: 21px;
+  height: calc(0.875rem * 1.4);
   margin-top: 0;
   color: var(--text-secondary);
 }
@@ -905,10 +910,11 @@ main .section:not(.hero) {
 .contact-kicker {
   font-size: 0.875rem;
   font-weight: 600;
-  line-height: 21px;
+  line-height: 1.4;
 }
 
 .contact-value {
+  line-height: 1.4;
   display: flex;
   flex-wrap: wrap;
   gap: 2px 12px;
@@ -936,6 +942,7 @@ main .section:not(.hero) {
 .contact-value a.contact-linkedin span {
   color: var(--text-secondary);
   font-size: 0.75rem;
+  line-height: 1.4;
   transition: color 180ms ease, transform 180ms ease;
 }
 
@@ -1027,11 +1034,9 @@ main .section:not(.hero) {
   align-items: flex-start;
   gap: 6px;
   color: var(--text-secondary);
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-size: 0.875rem;
+  font-weight: 600;
   line-height: 1.3;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .team-card .team-role img {
@@ -1392,7 +1397,7 @@ main .section:not(.hero) {
   margin-top: 8px;
   color: var(--gray-300);
   font-size: 0.9375rem;
-  line-height: 1.45;
+  line-height: 1.4;
 }
 
 .footer-nav ul {
@@ -1823,7 +1828,7 @@ main .section:not(.hero) {
   min-height: 44px;
   color: var(--text-primary);
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 .discuss-timeline li::before {
@@ -2473,11 +2478,11 @@ main .section:not(.hero) {
   justify-content: center;
   padding: 0 6px;
   border-radius: 999px;
-  background: #ff3b30;
+  background: #c62f22;
   color: #fff;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  line-height: 1;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.2;
   opacity: 0;
   transform: scale(0);
   pointer-events: none;
@@ -2492,7 +2497,7 @@ main .section:not(.hero) {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  border: 2px solid #ff3b30;
+  border: 2px solid #c62f22;
   animation: badge-ping 900ms ease-out both;
 }
 
