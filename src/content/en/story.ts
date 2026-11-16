@@ -23,6 +23,8 @@ export const story = {
     primary: "See SPIORA in action",
     secondary: "Discuss your workflow",
     posterCaption: "Illustrative workflow using synthetic data.",
+    orbitLabel: "Nine scattered tools come together in one SPIORA system",
+    orbitNote: "Nine tools → one button",
   },
   explain: {
     title: "One connected system for client work",

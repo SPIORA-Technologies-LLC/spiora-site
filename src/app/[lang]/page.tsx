@@ -5,7 +5,7 @@ import { BeforeAfter } from "@/components/BeforeAfter";
 import { CaseDemo } from "@/components/CaseDemo";
 import { DemoForm } from "@/components/DemoForm";
 import { DiscussTimeline } from "@/components/DiscussTimeline";
-import { HeroPoster } from "@/components/HeroPoster";
+import { HeroOrbit } from "@/components/HeroOrbit";
 import { IntroSplash, introGateScript } from "@/components/IntroSplash";
 import { Modules } from "@/components/Modules";
 import { Workspaces } from "@/components/Workspaces";
@@ -29,7 +29,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       <IntroSplash />
       <Section id="top" labelledBy="hero-title" className="hero">
         <Container className="hero-grid">
-          <div>
+          <div className="hero-copy">
             <h1 id="hero-title">{story.hero.title}</h1>
             <p className="lead">{story.hero.lead}</p>
             <div className="hero-actions">
@@ -39,7 +39,11 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               </Button>
             </div>
           </div>
-          <HeroPoster copy={copy} story={story} />
+          <HeroOrbit tools={story.beforeAfter.tools} label={story.hero.orbitLabel} />
+        </Container>
+        <Container className="hero-band">
+          <span>{copy.footer.blurb}</span>
+          <span>{story.hero.orbitNote}</span>
         </Container>
       </Section>
 
