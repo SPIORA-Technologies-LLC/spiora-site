@@ -162,13 +162,15 @@ export function BeforeAfter({
     };
   }, [swirling]);
 
-  // Chaos falls into order: each chip flies from its spot in the vortex into the row.
+  // «Сборка»: each chip lifts off from its spot in the vortex and flies into the
+  // SPIORA panel, where the list rows land one by one (rows are animated in CSS).
   useLayoutEffect(() => {
     const from = flipFrom.current;
     flipFrom.current = null;
     if (!from || mode !== "after") return;
 
     const chips = chipRefs.current;
+    const stage = chips[0]?.closest(".compare-stage")?.getBoundingClientRect();
     chips.forEach((chip) => {
       if (!chip) return;
       chip.style.transition = "none";
@@ -176,6 +178,11 @@ export function BeforeAfter({
       chip.style.zIndex = "";
       chip.style.opacity = "";
     });
+    if (!stage) return;
+
+    // Where the chips head for: the upper part of the SPIORA panel on the right.
+    const targetX = stage.left + stage.width * 0.72;
+    const targetY = stage.top + stage.height * 0.36;
 
     chips.forEach((chip, i) => {
       const start = from[i];
@@ -183,17 +190,24 @@ export function BeforeAfter({
       const end = chip.getBoundingClientRect();
       if (!end.width || !start.width) return;
       const pose = poses.current[i];
-      const dx = start.left + start.width / 2 - (end.left + end.width / 2);
-      const dy = start.top + start.height / 2 - (end.top + end.height / 2);
-      chip.style.transform = `translate(${dx}px, ${dy}px) rotate(${pose?.rotate ?? 0}deg)`;
-    });
-
-    void document.body.offsetWidth;
-
-    chips.forEach((chip, i) => {
-      if (!chip) return;
-      chip.style.transition = `transform 760ms cubic-bezier(0.22, 1, 0.36, 1) ${i * 35}ms, opacity 600ms ease, filter 600ms ease`;
-      chip.style.transform = "";
+      const fromX = start.left + start.width / 2 - (end.left + end.width / 2);
+      const fromY = start.top + start.height / 2 - (end.top + end.height / 2);
+      const toX = targetX - (end.left + end.width / 2);
+      const toY = targetY - (end.top + end.height / 2) + i * 6;
+      chip.animate(
+        [
+          { transform: `translate(${fromX}px, ${fromY}px) rotate(${pose?.rotate ?? 0}deg)`, opacity: 1 },
+          {
+            offset: 0.35,
+            transform: `translate(${fromX + 40}px, ${fromY - 10}px) rotate(-4deg) scale(1.04)`,
+            opacity: 1,
+            borderColor: "#ff9900",
+            color: "#f4f2ed",
+          },
+          { transform: `translate(${toX}px, ${toY}px) scale(0.7)`, opacity: 0 },
+        ],
+        { duration: 1500, delay: i * 120, easing: "cubic-bezier(0.5, 0, 0.2, 1)", fill: "both" },
+      );
     });
   }, [mode]);
 
@@ -204,7 +218,9 @@ export function BeforeAfter({
     }
     if (next === "before") {
       chipRefs.current.forEach((chip) => {
-        if (chip) chip.style.transition = "";
+        if (!chip) return;
+        chip.getAnimations().forEach((animation) => animation.cancel());
+        chip.style.transition = "";
       });
     }
     setTouched(true);
