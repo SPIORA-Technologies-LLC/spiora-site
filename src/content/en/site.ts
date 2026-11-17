@@ -12,6 +12,10 @@ export const copy = {
   ui: {
     faqTitle: "FAQ",
     language: "Language",
+    introLabel: "SPIORA intro video",
+    introSkip: "Skip",
+    introSoundOn: "Turn sound on",
+    introSoundOff: "Turn sound off",
     switchTo: "Switch to Russian",
   },
   shotAlts: {

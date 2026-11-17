@@ -9,7 +9,7 @@ export const demoCase: DemoCaseCopy = {
   posterCaption: "Пример процесса на вымышленных данных.",
   interactiveCaption:
     "Демо-режим: клиент вымышленный, ничего не отправляется по-настоящему.",
-  title: "Пройдите путь вашего клиента в SPIORA.",
+  title: "Пройдите путь вашего клиента в SPIORA",
   lead: "Посмотрите, как информация переходит между личным кабинетом клиента и рабочим пространством команды.",
   labels: {
     step: "Шаг {current} из {total}",
@@ -73,6 +73,17 @@ export const demoCase: DemoCaseCopy = {
     submitted: { stage: "Анкета отправлена", next: "Загрузить запрошенные документы." },
     uploaded: { stage: "Документы загружены", next: "Команда проверяет файлы." },
     reviewed: { stage: "Документы проверены", next: "Команда продолжает работу по делу." },
+  },
+  motion: {
+    inviteSent: "Приглашение отправлено",
+    questionnaireDone: "Анкета заполнена · 100%",
+    uploadFile: "Паспорт.pdf",
+    uploaded: "Загружено",
+    inProgress: "В работе",
+    agreementRecorded: "Договор зафиксирован",
+    paymentRow: "3 300 € · 16.11.2026 · Оплата остатка",
+    now: "Сейчас",
+    clientSees: "Клиент видит новый этап",
   },
   steps: [
     {

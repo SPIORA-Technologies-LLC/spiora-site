@@ -26,25 +26,38 @@ export const shots: Record<ShotKey, ShotImage> = {
   ai: { src: "/shots/ai-workspace.png", width: 1368, height: 744 },
 };
 
-/** Zoom into part of a screenshot: x/y in percent, zoom as a scale factor. */
-export type ShotFocus = { x: number; y: number; zoom: number };
-
-export type FocusedShot = { shot: ShotKey; focus?: ShotFocus };
+/** A section of a screenshot, in percent of its width and height. */
+export type ShotCrop = { x: number; y: number; w: number; h: number };
 
 /**
- * One screenshot per step of the interactive client case.
- * Steps that share a screenshot zoom into different parts of it, so moving
- * between them pans across the same screen.
+ * One screen of the SPIORA demo per step of the client journey, shot in both
+ * interface languages (public/shots/journey/<locale>/). Contacts and file names
+ * on the shots are replaced with invented ones. Each step shows only its own
+ * section of the screen, without the app's sidebar and header.
  */
-export const caseStepShots: Record<string, FocusedShot> = {
-  invitation: { shot: "workspace" },
-  questionnaire: { shot: "portal", focus: { x: 22, y: 92, zoom: 1.9 } },
-  documents: { shot: "portal", focus: { x: 30, y: 52, zoom: 1.7 } },
-  tasks: { shot: "tasks", focus: { x: 62, y: 78, zoom: 1.35 } },
-  agreement: { shot: "finance", focus: { x: 64, y: 68, zoom: 1.6 } },
-  payment: { shot: "finance", focus: { x: 72, y: 34, zoom: 1.7 } },
-  portal: { shot: "portal" },
+type JourneyShot = { file: string; crop: ShotCrop };
+
+const settlements: ShotCrop = { x: 21, y: 38.7, w: 78, h: 58.5 };
+
+const journey: Record<string, JourneyShot> = {
+  invitation: { file: "invitation", crop: { x: 21, y: 10.9, w: 77.8, h: 83 } },
+  questionnaire: { file: "questionnaire", crop: { x: 21, y: 38.7, w: 78, h: 58 } },
+  documents: { file: "documents", crop: { x: 21, y: 38.7, w: 78, h: 55.8 } },
+  tasks: { file: "tasks", crop: { x: 21, y: 10.4, w: 78, h: 54.5 } },
+  agreement: { file: "agreement", crop: settlements },
+  payment: { file: "agreement", crop: settlements },
+  portal: { file: "portal", crop: { x: 21.4, y: 44.6, w: 48.4, h: 21.2 } },
 };
+
+export function caseStepShot(stepId: string, locale: string): { image: ShotImage; crop: ShotCrop } | null {
+  const entry = journey[stepId];
+  if (!entry) return null;
+  const folder = locale === "ru" ? "ru" : "en";
+  return {
+    image: { src: `/shots/journey/${folder}/${entry.file}.webp`, width: 2400, height: 1500 },
+    crop: entry.crop,
+  };
+}
 
 export const moduleShots: Record<string, ShotKey> = {
   crm: "workspace",

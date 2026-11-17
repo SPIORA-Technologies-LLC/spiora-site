@@ -2,37 +2,15 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAddressBook,
-  faCalendarDays,
-  faCheck,
-  faComments,
-  faEnvelope,
-  faFolderOpen,
-  faListCheck,
-  faTable,
-  faVideo,
-  faWandMagicSparkles,
-} from "@fortawesome/free-solid-svg-icons";
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-
-const toolIcons: IconDefinition[] = [
-  faTable,
-  faComments,
-  faVideo,
-  faFolderOpen,
-  faWandMagicSparkles,
-  faListCheck,
-  faCalendarDays,
-  faEnvelope,
-  faAddressBook,
-];
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { toolBrandIcons } from "@/content/tool-brands";
 
 type Mode = "before" | "after";
 
 type BeforeAfterProps = {
   title: string;
   beforeLabel: string;
+  beforeTitle: string;
   before: string;
   afterLabel: string;
   after: string;
@@ -62,13 +40,22 @@ function makeOrbits(count: number): Orbit[] {
       speed: direction * (0.32 + ((i * 37) % 10) / 34),
       rx: 0.5 + ((i * 53) % 10) / 20,
       ry: 0.42 + ((i * 29) % 10) / 17,
-      wobble: 8 + ((i * 17) % 10) * 1.6,
+      wobble: 5 + ((i * 17) % 10) * 0.9,
       phase: i * 1.7,
     };
   });
 }
 
-export function BeforeAfter({ title, beforeLabel, before, afterLabel, after, tools, workspace }: BeforeAfterProps) {
+export function BeforeAfter({
+  title,
+  beforeLabel,
+  beforeTitle,
+  before,
+  afterLabel,
+  after,
+  tools,
+  workspace,
+}: BeforeAfterProps) {
   const [mode, setMode] = useState<Mode>("before");
   const [enhanced, setEnhanced] = useState(false);
   const [touched, setTouched] = useState(false);
@@ -122,10 +109,10 @@ export function BeforeAfter({ title, beforeLabel, before, afterLabel, after, too
         const depth = Math.sin(angle);
         const reachX = Math.max(0, width / 2 - size.w / 2 - 8);
         const reachY = Math.max(0, height / 2 - size.h / 2 - 8);
-        const x = Math.cos(angle) * reachX * orbit.rx * 0.92 + Math.sin(clock * 1.3 + orbit.phase) * orbit.wobble;
-        const y = depth * reachY * orbit.ry * 0.9 + Math.cos(clock * 1.7 + orbit.phase) * orbit.wobble * 0.6;
-        const rotate = Math.sin(clock * 0.9 + orbit.phase) * 16 + depth * 6;
-        const scale = 0.86 + (depth + 1) * 0.11;
+        const x = Math.cos(angle) * reachX * orbit.rx * 0.74 + Math.sin(clock * 1.3 + orbit.phase) * orbit.wobble;
+        const y = depth * reachY * orbit.ry * 0.78 + Math.cos(clock * 1.7 + orbit.phase) * orbit.wobble * 0.6;
+        const rotate = Math.sin(clock * 0.9 + orbit.phase) * 8 + depth * 3;
+        const scale = 0.9 + (depth + 1) * 0.07;
         poses.current[i] = { x, y, rotate, scale };
         chip.style.transform = `translate(${x - size.w / 2}px, ${y - size.h / 2}px) rotate(${rotate}deg) scale(${scale})`;
         chip.style.zIndex = String(Math.round((depth + 1) * 10) + 1);
@@ -175,13 +162,15 @@ export function BeforeAfter({ title, beforeLabel, before, afterLabel, after, too
     };
   }, [swirling]);
 
-  // Chaos falls into order: each chip flies from its spot in the vortex into the row.
+  // «Сборка»: each chip lifts off from its spot in the vortex and flies into the
+  // SPIORA panel, where the list rows land one by one (rows are animated in CSS).
   useLayoutEffect(() => {
     const from = flipFrom.current;
     flipFrom.current = null;
     if (!from || mode !== "after") return;
 
     const chips = chipRefs.current;
+    const stage = chips[0]?.closest(".compare-stage")?.getBoundingClientRect();
     chips.forEach((chip) => {
       if (!chip) return;
       chip.style.transition = "none";
@@ -189,6 +178,11 @@ export function BeforeAfter({ title, beforeLabel, before, afterLabel, after, too
       chip.style.zIndex = "";
       chip.style.opacity = "";
     });
+    if (!stage) return;
+
+    // Where the chips head for: the upper part of the SPIORA panel on the right.
+    const targetX = stage.left + stage.width * 0.72;
+    const targetY = stage.top + stage.height * 0.36;
 
     chips.forEach((chip, i) => {
       const start = from[i];
@@ -196,17 +190,24 @@ export function BeforeAfter({ title, beforeLabel, before, afterLabel, after, too
       const end = chip.getBoundingClientRect();
       if (!end.width || !start.width) return;
       const pose = poses.current[i];
-      const dx = start.left + start.width / 2 - (end.left + end.width / 2);
-      const dy = start.top + start.height / 2 - (end.top + end.height / 2);
-      chip.style.transform = `translate(${dx}px, ${dy}px) rotate(${pose?.rotate ?? 0}deg)`;
-    });
-
-    void document.body.offsetWidth;
-
-    chips.forEach((chip, i) => {
-      if (!chip) return;
-      chip.style.transition = `transform 760ms cubic-bezier(0.22, 1, 0.36, 1) ${i * 35}ms, opacity 600ms ease, filter 600ms ease`;
-      chip.style.transform = "";
+      const fromX = start.left + start.width / 2 - (end.left + end.width / 2);
+      const fromY = start.top + start.height / 2 - (end.top + end.height / 2);
+      const toX = targetX - (end.left + end.width / 2);
+      const toY = targetY - (end.top + end.height / 2) + i * 6;
+      chip.animate(
+        [
+          { transform: `translate(${fromX}px, ${fromY}px) rotate(${pose?.rotate ?? 0}deg)`, opacity: 1 },
+          {
+            offset: 0.35,
+            transform: `translate(${fromX + 40}px, ${fromY - 10}px) rotate(-4deg) scale(1.04)`,
+            opacity: 1,
+            borderColor: "#ff9900",
+            color: "#f4f2ed",
+          },
+          { transform: `translate(${toX}px, ${toY}px) scale(0.7)`, opacity: 0 },
+        ],
+        { duration: 1500, delay: i * 120, easing: "cubic-bezier(0.5, 0, 0.2, 1)", fill: "both" },
+      );
     });
   }, [mode]);
 
@@ -217,7 +218,9 @@ export function BeforeAfter({ title, beforeLabel, before, afterLabel, after, too
     }
     if (next === "before") {
       chipRefs.current.forEach((chip) => {
-        if (chip) chip.style.transition = "";
+        if (!chip) return;
+        chip.getAnimations().forEach((animation) => animation.cancel());
+        chip.style.transition = "";
       });
     }
     setTouched(true);
@@ -275,7 +278,7 @@ export function BeforeAfter({ title, beforeLabel, before, afterLabel, after, too
 
       <div className="compare-stage">
         <article className="card compare-before" data-state="before" id="workflow-before">
-          <h3>{beforeLabel}</h3>
+          <h3>{beforeTitle}</h3>
           <p>{before}</p>
           <div className={swirling ? "compare-arena is-swirling" : "compare-arena"}>
             {swirling ? (
@@ -293,7 +296,12 @@ export function BeforeAfter({ title, beforeLabel, before, afterLabel, after, too
                     chipRefs.current[index] = node;
                   }}
                 >
-                  <FontAwesomeIcon icon={toolIcons[index]} aria-hidden="true" />
+                  {toolBrandIcons[index] ? (
+                    <svg className="compare-brand" viewBox="0 0 24 24" aria-hidden="true">
+                      <title>{toolBrandIcons[index].title}</title>
+                      <path fill={toolBrandIcons[index].color} d={toolBrandIcons[index].path} />
+                    </svg>
+                  ) : null}
                   <span>{tool}</span>
                   <span
                     className="compare-badge"

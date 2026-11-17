@@ -23,6 +23,8 @@ export const story = {
     primary: "See SPIORA in action",
     secondary: "Discuss your workflow",
     posterCaption: "Illustrative workflow using synthetic data.",
+    orbitLabel: "Nine scattered tools come together in one SPIORA system",
+    orbitNote: "Nine tools → one button",
   },
   explain: {
     title: "One connected system for client work",
@@ -43,10 +45,11 @@ export const story = {
     ],
   },
   beforeAfter: {
-    title: "From scattered tools to one connected workflow.",
-    beforeLabel: "Before",
+    title: "From scattered tools to one connected workflow",
+    beforeLabel: "Without SPIORA",
+    beforeTitle: "Chaos across nine tabs",
     before:
-      "Client records in spreadsheets. Documents in shared drives. Conversations in messengers. Meetings in video apps. Tasks in separate boards. Updates across email and calendars.",
+      "The client lives in a spreadsheet, their documents on a cloud drive, agreements in a messenger, calls in a separate video app, tasks on a board. And case updates get lost somewhere between email and the calendar. Every day the team pieces the picture together — and something always slips through.",
     afterLabel: "With SPIORA",
     after:
       "Client records, documents, tasks, communication, meetings, payments and knowledge share one workspace.",
@@ -139,7 +142,7 @@ export const story = {
     ],
   },
   ownershipFallback: {
-    title: "Discuss the setup your team needs.",
+    title: "Discuss the setup your team needs",
     body: "Walk us through your client workflow. We will discuss the platform scope, implementation, and commercial terms with you.",
     cta: "Discuss your workflow",
   },
@@ -201,7 +204,7 @@ export const implementation = {
     items: ["Your business processes", "Required modules", "Team roles", "Data and security", "Implementation timeline"],
   },
   confirmed: {
-    title: "Start with your real client workflow.",
+    title: "Start with your real client workflow",
     note: "The implementation scope and timeline are agreed after reviewing your requirements.",
     steps: [
       "Understand your current workflow.",

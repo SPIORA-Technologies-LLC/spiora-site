@@ -7,7 +7,7 @@ export const demoCase = {
   posterCaption: "Illustrative workflow using synthetic data.",
   interactiveCaption:
     "Demo mode: a fictional client, nothing is actually sent.",
-  title: "Follow your client’s journey through SPIORA.",
+  title: "Follow your client’s journey through SPIORA",
   lead: "Explore how information moves between the client portal and the team workspace.",
   labels: {
     step: "Step {current} of {total}",
@@ -71,6 +71,17 @@ export const demoCase = {
     submitted: { stage: "Questionnaire submitted", next: "Upload the requested sample documents." },
     uploaded: { stage: "Documents uploaded", next: "The team reviews the files." },
     reviewed: { stage: "Documents reviewed", next: "The team continues work on the case." },
+  },
+  motion: {
+    inviteSent: "Invitation sent",
+    questionnaireDone: "Questionnaire complete · 100%",
+    uploadFile: "Passport.pdf",
+    uploaded: "Uploaded",
+    inProgress: "In progress",
+    agreementRecorded: "Agreement recorded",
+    paymentRow: "€3,300 · 16 Nov 2026 · Balance payment",
+    now: "Now",
+    clientSees: "Client sees the new stage",
   },
   steps: [
     {
