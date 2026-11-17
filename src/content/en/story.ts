@@ -18,8 +18,8 @@ export const story = {
     discuss: "Discuss your workflow",
   },
   hero: {
-    title: "Every client journey. Every team workflow. One SPIORA system.",
-    lead: "Manage clients, cases, documents, tasks, communication, and payments in one workspace. Give clients a portal with their case status, documents, and next steps.",
+    title: "Every client journey Every team workflow One SPIORA system.",
+    lead: "Manage clients, cases, documents, tasks, communication and payments in one workspace. Give clients a portal with their case status, documents and next steps.",
     primary: "See SPIORA in action",
     secondary: "Discuss your workflow",
     posterCaption: "Illustrative workflow using synthetic data.",
