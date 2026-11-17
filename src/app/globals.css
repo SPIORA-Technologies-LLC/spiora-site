@@ -1854,8 +1854,8 @@ main .section:not(.hero) {
 @keyframes footer-line-shimmer {
   0% { left: -30%; filter: brightness(1); }
   32% { filter: brightness(1); }
-  40% { filter: brightness(2.1); }
-  60% { filter: brightness(2.1); }
+  40% { filter: brightness(1.65); }
+  60% { filter: brightness(1.65); }
   68% { filter: brightness(1); }
   100% { left: 100%; filter: brightness(1); }
 }
@@ -1863,8 +1863,8 @@ main .section:not(.hero) {
 @keyframes footer-glow-shimmer {
   0% { left: -15%; filter: brightness(1); }
   32% { filter: brightness(1); }
-  40% { filter: brightness(2.1); }
-  60% { filter: brightness(2.1); }
+  40% { filter: brightness(1.65); }
+  60% { filter: brightness(1.65); }
   68% { filter: brightness(1); }
   100% { left: 115%; filter: brightness(1); }
 }
