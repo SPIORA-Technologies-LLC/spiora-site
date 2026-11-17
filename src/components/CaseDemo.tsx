@@ -1,23 +1,15 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Button } from "@/components/ui/Button";
 import { FocusShot } from "@/components/FocusShot";
 import { JourneyScene } from "@/components/JourneyScene";
 import type { DemoCaseCopy } from "@/content";
 import { caseStepShot } from "@/content/shots";
 import { useLocale } from "@/i18n/LocaleProvider";
 
-type DocumentStatus = "requested" | "uploaded" | "reviewed";
-
-const initialDocuments: DocumentStatus = "requested";
-
 export function CaseDemo({ demoCase }: { demoCase: DemoCaseCopy }) {
   const locale = useLocale();
   const [index, setIndex] = useState(0);
-  const [invited, setInvited] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [documents, setDocuments] = useState<DocumentStatus>(initialDocuments);
   const stepRefs = useRef<Array<HTMLButtonElement | null>>([]);
   const total = demoCase.steps.length;
   const step = demoCase.steps[index];
@@ -28,31 +20,6 @@ export function CaseDemo({ demoCase }: { demoCase: DemoCaseCopy }) {
     setIndex(clamped);
     if (focus) stepRefs.current[clamped]?.focus();
   }
-
-  function restart() {
-    setIndex(0);
-    setInvited(false);
-    setSubmitted(false);
-    setDocuments(initialDocuments);
-  }
-
-  const documentLabel =
-    documents === "reviewed"
-      ? demoCase.statuses.reviewed
-      : documents === "uploaded"
-        ? demoCase.statuses.uploaded
-        : demoCase.statuses.requested;
-
-  const portal =
-    documents === "reviewed"
-      ? demoCase.portal.reviewed
-      : documents === "uploaded"
-        ? demoCase.portal.uploaded
-        : submitted
-          ? demoCase.portal.submitted
-          : invited
-            ? demoCase.portal.invited
-            : demoCase.portal.closed;
 
   return (
     <div className="case-demo">
@@ -109,123 +76,9 @@ export function CaseDemo({ demoCase }: { demoCase: DemoCaseCopy }) {
             <JourneyScene key={step.id} stepId={step.id} locale={locale} motion={demoCase.motion} />
           </FocusShot>
         ) : null}
-        <div key={step.id} className="case-scene-body" aria-live="polite">
-        <p className="case-progress">
-          {demoCase.labels.step.replace("{current}", String(index + 1)).replace("{total}", String(total))}
+        <p key={step.id} className="case-scene-body" aria-live="polite">
+          {step.body}
         </p>
-        <p className="case-kicker">
-          {demoCase.client} · {demoCase.caseId} · {demoCase.type}
-        </p>
-        <h3>{step.title}</h3>
-        <p>{step.body}</p>
-
-        {step.id === "invitation" ? (
-          <div className="case-record">
-            <p>
-              {demoCase.labels.clientCard} · <strong className="case-status">{invited ? demoCase.statuses.inviteSent : demoCase.statuses.notSent}</strong>
-            </p>
-            {invited ? null : (
-              <Button type="button" onClick={() => setInvited(true)}>
-                {demoCase.actions.sendInvitation}
-              </Button>
-            )}
-          </div>
-        ) : null}
-
-        {step.id === "questionnaire" ? (
-          <div className="case-record">
-            <p>
-              {demoCase.labels.questionnaire} ·{" "}
-              <strong className="case-status">
-                {submitted ? demoCase.statuses.submitted : demoCase.statuses.notSubmitted}
-              </strong>
-            </p>
-            {submitted ? null : (
-              <Button type="button" onClick={() => setSubmitted(true)}>
-                {demoCase.actions.submitQuestionnaire}
-              </Button>
-            )}
-          </div>
-        ) : null}
-
-        {step.id === "documents" ? (
-          <div className="case-record">
-            <ul className="plain-list">
-              {demoCase.documents.map((document) => (
-                <li key={document}>
-                  {document} · <strong className="case-status">{documentLabel}</strong>
-                </li>
-              ))}
-            </ul>
-            <div className="case-controls">
-              {documents === "requested" ? (
-                <Button type="button" onClick={() => setDocuments("uploaded")}>
-                  {demoCase.actions.uploadSample}
-                </Button>
-              ) : null}
-              {documents === "uploaded" ? (
-                <Button type="button" onClick={() => setDocuments("reviewed")}>
-                  {demoCase.actions.markReviewed}
-                </Button>
-              ) : null}
-            </div>
-          </div>
-        ) : null}
-
-        {step.id === "tasks" ? (
-          <div className="case-record">
-            <p>{demoCase.task.title}</p>
-            <p>
-              {demoCase.task.ownerLabel}: {demoCase.manager}
-            </p>
-          </div>
-        ) : null}
-
-        {step.id === "agreement" ? (
-          <div className="case-record">
-            <p>{demoCase.agreement.title}</p>
-            <p className="case-status">{demoCase.agreement.status}</p>
-            <p className="note">{demoCase.agreement.note}</p>
-          </div>
-        ) : null}
-
-        {step.id === "payment" ? (
-          <div className="case-record">
-            <p>{demoCase.payment.title}</p>
-            <p>{demoCase.payment.amount}</p>
-            <p>{demoCase.payment.outstanding}</p>
-            <p className="note">{demoCase.payment.note}</p>
-          </div>
-        ) : null}
-
-        {step.id === "portal" ? (
-          <div className="case-record">
-            <p>
-              {demoCase.labels.stage} · <strong className="case-status">{portal.stage}</strong>
-            </p>
-            <p>
-              {demoCase.labels.nextAction} · {portal.next}
-            </p>
-          </div>
-        ) : null}
-        </div>
-
-        <div className="case-controls">
-          {index < total - 1 ? (
-            <Button variant="outline" type="button" onClick={() => move(index + 1)}>
-              {demoCase.actions.viewNextStep}
-            </Button>
-          ) : null}
-          <Button variant="outline" type="button" onClick={() => move(index - 1)} disabled={index === 0}>
-            {demoCase.actions.previous}
-          </Button>
-          <Button variant="outline" type="button" onClick={() => move(index + 1)} disabled={index === total - 1}>
-            {demoCase.actions.next}
-          </Button>
-          <Button variant="outline" type="button" onClick={restart}>
-            {demoCase.actions.restart}
-          </Button>
-        </div>
       </div>
 
       <p className="note">{demoCase.interactiveCaption}</p>
