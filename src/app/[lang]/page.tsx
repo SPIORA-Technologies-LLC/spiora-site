@@ -191,12 +191,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                   {person.role}
                 </p>
                 <h3>{person.name}</h3>
-                {person.phone ? (
-                  <p className="team-contact">
-                    <a href={person.phoneHref}>{person.phone}</a>
-                    <span>{copy.team.channels}</span>
-                  </p>
-                ) : null}
+                {person.phone ? <p className="team-contact">{person.phone}</p> : null}
               </article>
             ))}
           </div>
