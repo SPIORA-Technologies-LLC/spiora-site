@@ -204,7 +204,7 @@ export const copy: SiteCopy = {
         phone: "+421 944 615 008",
         phoneHref: "tel:+421944615008",
         whatsapp: "https://wa.me/421944615008",
-        telegram: "https://t.me/+421944615008",
+        telegram: "https://t.me/Di_Ar_Da",
       },
       {
         name: "Вероника Белоусова",
