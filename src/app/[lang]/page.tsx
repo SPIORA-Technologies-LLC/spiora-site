@@ -91,11 +91,6 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                   </li>
                 ))}
               </ol>
-              <div className="loss-marks" aria-hidden="true">
-                <span>1</span>
-                <span>2</span>
-                <span>3</span>
-              </div>
             </div>
           </div>
           <div className="loss-stop">
