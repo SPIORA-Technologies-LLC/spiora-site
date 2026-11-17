@@ -40,12 +40,12 @@ export type FocusedShot = { shot: ShotKey; focus?: ShotFocus };
 type JourneyShot = { file: string; focus?: ShotFocus };
 
 const journey: Record<string, JourneyShot> = {
-  invitation: { file: "invitation", focus: { x: 62, y: 55, zoom: 1.25 } },
+  invitation: { file: "invitation", focus: { x: 75, y: 40, zoom: 1.15 } },
   questionnaire: { file: "questionnaire", focus: { x: 60, y: 70, zoom: 1.3 } },
   documents: { file: "documents", focus: { x: 60, y: 62, zoom: 1.3 } },
   tasks: { file: "tasks", focus: { x: 60, y: 45, zoom: 1.25 } },
   agreement: { file: "agreement", focus: { x: 38, y: 60, zoom: 1.7 } },
-  payment: { file: "agreement", focus: { x: 60, y: 92, zoom: 1.6 } },
+  payment: { file: "agreement", focus: { x: 85, y: 90, zoom: 1.35 } },
   portal: { file: "portal", focus: { x: 35, y: 55, zoom: 1.7 } },
 };
 

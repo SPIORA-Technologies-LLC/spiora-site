@@ -3,6 +3,7 @@
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { FocusShot } from "@/components/FocusShot";
+import { JourneyScene } from "@/components/JourneyScene";
 import type { DemoCaseCopy } from "@/content";
 import { caseStepShot } from "@/content/shots";
 import { useLocale } from "@/i18n/LocaleProvider";
@@ -104,7 +105,9 @@ export function CaseDemo({ demoCase }: { demoCase: DemoCaseCopy }) {
             alt={`${step.title}. ${step.body}`}
             focus={stepShot.focus}
             sizes="(min-width: 900px) 1100px, 200vw"
-          />
+          >
+            <JourneyScene key={step.id} stepId={step.id} locale={locale} motion={demoCase.motion} />
+          </FocusShot>
         ) : null}
         <div key={step.id} className="case-scene-body" aria-live="polite">
         <p className="case-progress">

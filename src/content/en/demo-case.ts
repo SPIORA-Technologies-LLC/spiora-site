@@ -72,6 +72,17 @@ export const demoCase = {
     uploaded: { stage: "Documents uploaded", next: "The team reviews the files." },
     reviewed: { stage: "Documents reviewed", next: "The team continues work on the case." },
   },
+  motion: {
+    inviteSent: "Invitation sent",
+    questionnaireDone: "Questionnaire complete · 100%",
+    uploadFile: "Passport.pdf",
+    uploaded: "Uploaded",
+    inProgress: "In progress",
+    agreementRecorded: "Agreement recorded",
+    paymentRow: "€3,300 · 16 Nov 2026 · Balance payment",
+    now: "Now",
+    clientSees: "Client sees the new stage",
+  },
   steps: [
     {
       id: "invitation",

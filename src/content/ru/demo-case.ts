@@ -74,6 +74,17 @@ export const demoCase: DemoCaseCopy = {
     uploaded: { stage: "Документы загружены", next: "Команда проверяет файлы." },
     reviewed: { stage: "Документы проверены", next: "Команда продолжает работу по делу." },
   },
+  motion: {
+    inviteSent: "Приглашение отправлено",
+    questionnaireDone: "Анкета заполнена · 100%",
+    uploadFile: "Паспорт.pdf",
+    uploaded: "Загружено",
+    inProgress: "В работе",
+    agreementRecorded: "Договор зафиксирован",
+    paymentRow: "3 300 € · 16.11.2026 · Оплата остатка",
+    now: "Сейчас",
+    clientSees: "Клиент видит новый этап",
+  },
   steps: [
     {
       id: "invitation",

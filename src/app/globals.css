@@ -426,16 +426,15 @@ main .section:not(.hero) {
 .focus-shot {
   position: relative;
   overflow: hidden;
+  container-type: inline-size;
   margin-bottom: 20px;
   border-radius: 14px;
   background: var(--bg-primary);
 }
 
-.focus-shot-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.focus-shot-stage {
+  position: absolute;
+  inset: 0;
   transform-origin: var(--shot-x) var(--shot-y);
   transform: scale(var(--shot-zoom));
   transition:
@@ -443,12 +442,454 @@ main .section:not(.hero) {
     transform-origin 700ms cubic-bezier(0.65, 0, 0.35, 1);
 }
 
+.focus-shot-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.focus-shot-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Journey scenes: a cursor and UI reactions drawn over the demo screenshot.
+   Sizes use cqw (percent of the screenshot width), so they read as part of the
+   1440px-wide interface at any size. Without motion, the end state shows. */
+.focus-shot-overlay > * {
+  position: absolute;
+  --scene-ink: #1d2433;
+  --scene-accent: #ff7a1a;
+  --scene-ok: #22a35a;
+}
+
+.js-cursor {
+  width: 1.45cqw;
+  height: 2cqw;
+  margin: -0.07cqw 0 0 -0.07cqw;
+  overflow: visible;
+  opacity: 0;
+  filter: drop-shadow(0 0.15cqw 0.3cqw rgba(0, 0, 0, 0.35));
+}
+
+.js-cursor path {
+  fill: #111;
+  stroke: #fff;
+  stroke-width: 1.3;
+  stroke-linejoin: round;
+}
+
+.js-ripple {
+  width: 3.2cqw;
+  height: 3.2cqw;
+  border-radius: 50%;
+  background: rgba(255, 122, 26, 0.45);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.js-check {
+  flex: none;
+  width: 1.15cqw;
+  height: 1.15cqw;
+}
+
+.js-check circle {
+  fill: var(--scene-ok);
+}
+
+.js-check path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.js-toast {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55cqw;
+  padding: 0.6cqw 0.95cqw;
+  border-radius: 0.7cqw;
+  background: #fff;
+  color: var(--scene-ink);
+  font: 600 1.05cqw/1.2 var(--font-body);
+  white-space: nowrap;
+  box-shadow:
+    0 0 0 0.07cqw rgba(29, 36, 51, 0.08),
+    0 0.6cqw 1.8cqw rgba(29, 36, 51, 0.22);
+}
+
+.js-row {
+  border-radius: 0.4cqw;
+  background: rgba(255, 122, 26, 0.1);
+}
+
+.js-upload {
+  display: grid;
+  gap: 0.6cqw;
+  width: 32cqw;
+  padding: 0.9cqw 1.1cqw;
+  border-radius: 0.8cqw;
+  background: #fff;
+  color: var(--scene-ink);
+  font: 600 1.05cqw/1.2 var(--font-body);
+  box-shadow:
+    0 0 0 0.07cqw rgba(29, 36, 51, 0.08),
+    0 0.6cqw 1.8cqw rgba(29, 36, 51, 0.22);
+}
+
+.js-upload-file {
+  display: flex;
+  align-items: center;
+  gap: 0.6cqw;
+}
+
+.js-upload-file > svg {
+  width: 1cqw;
+  height: 1.25cqw;
+  fill: #eef1f6;
+  stroke: #7a8396;
+  stroke-width: 1.2;
+}
+
+.js-upload-done {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4cqw;
+  margin-left: auto;
+  color: var(--scene-ok);
+}
+
+.js-upload-bar {
+  height: 0.35cqw;
+  border-radius: 1cqw;
+  background: #eef1f6;
+  overflow: hidden;
+}
+
+.js-upload-bar > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--scene-accent);
+}
+
+.js-badge {
+  display: grid;
+  place-items: center;
+  border-radius: 99px;
+  background: #fde7e5;
+  color: #c4372c;
+  font: 600 0.9cqw/1 var(--font-body);
+  white-space: nowrap;
+  box-shadow: 0 0 0 0.25cqw #fff;
+}
+
+.js-frame {
+  border: 0.18cqw solid var(--scene-accent);
+  border-radius: 0.8cqw;
+  background: rgba(255, 122, 26, 0.06);
+  box-shadow: 0 0 0 0.6cqw rgba(255, 122, 26, 0.12);
+}
+
+.js-payment {
+  display: flex;
+  align-items: center;
+  gap: 0.7cqw;
+  padding: 0 1.2cqw;
+  border-radius: 0.7cqw;
+  background: #fff;
+  color: var(--scene-ink);
+  font: 600 1.05cqw/1.2 var(--font-body);
+  box-shadow:
+    0 0 0 0.12cqw var(--scene-accent),
+    0 0.5cqw 1.4cqw rgba(29, 36, 51, 0.18);
+}
+
+.js-stage-done {
+  display: grid;
+  transform: translate(-50%, -50%);
+}
+
+.js-stage-done .js-check {
+  width: 1.7cqw;
+  height: 1.7cqw;
+}
+
+.js-stage-ring {
+  width: 2.2cqw;
+  height: 2.2cqw;
+  border: 0.25cqw solid var(--scene-accent);
+  border-radius: 50%;
+  background: rgba(255, 122, 26, 0.15);
+  transform: translate(-50%, -50%);
+}
+
+.js-stage-cover {
+  background: rgb(22, 23, 29);
+}
+
+.js-stage-label {
+  padding: 0.3cqw 0.7cqw;
+  border-radius: 99px;
+  background: var(--scene-accent);
+  color: #fff;
+  font: 700 0.9cqw/1 var(--font-body);
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .focus-shot-overlay > * {
+    animation-duration: 5s;
+    animation-delay: 0.7s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .focus-shot-overlay > .js-cursor {
+    animation-name: js-cursor;
+  }
+
+  .focus-shot-overlay > .js-ripple {
+    animation-name: js-ripple;
+    animation-timing-function: ease-out;
+  }
+
+  .focus-shot-overlay > .js-pop {
+    animation-name: js-pop;
+  }
+
+  .focus-shot-overlay > .js-pop-early {
+    animation-name: js-pop-early;
+  }
+
+  .focus-shot-overlay > .js-slide {
+    animation-name: js-slide;
+  }
+
+  .focus-shot-overlay > .js-row {
+    animation-name: js-row;
+  }
+
+  .focus-shot-overlay > .js-stage-ring {
+    animation-name: js-stage-ring;
+  }
+
+  .focus-shot-overlay > .js-stage-label {
+    animation-name: js-stage-label;
+  }
+
+  .js-upload-bar > span {
+    animation: js-fill 5s 0.7s infinite both ease-in-out;
+  }
+
+  .js-upload-done {
+    animation: js-done 5s 0.7s infinite both;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-cursor,
+  .js-ripple {
+    display: none;
+  }
+}
+
+@keyframes js-cursor {
+  0% {
+    opacity: 0;
+    transform: translate(var(--from-x), var(--from-y));
+  }
+  8% {
+    opacity: 1;
+  }
+  30% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(0, 0) scale(0.82);
+  }
+  37%,
+  76% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  86%,
+  100% {
+    opacity: 0;
+    transform: translate(1.5cqw, 1.5cqw);
+  }
+}
+
+@keyframes js-ripple {
+  0%,
+  32% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.2);
+  }
+  34% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+  50%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.7);
+  }
+}
+
+@keyframes js-pop {
+  0%,
+  38% {
+    opacity: 0;
+    translate: 0 0.8cqw;
+    scale: 0.96;
+  }
+  45%,
+  86% {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+  94%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes js-pop-early {
+  0%,
+  10% {
+    opacity: 0;
+    translate: 0 0.8cqw;
+    scale: 0.97;
+  }
+  18%,
+  86% {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+  94%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes js-slide {
+  0%,
+  37% {
+    opacity: 0;
+    translate: 0 -70%;
+  }
+  46%,
+  86% {
+    opacity: 1;
+    translate: 0 0;
+  }
+  94%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes js-row {
+  0%,
+  38% {
+    background: rgba(255, 122, 26, 0);
+  }
+  42% {
+    background: rgba(255, 122, 26, 0.3);
+  }
+  52%,
+  86% {
+    background: rgba(255, 122, 26, 0.1);
+  }
+  94%,
+  100% {
+    background: rgba(255, 122, 26, 0);
+  }
+}
+
+@keyframes js-stage-ring {
+  0%,
+  16% {
+    opacity: 0;
+    translate: -5.5cqw 0;
+  }
+  22% {
+    opacity: 1;
+    translate: -5.5cqw 0;
+  }
+  40% {
+    translate: 0 0;
+    box-shadow: 0 0 0 0 rgba(255, 122, 26, 0.5);
+  }
+  55% {
+    box-shadow: 0 0 0 1.2cqw rgba(255, 122, 26, 0);
+  }
+  86% {
+    opacity: 1;
+    translate: 0 0;
+  }
+  94%,
+  100% {
+    opacity: 0;
+    translate: 0 0;
+  }
+}
+
+@keyframes js-stage-label {
+  0%,
+  42% {
+    opacity: 0;
+    translate: 0 0.6cqw;
+  }
+  48%,
+  86% {
+    opacity: 1;
+    translate: 0 0;
+  }
+  94%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes js-fill {
+  0%,
+  18% {
+    width: 0;
+  }
+  52%,
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes js-done {
+  0%,
+  54% {
+    opacity: 0;
+  }
+  60%,
+  100% {
+    opacity: 1;
+  }
+}
+
 .module-panel .module-shot-button {
   margin-top: 20px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .focus-shot-img {
+  .focus-shot-stage {
     animation: shot-in 500ms ease both;
   }
 
@@ -458,7 +899,7 @@ main .section:not(.hero) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .focus-shot-img {
+  .focus-shot-stage {
     transition: none;
   }
 }
