@@ -1830,6 +1830,37 @@ main .section:not(.hero) {
   background: radial-gradient(closest-side, rgba(255, 153, 0, 0.45), transparent);
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  .footer-line {
+    background: linear-gradient(90deg, transparent, var(--stroke) 15%, var(--stroke) 85%, transparent);
+  }
+
+  .footer-line::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 8%;
+    width: 28%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #ffb300 35%, #ff9900 50%, #ff7b00 65%, transparent);
+    animation: footer-line-shimmer 6s ease-in-out infinite;
+  }
+
+  .footer-line::after {
+    animation: footer-glow-shimmer 6s ease-in-out infinite;
+  }
+}
+
+@keyframes footer-line-shimmer {
+  0%, 100% { left: 8%; }
+  50% { left: 64%; }
+}
+
+@keyframes footer-glow-shimmer {
+  0%, 100% { left: 22%; }
+  50% { left: 78%; }
+}
+
 .footer-bottom p {
   margin: 0;
   display: flex;
