@@ -105,7 +105,7 @@ export const demoCase = {
     {
       id: "tasks",
       title: "Team tasks",
-      body: "The team tracks owners, deadlines, and work on the case.",
+      body: "The team tracks owners, deadlines and work on the case.",
       change: "A related task and its owner.",
     },
     {
