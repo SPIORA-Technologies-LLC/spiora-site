@@ -1839,26 +1839,34 @@ main .section:not(.hero) {
     content: "";
     position: absolute;
     top: 0;
-    left: 8%;
-    width: 28%;
+    left: -30%;
+    width: 30%;
     height: 1px;
     background: linear-gradient(90deg, transparent, #ffb300 35%, #ff9900 50%, #ff7b00 65%, transparent);
-    animation: footer-line-shimmer 6s ease-in-out infinite;
+    animation: footer-line-shimmer 5.5s linear infinite;
   }
 
   .footer-line::after {
-    animation: footer-glow-shimmer 6s ease-in-out infinite;
+    animation: footer-glow-shimmer 5.5s linear infinite;
   }
 }
 
 @keyframes footer-line-shimmer {
-  0%, 100% { left: 8%; }
-  50% { left: 64%; }
+  0% { left: -30%; filter: brightness(1); }
+  32% { filter: brightness(1); }
+  40% { filter: brightness(2.1); }
+  60% { filter: brightness(2.1); }
+  68% { filter: brightness(1); }
+  100% { left: 100%; filter: brightness(1); }
 }
 
 @keyframes footer-glow-shimmer {
-  0%, 100% { left: 22%; }
-  50% { left: 78%; }
+  0% { left: -15%; filter: brightness(1); }
+  32% { filter: brightness(1); }
+  40% { filter: brightness(2.1); }
+  60% { filter: brightness(2.1); }
+  68% { filter: brightness(1); }
+  100% { left: 115%; filter: brightness(1); }
 }
 
 .footer-bottom p {
