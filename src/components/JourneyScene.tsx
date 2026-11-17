@@ -168,7 +168,7 @@ export function JourneyScene({ stepId, locale, motion }: { stepId: string; local
           <span className="js-stage-label js-pop" style={at({ x: 42.5, y: 59.8 })}>
             {motion.now}
           </span>
-          <Toast at={{ x: 46, y: 64 }} text={motion.clientSees} />
+          <Toast at={{ x: 35, y: 47.6 }} text={motion.clientSees} />
         </>
       );
 

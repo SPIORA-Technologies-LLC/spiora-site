@@ -26,36 +26,36 @@ export const shots: Record<ShotKey, ShotImage> = {
   ai: { src: "/shots/ai-workspace.png", width: 1368, height: 744 },
 };
 
-/** Zoom into part of a screenshot: x/y in percent, zoom as a scale factor. */
-export type ShotFocus = { x: number; y: number; zoom: number };
-
-export type FocusedShot = { shot: ShotKey; focus?: ShotFocus };
+/** A section of a screenshot, in percent of its width and height. */
+export type ShotCrop = { x: number; y: number; w: number; h: number };
 
 /**
  * One screen of the SPIORA demo per step of the client journey, shot in both
  * interface languages (public/shots/journey/<locale>/). Contacts and file names
- * on the shots are replaced with invented ones. Steps that share a screen
- * zoom into different parts of it, so moving between them pans across it.
+ * on the shots are replaced with invented ones. Each step shows only its own
+ * section of the screen, without the app's sidebar and header.
  */
-type JourneyShot = { file: string; focus?: ShotFocus };
+type JourneyShot = { file: string; crop: ShotCrop };
+
+const settlements: ShotCrop = { x: 21, y: 38.7, w: 78, h: 58.5 };
 
 const journey: Record<string, JourneyShot> = {
-  invitation: { file: "invitation", focus: { x: 75, y: 40, zoom: 1.15 } },
-  questionnaire: { file: "questionnaire", focus: { x: 60, y: 70, zoom: 1.3 } },
-  documents: { file: "documents", focus: { x: 60, y: 62, zoom: 1.3 } },
-  tasks: { file: "tasks", focus: { x: 60, y: 45, zoom: 1.25 } },
-  agreement: { file: "agreement", focus: { x: 38, y: 60, zoom: 1.7 } },
-  payment: { file: "agreement", focus: { x: 85, y: 90, zoom: 1.35 } },
-  portal: { file: "portal", focus: { x: 35, y: 55, zoom: 1.7 } },
+  invitation: { file: "invitation", crop: { x: 21, y: 10.9, w: 77.8, h: 83 } },
+  questionnaire: { file: "questionnaire", crop: { x: 21, y: 38.7, w: 78, h: 58 } },
+  documents: { file: "documents", crop: { x: 21, y: 38.7, w: 78, h: 55.8 } },
+  tasks: { file: "tasks", crop: { x: 21, y: 10.4, w: 78, h: 54.5 } },
+  agreement: { file: "agreement", crop: settlements },
+  payment: { file: "agreement", crop: settlements },
+  portal: { file: "portal", crop: { x: 21.4, y: 44.6, w: 48.4, h: 21.2 } },
 };
 
-export function caseStepShot(stepId: string, locale: string): { image: ShotImage; focus?: ShotFocus } | null {
+export function caseStepShot(stepId: string, locale: string): { image: ShotImage; crop: ShotCrop } | null {
   const entry = journey[stepId];
   if (!entry) return null;
   const folder = locale === "ru" ? "ru" : "en";
   return {
     image: { src: `/shots/journey/${folder}/${entry.file}.webp`, width: 2400, height: 1500 },
-    focus: entry.focus,
+    crop: entry.crop,
   };
 }
 

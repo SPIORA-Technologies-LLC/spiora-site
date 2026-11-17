@@ -103,7 +103,7 @@ export function CaseDemo({ demoCase }: { demoCase: DemoCaseCopy }) {
           <FocusShot
             image={stepShot.image}
             alt={`${step.title}. ${step.body}`}
-            focus={stepShot.focus}
+            crop={stepShot.crop}
             sizes="(min-width: 900px) 1100px, 200vw"
           >
             <JourneyScene key={step.id} stepId={step.id} locale={locale} motion={demoCase.motion} />
