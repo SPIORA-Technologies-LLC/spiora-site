@@ -193,6 +193,8 @@ export const copy: SiteCopy = {
         alt: "Фото: Злата Мороз",
         phone: "+421 951 936 989",
         phoneHref: "tel:+421951936989",
+        whatsapp: "https://wa.me/421951936989",
+        telegram: "https://t.me/+421951936989",
       },
       {
         name: "Юлия Жданович",
@@ -201,6 +203,8 @@ export const copy: SiteCopy = {
         alt: "Фото: Юлия Жданович",
         phone: "+421 944 615 008",
         phoneHref: "tel:+421944615008",
+        whatsapp: "https://wa.me/421944615008",
+        telegram: "https://t.me/+421944615008",
       },
       {
         name: "Вероника Белоусова",
@@ -209,6 +213,8 @@ export const copy: SiteCopy = {
         alt: "Фото: Вероника Белоусова",
         phone: "+351 912 768 611",
         phoneHref: "tel:+351912768611",
+        whatsapp: "https://wa.me/351912768611",
+        telegram: "https://t.me/+351912768611",
       },
       {
         name: "Ярослав",
@@ -217,6 +223,8 @@ export const copy: SiteCopy = {
         alt: "Фото: Ярослав",
         phone: "",
         phoneHref: "",
+        whatsapp: "",
+        telegram: "",
       },
       {
         name: "Руслан",
@@ -225,6 +233,8 @@ export const copy: SiteCopy = {
         alt: "Фото: Руслан",
         phone: "",
         phoneHref: "",
+        whatsapp: "",
+        telegram: "",
       },
     ],
   },

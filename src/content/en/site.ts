@@ -192,6 +192,8 @@ export const copy = {
         alt: "Portrait of Zlata Moroz",
         phone: "+421 951 936 989",
         phoneHref: "tel:+421951936989",
+        whatsapp: "https://wa.me/421951936989",
+        telegram: "https://t.me/+421951936989",
       },
       {
         name: "Yulia Zhdanovich",
@@ -200,6 +202,8 @@ export const copy = {
         alt: "Portrait of Yulia Zhdanovich",
         phone: "+421 944 615 008",
         phoneHref: "tel:+421944615008",
+        whatsapp: "https://wa.me/421944615008",
+        telegram: "https://t.me/+421944615008",
       },
       {
         name: "Veronika Belousova",
@@ -208,6 +212,8 @@ export const copy = {
         alt: "Portrait of Veronika Belousova",
         phone: "+351 912 768 611",
         phoneHref: "tel:+351912768611",
+        whatsapp: "https://wa.me/351912768611",
+        telegram: "https://t.me/+351912768611",
       },
       {
         name: "Yaroslav",
@@ -216,6 +222,8 @@ export const copy = {
         alt: "Portrait of Yaroslav",
         phone: "",
         phoneHref: "",
+        whatsapp: "",
+        telegram: "",
       },
       {
         name: "Ruslan",
@@ -224,6 +232,8 @@ export const copy = {
         alt: "Portrait of Ruslan",
         phone: "",
         phoneHref: "",
+        whatsapp: "",
+        telegram: "",
       },
     ],
   },

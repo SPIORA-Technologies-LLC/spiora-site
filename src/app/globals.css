@@ -1432,7 +1432,9 @@ main .section:not(.hero) {
 
 .team-contact {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 8px;
   min-height: 28px;
   color: var(--white);
   font-size: 0.8125rem;
