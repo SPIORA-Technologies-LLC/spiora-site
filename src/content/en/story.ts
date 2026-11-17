@@ -26,6 +26,42 @@ export const story = {
     orbitLabel: "Nine scattered tools come together in one SPIORA system",
     orbitNote: "Nine tools → one button",
   },
+  loss: {
+    title: "What does losing 7–10 clients a month actually cost?",
+    causeLabel: "What happened",
+    causeLead: "The partner was growing — but manual control could not keep up.",
+    causeBody:
+      "Google Sheets could no longer handle the volume of requests, owners, tracking tasks and deadlines.",
+    stat: "7–10",
+    statLabel: "clients are lost every month",
+    causeNote: "They were leaving for faster competitors.",
+    steps: [
+      {
+        label: "Monthly losses",
+        formula: "7–10 clients × €3,000",
+        valueLead: "",
+        value: "€21,000–€30,000",
+        caption: "losses a month",
+      },
+      {
+        label: "Direct annual losses",
+        formula: "€21,000–€30,000 × 12 months",
+        valueLead: "",
+        value: "€252,000–€360,000",
+        caption: "losses a year",
+      },
+      {
+        label: "Total annual losses",
+        formula: "+ referrals + future clients + reputation",
+        valueLead: "More than",
+        value: "€500,000",
+        caption: "losses a year",
+      },
+    ],
+    stopTitle: "SPIORA stops the losses",
+    stopBody:
+      "Every request, owner, document and payment stays in one system — that is only part of the revenue under control.",
+  },
   explain: {
     title: "One connected system for client work",
     lead: "SPIORA connects the client record with the work around it: tasks, documents, communication, calendars, payments, knowledge, analytics, AI and a client portal.",

@@ -2218,6 +2218,228 @@ main .section:not(.hero) {
   border-color: var(--brand-500);
 }
 
+.loss-board {
+  display: grid;
+  gap: 28px;
+  margin-top: 32px;
+}
+
+.loss-cause {
+  border: 1px solid var(--brand-500);
+  border-radius: 24px;
+  padding: 20px;
+  background: var(--bg-elevated);
+}
+
+.loss-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  color: #ff9900;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.loss-cause p + p {
+  margin-top: 10px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.loss-cause .loss-cause-lead {
+  color: var(--text-primary);
+}
+
+.loss-stat {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.loss-stat strong {
+  color: #ff9900;
+  font-size: 2.75rem;
+  line-height: 0.9;
+}
+
+.loss-stat span {
+  max-width: 9rem;
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.loss-note {
+  color: var(--text-secondary);
+}
+
+.loss-steps {
+  display: grid;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.loss-step-icon {
+  display: inline-flex;
+  color: #ff9900;
+  font-size: 1.35rem;
+}
+
+.loss-step-label {
+  margin-top: 12px;
+  color: #ff9900;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.loss-step-formula {
+  margin-top: 8px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.loss-step-value {
+  margin-top: 10px;
+  color: #ff9900;
+  font-size: clamp(1.2rem, 0.7rem + 1vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.05;
+  white-space: nowrap;
+}
+
+.loss-step-value span {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.loss-step-caption {
+  margin-top: 6px;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.loss-marks {
+  display: none;
+}
+
+.loss-stop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin-top: 28px;
+  padding: 18px 22px;
+  border-radius: 16px;
+  background: #ff7a1a;
+  color: #1a1008;
+}
+
+.loss-stop strong {
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.loss-stop p {
+  flex: 1 1 16rem;
+  line-height: 1.4;
+}
+
+@media (min-width: 1000px) {
+  .loss-board {
+    grid-template-columns: minmax(250px, 0.82fr) minmax(0, 2.2fr);
+    align-items: start;
+    gap: 36px;
+  }
+
+  .loss-steps {
+    position: relative;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    padding-top: 4px;
+  }
+
+  .loss-steps::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    left: 12%;
+    right: 12%;
+    height: 1px;
+    background: #ff9900;
+  }
+
+  .loss-step-icon {
+    position: relative;
+    z-index: 1;
+    background: var(--bg-primary);
+    padding-right: 8px;
+  }
+
+  .loss-marks {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 22px;
+  }
+
+  .loss-marks::before {
+    content: "";
+    grid-column: 1 / -1;
+    grid-row: 1;
+    align-self: center;
+    height: 1px;
+    background: var(--stroke);
+  }
+
+  .loss-marks span {
+    grid-row: 1;
+    justify-self: center;
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--stroke);
+    border-radius: 50%;
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+  }
+
+  .loss-marks span:nth-child(1) { grid-column: 1; }
+  .loss-marks span:nth-child(2) { grid-column: 2; }
+  .loss-marks span:nth-child(3) { grid-column: 3; }
+
+  .loss-stop {
+    display: grid;
+    grid-template-columns: auto auto minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .loss-stop strong {
+    padding-right: 22px;
+    border-right: 1px solid rgba(26, 16, 8, 0.28);
+  }
+}
+
 .tool-list,
 .plain-list,
 .discuss-timeline {

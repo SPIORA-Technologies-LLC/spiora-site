@@ -1,5 +1,13 @@
 import Image from "next/image";
-import { faEnvelope, faLocationDot, faPhone } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendarDays,
+  faChartColumn,
+  faEnvelope,
+  faFileLines,
+  faLocationDot,
+  faPhone,
+  faShieldHalved,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BeforeAfter } from "@/components/BeforeAfter";
 import { CaseDemo } from "@/components/CaseDemo";
@@ -16,6 +24,8 @@ import { Section } from "@/components/ui/Section";
 import { notFound } from "next/navigation";
 import { getDictionary } from "@/content";
 import { anchorHref, isLocale } from "@/i18n/config";
+
+const lossIcons = [faCalendarDays, faChartColumn, faShieldHalved];
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
@@ -44,6 +54,55 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         <Container className="hero-band">
           <span>{copy.footer.blurb}</span>
           <span>{story.hero.orbitNote}</span>
+        </Container>
+      </Section>
+
+      <Section id="loss" labelledBy="loss-title">
+        <Container>
+          <h2 id="loss-title">{story.loss.title}</h2>
+          <div className="loss-board">
+            <article className="loss-cause">
+              <p className="loss-kicker">
+                <FontAwesomeIcon icon={faFileLines} />
+                {story.loss.causeLabel}
+              </p>
+              <p className="loss-cause-lead">{story.loss.causeLead}</p>
+              <p>{story.loss.causeBody}</p>
+              <p className="loss-stat">
+                <strong>{story.loss.stat}</strong>
+                <span>{story.loss.statLabel}</span>
+              </p>
+              <p className="loss-note">{story.loss.causeNote}</p>
+            </article>
+            <div className="loss-flow">
+              <ol className="loss-steps">
+                {story.loss.steps.map((step, index) => (
+                  <li key={step.label}>
+                    <span className="loss-step-icon" aria-hidden="true">
+                      <FontAwesomeIcon icon={lossIcons[index]} />
+                    </span>
+                    <p className="loss-step-label">{step.label}</p>
+                    <p className="loss-step-formula">{step.formula}</p>
+                    <p className="loss-step-value">
+                      {step.valueLead ? <span>{step.valueLead}</span> : null}
+                      {step.value}
+                    </p>
+                    <p className="loss-step-caption">{step.caption}</p>
+                  </li>
+                ))}
+              </ol>
+              <div className="loss-marks" aria-hidden="true">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+              </div>
+            </div>
+          </div>
+          <div className="loss-stop">
+            <FontAwesomeIcon icon={faShieldHalved} />
+            <strong>{story.loss.stopTitle}</strong>
+            <p>{story.loss.stopBody}</p>
+          </div>
         </Container>
       </Section>
 
