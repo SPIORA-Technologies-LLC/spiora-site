@@ -1810,13 +1810,19 @@ main .section:not(.hero) {
   padding-block: 10px 14px;
 }
 
+@property --footer-glow-alpha {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0.45;
+}
+
 .footer-line {
   position: absolute;
   top: 0;
   left: 20px;
   right: 20px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--stroke) 15%, var(--stroke) 40%, #ff9900 50%, var(--stroke) 60%, var(--stroke) 85%, transparent);
+  background: linear-gradient(90deg, transparent, var(--stroke) 15%, var(--stroke) 40%, #ff7a1a 50%, var(--stroke) 60%, var(--stroke) 85%, transparent);
 }
 
 .footer-line::after {
@@ -1827,7 +1833,7 @@ main .section:not(.hero) {
   width: 220px;
   height: 13px;
   translate: -50% 0;
-  background: radial-gradient(closest-side, rgba(255, 153, 0, 0.45), transparent);
+  background: radial-gradient(closest-side, rgb(255 122 26 / var(--footer-glow-alpha)), transparent);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1842,7 +1848,7 @@ main .section:not(.hero) {
     left: -30%;
     width: 30%;
     height: 1px;
-    background: linear-gradient(90deg, transparent, #ffb300 35%, #ff9900 50%, #ff7b00 65%, transparent);
+    background: linear-gradient(90deg, transparent, #ff7a1a 35%, #ff6a00 50%, #e85d00 65%, transparent);
     animation: footer-line-shimmer 5.5s linear infinite;
   }
 
@@ -1852,21 +1858,21 @@ main .section:not(.hero) {
 }
 
 @keyframes footer-line-shimmer {
-  0% { left: -30%; filter: brightness(1); }
-  32% { filter: brightness(1); }
-  40% { filter: brightness(1.65); }
-  60% { filter: brightness(1.65); }
-  68% { filter: brightness(1); }
-  100% { left: 100%; filter: brightness(1); }
+  0% { left: -30%; opacity: 0.82; }
+  32% { opacity: 0.82; }
+  40% { opacity: 1; }
+  60% { opacity: 1; }
+  68% { opacity: 0.82; }
+  100% { left: 100%; opacity: 0.82; }
 }
 
 @keyframes footer-glow-shimmer {
-  0% { left: -15%; filter: brightness(1); }
-  32% { filter: brightness(1); }
-  40% { filter: brightness(1.65); }
-  60% { filter: brightness(1.65); }
-  68% { filter: brightness(1); }
-  100% { left: 115%; filter: brightness(1); }
+  0% { left: -15%; --footer-glow-alpha: 0.45; }
+  32% { --footer-glow-alpha: 0.45; }
+  40% { --footer-glow-alpha: 0.7; }
+  60% { --footer-glow-alpha: 0.7; }
+  68% { --footer-glow-alpha: 0.45; }
+  100% { left: 115%; --footer-glow-alpha: 0.45; }
 }
 
 .footer-bottom p {
