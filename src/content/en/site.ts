@@ -274,7 +274,7 @@ export const copy = {
   },
   footer: {
     slogan: "ONE PLATFORM. INFINITE SOLUTIONS.",
-    blurb: "Clients, team, and processes — in one digital office",
+    blurb: "Clients, team and processes — in one digital office",
     platform: "Platform",
     company: "Company",
     demo: "Demo",
