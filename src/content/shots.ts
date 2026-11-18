@@ -15,15 +15,15 @@ export type ShotKey =
 export type ShotImage = { src: string; width: number; height: number };
 
 export const shots: Record<ShotKey, ShotImage> = {
-  workspace: { src: "/shots/team-workspace.png", width: 980, height: 502 },
-  portal: { src: "/shots/client-portal.png", width: 1312, height: 678 },
-  tasks: { src: "/shots/team-tasks.png", width: 1312, height: 678 },
-  finance: { src: "/shots/finance.png", width: 1312, height: 678 },
-  team: { src: "/shots/team-members.png", width: 1312, height: 678 },
-  calendar: { src: "/shots/calendar.png", width: 1312, height: 678 },
-  analytics: { src: "/shots/analytics.png", width: 1312, height: 678 },
-  library: { src: "/shots/library.png", width: 1312, height: 678 },
-  ai: { src: "/shots/ai-workspace.png", width: 1312, height: 678 },
+  workspace: { src: "/shots/team-workspace.png", width: 1024, height: 556 },
+  portal: { src: "/shots/client-portal.png", width: 1368, height: 744 },
+  tasks: { src: "/shots/team-tasks.png", width: 1368, height: 744 },
+  finance: { src: "/shots/finance.png", width: 1368, height: 744 },
+  team: { src: "/shots/team-members.png", width: 1368, height: 744 },
+  calendar: { src: "/shots/calendar.png", width: 1368, height: 744 },
+  analytics: { src: "/shots/analytics.png", width: 1368, height: 744 },
+  library: { src: "/shots/library.png", width: 1368, height: 744 },
+  ai: { src: "/shots/ai-workspace.png", width: 1368, height: 744 },
 };
 
 /** A section of a screenshot, in percent of its width and height. */
