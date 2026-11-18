@@ -966,6 +966,11 @@ main .section:not(.hero) {
   background: var(--gray-800);
   color: var(--white);
   cursor: pointer;
+  transition: color 180ms ease;
+}
+
+.lightbox-close:hover {
+  color: #ff9900;
 }
 
 .lightbox-shot {
