@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, type ReactNode } from "react";
+import { createPortal } from "react-dom";
 
 type DialogProps = {
   open: boolean;
@@ -60,11 +61,12 @@ export function Dialog({ open, titleId, onClose, children }: DialogProps) {
 
   if (!open) return null;
 
-  return (
+  return createPortal(
     <div className="lightbox" role="dialog" aria-modal="true" aria-labelledby={titleId} onClick={() => onCloseRef.current()}>
       <div ref={panelRef} className="lightbox-panel" onClick={(event) => event.stopPropagation()}>
         {children}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
