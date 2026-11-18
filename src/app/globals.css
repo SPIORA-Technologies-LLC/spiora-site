@@ -3778,6 +3778,7 @@ html.intro-done .intro {
 }
 
 .orbit-tools span {
+  position: relative;
   display: inline-block;
   padding: 8px 12px;
   border: 1px solid #26282b;
@@ -3797,10 +3798,19 @@ html.intro-done .intro {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  border: 0;
   border-radius: 50%;
   background: #0d0e0f;
   box-shadow: 0 0 0 1px #3a2a14, 0 0 60px rgba(255, 140, 0, 0.18);
+  color: inherit;
+  cursor: pointer;
   transform: translate(-50%, -50%);
+}
+
+.orbit-core:focus-visible {
+  outline: 2px solid #ff9900;
+  outline-offset: 4px;
 }
 
 .orbit-core img {
@@ -3896,6 +3906,39 @@ html.intro-done .intro {
   .orbit-pulse {
     animation: orbit-pulse 3.2s ease-out infinite;
   }
+
+  .orbit.is-lit .orbit-tools span {
+    border-color: transparent;
+  }
+
+  .orbit.is-lit .orbit-tools span::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    padding: 1px;
+    background: conic-gradient(
+      from var(--orbit-border-angle),
+      #ff7a1a 0deg,
+      #ff9900 40deg,
+      #ff7a1a 90deg,
+      #e56a12 160deg,
+      #ff7a1a 230deg,
+      #ff9900 300deg,
+      #ff7a1a 360deg
+    );
+    animation: orbit-border-shimmer 1.6s linear 1;
+    pointer-events: none;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit.is-lit .orbit-tools span {
+    border-color: #ff9900;
+  }
 }
 
 @keyframes orbit-spin {
@@ -3914,4 +3957,14 @@ html.intro-done .intro {
 @keyframes orbit-pulse {
   from { opacity: 0.7; transform: translate(-50%, -50%) scale(0.55); }
   to { opacity: 0; transform: translate(-50%, -50%) scale(1.55); }
+}
+
+@property --orbit-border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes orbit-border-shimmer {
+  to { --orbit-border-angle: 360deg; }
 }
