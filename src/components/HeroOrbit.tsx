@@ -19,7 +19,7 @@ function round(value: number) {
  * by a line along which dashes flow inward. Pure CSS motion; it pauses on
  * hover and stops for visitors who prefer reduced motion.
  */
-const SHIMMER_MS = 1600;
+const SHIMMER_MS = 2400;
 
 export function HeroOrbit({ tools, label }: HeroOrbitProps) {
   const orbitRef = useRef<HTMLElement>(null);

@@ -3907,10 +3907,6 @@ html.intro-done .intro {
     animation: orbit-pulse 3.2s ease-out infinite;
   }
 
-  .orbit.is-lit .orbit-tools span {
-    border-color: transparent;
-  }
-
   .orbit.is-lit .orbit-tools span::after {
     content: "";
     position: absolute;
@@ -3918,15 +3914,15 @@ html.intro-done .intro {
     padding: 1px;
     background: conic-gradient(
       from var(--orbit-border-angle),
-      #ff7a1a 0deg,
-      #ff9900 40deg,
-      #ff7a1a 90deg,
-      #e56a12 160deg,
-      #ff7a1a 230deg,
-      #ff9900 300deg,
-      #ff7a1a 360deg
+      transparent 0deg,
+      transparent 250deg,
+      #c4520a 292deg,
+      #ff7a1a 318deg,
+      #ff9900 338deg,
+      #ff7a1a 356deg,
+      transparent 360deg
     );
-    animation: orbit-border-shimmer 1.6s linear 1;
+    animation: orbit-border-shimmer 2.4s linear 1;
     pointer-events: none;
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
@@ -3966,5 +3962,5 @@ html.intro-done .intro {
 }
 
 @keyframes orbit-border-shimmer {
-  to { --orbit-border-angle: 360deg; }
+  to { --orbit-border-angle: 720deg; }
 }
