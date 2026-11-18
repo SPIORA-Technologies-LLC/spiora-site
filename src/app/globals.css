@@ -420,7 +420,7 @@ main .section:not(.hero) {
   height: auto;
   object-fit: contain;
   border-radius: 12px;
-  background: var(--bg-primary);
+  background: transparent;
 }
 
 .focus-shot {
