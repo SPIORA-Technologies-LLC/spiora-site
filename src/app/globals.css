@@ -1181,7 +1181,8 @@ main .section:not(.hero) {
 }
 
 .reach-band {
-  padding-block: 0;
+  padding-top: 0;
+  padding-bottom: var(--section-gap);
 }
 
 .reach-grid {
