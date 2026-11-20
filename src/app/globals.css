@@ -3502,8 +3502,7 @@ button.space-doc {
   }
 
   .case-scene {
-    position: sticky;
-    top: calc(var(--header-height) + 16px);
+    position: static;
   }
 }
 
