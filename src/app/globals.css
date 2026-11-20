@@ -3766,6 +3766,11 @@ html.intro-done .intro {
   stroke-width: 1;
   vector-effect: non-scaling-stroke;
   stroke-dasharray: 3 9;
+  transition: stroke 180ms ease;
+}
+
+.orbit.is-lit .orbit-lines line {
+  stroke: #ff9900;
 }
 
 .orbit-spin {
