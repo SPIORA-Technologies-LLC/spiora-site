@@ -1742,7 +1742,7 @@ main .section:not(.hero) {
 .site-footer {
   position: relative;
   overflow: hidden;
-  padding-top: calc(var(--section-gap) - 1px);
+  padding-top: 40px;
   background: var(--bg-page);
   border-top: 1px solid var(--border-soft);
   text-align: center;
@@ -1908,6 +1908,10 @@ main .section:not(.hero) {
 }
 
 @media (max-width: 899px) {
+  .site-footer {
+    padding-top: 32px;
+  }
+
   .footer-blurb {
     max-width: 22rem;
     font-size: 0.9375rem;
