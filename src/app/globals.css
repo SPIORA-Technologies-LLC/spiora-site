@@ -3725,12 +3725,6 @@ html.intro-done .intro {
   overflow-x: clip;
 }
 
-.hero-grid {
-  background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px calc(100% / 12));
-  background-origin: content-box;
-  background-clip: content-box;
-}
-
 .hero-copy h1 {
   font-weight: 800;
   line-height: 1.02;
