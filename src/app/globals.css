@@ -31,6 +31,7 @@
   --border-burgundy: var(--stroke);
   --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.35);
   --header-height: 72px;
+  --section-gap: 72px;
   --content-width: 1280px;
   --font-body: var(--font-inter), "Inter", "Segoe UI", sans-serif;
   --font-display: var(--font-manrope), "Manrope", var(--font-body);
@@ -342,7 +343,7 @@ a {
 }
 
 .section {
-  padding-block: 72px;
+  padding-block: var(--section-gap);
   scroll-margin-top: 88px;
 }
 
@@ -1180,7 +1181,7 @@ main .section:not(.hero) {
 }
 
 .reach-band {
-  padding-block: 40px;
+  padding-block: 0;
 }
 
 .reach-grid {
@@ -1741,7 +1742,7 @@ main .section:not(.hero) {
 .site-footer {
   position: relative;
   overflow: hidden;
-  padding-top: 40px;
+  padding-top: calc(var(--section-gap) - 1px);
   background: var(--bg-page);
   border-top: 1px solid var(--border-soft);
   text-align: center;
@@ -1907,10 +1908,6 @@ main .section:not(.hero) {
 }
 
 @media (max-width: 899px) {
-  .site-footer {
-    padding-top: 32px;
-  }
-
   .footer-blurb {
     max-width: 22rem;
     font-size: 0.9375rem;
@@ -1973,8 +1970,8 @@ main .section:not(.hero) {
     padding-inline: 40px;
   }
 
-  .section {
-    padding-block: 112px;
+  :root {
+    --section-gap: 112px;
   }
 
   .hero {
@@ -2031,10 +2028,6 @@ main .section:not(.hero) {
 
   .team-card h3 {
     font-size: 0.95rem;
-  }
-
-  .reach-band {
-    padding-block: 64px;
   }
 
   .reach-grid {
@@ -3863,7 +3856,12 @@ html.intro-done .intro {
     min-height: calc(100svh - var(--header-height));
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    padding-bottom: var(--section-gap);
+  }
+
+  .hero > .hero-grid {
+    margin-top: auto;
   }
 
   .hero-grid {
