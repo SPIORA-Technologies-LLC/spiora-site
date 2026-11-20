@@ -16,7 +16,7 @@ function round(value: number) {
 
 /**
  * The scattered tools slowly orbit the SPIORA power button, each linked to it
- * by a line along which dashes flow inward. Pure CSS motion; it pauses on
+ * by a line along which dashes flow outward. Pure CSS motion; it pauses on
  * hover and stops for visitors who prefer reduced motion.
  */
 const SHIMMER_MS = 2400;

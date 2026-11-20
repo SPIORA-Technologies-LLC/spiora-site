@@ -3954,7 +3954,7 @@ html.intro-done .intro {
 }
 
 @keyframes orbit-flow {
-  to { stroke-dashoffset: -48; }
+  to { stroke-dashoffset: 48; }
 }
 
 @keyframes orbit-glow {
