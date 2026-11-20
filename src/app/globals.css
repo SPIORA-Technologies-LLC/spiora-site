@@ -1744,6 +1744,7 @@ main .section:not(.hero) {
   position: relative;
   overflow: hidden;
   padding-top: 40px;
+  padding-bottom: 40px;
   background: var(--bg-page);
   border-top: 1px solid var(--border-soft);
   text-align: center;
@@ -1816,7 +1817,7 @@ main .section:not(.hero) {
 .footer-bottom {
   position: relative;
   margin-top: 16px;
-  padding-block: 10px 14px;
+  padding-block: 10px 0;
 }
 
 @property --footer-glow-alpha {
@@ -1911,6 +1912,7 @@ main .section:not(.hero) {
 @media (max-width: 899px) {
   .site-footer {
     padding-top: 32px;
+    padding-bottom: 32px;
   }
 
   .footer-blurb {
