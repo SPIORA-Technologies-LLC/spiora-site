@@ -2288,11 +2288,46 @@ main .section:not(.hero) {
 }
 
 .loss-steps {
+  --loss-rise: 26px;
   display: grid;
-  gap: 24px;
+  gap: 14px;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.loss-steps li {
+  position: relative;
+  padding: 16px 16px 18px;
+  border: 1px solid rgba(255, 153, 0, 0.28);
+  border-top: 2px solid #ff9900;
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(255, 153, 0, 0.16), rgba(255, 153, 0, 0.04) 64px, rgba(255, 255, 255, 0.03) 64px);
+  container-type: inline-size;
+}
+
+.loss-steps li:nth-child(2) {
+  margin-left: var(--loss-rise);
+}
+
+.loss-steps li + li::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -14px;
+  left: calc(var(--loss-rise) * -1);
+  width: var(--loss-rise);
+  height: 14px;
+  border-bottom: 2px solid #ff9900;
+  border-left: 2px solid #ff9900;
+  border-bottom-left-radius: 10px;
+}
+
+.loss-steps li:nth-child(3) {
+  margin-left: calc(var(--loss-rise) * 2);
+  background:
+    linear-gradient(180deg, rgba(255, 153, 0, 0.22), rgba(255, 153, 0, 0.06) 88px, rgba(255, 255, 255, 0.035) 88px);
 }
 
 .loss-step-icon {
@@ -2319,8 +2354,9 @@ main .section:not(.hero) {
 .loss-step-value {
   margin-top: 10px;
   color: #ff9900;
-  font-size: clamp(1.2rem, 0.7rem + 1vw, 1.7rem);
+  font-size: clamp(1rem, 8.6cqi, 1.45rem);
   font-weight: 700;
+  letter-spacing: -0.03em;
   line-height: 1.05;
   white-space: nowrap;
 }
@@ -2369,32 +2405,61 @@ main .section:not(.hero) {
 @media (min-width: 1000px) {
   .loss-board {
     grid-template-columns: minmax(250px, 0.82fr) minmax(0, 2.2fr);
-    align-items: start;
+    align-items: end;
     gap: 36px;
   }
 
   .loss-steps {
-    position: relative;
+    --loss-rise: 76px;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
-    padding-top: 4px;
+    grid-template-rows: var(--loss-rise) var(--loss-rise) auto;
+    gap: 0 18px;
+    padding-top: 0;
   }
 
-  .loss-steps::before {
+  .loss-steps li,
+  .loss-steps li:nth-child(2),
+  .loss-steps li:nth-child(3) {
+    align-self: start;
+    margin-left: 0;
+    padding: 18px 16px 20px;
+    border-radius: 18px;
+  }
+
+  .loss-steps li:nth-child(1) {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .loss-steps li:nth-child(2) {
+    grid-column: 2;
+    grid-row: 2 / 4;
+  }
+
+  .loss-steps li:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1 / 4;
+  }
+
+  .loss-steps li:nth-child(3) .loss-step-value {
+    font-size: clamp(1.35rem, 12cqi, 2rem);
+  }
+
+  .loss-steps li::before {
+    content: none;
+  }
+
+  .loss-steps li:not(:last-child)::after {
     content: "";
     position: absolute;
-    top: 14px;
-    left: 12%;
-    right: 12%;
-    height: 1px;
-    background: #ff9900;
-  }
-
-  .loss-step-icon {
-    position: relative;
     z-index: 1;
-    background: var(--bg-primary);
-    padding-right: 8px;
+    top: calc(var(--loss-rise) * -1);
+    right: -18px;
+    width: 18px;
+    height: var(--loss-rise);
+    border-top: 2px solid #ff9900;
+    border-right: 2px solid #ff9900;
+    border-top-right-radius: 12px;
   }
 
   .loss-stop {
