@@ -102,8 +102,8 @@ export function IntroSplash() {
       <video
         ref={videoRef}
         className="intro-video"
-        src="/intro/spiora-intro.mp4"
-        poster="/intro/spiora-intro-poster.jpg"
+        src="/intro/spiora-intro.mp4?v=20261124"
+        poster="/intro/spiora-intro-poster.jpg?v=20261124"
         muted
         playsInline
         preload="auto"
