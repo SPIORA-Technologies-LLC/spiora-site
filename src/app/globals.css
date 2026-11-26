@@ -2446,8 +2446,22 @@ main .section:not(.hero) {
     font-size: clamp(1.35rem, 12cqi, 2rem);
   }
 
-  .loss-steps li::before {
+  .loss-steps li::before,
+  .loss-steps li + li::before {
     content: none;
+  }
+
+  .loss-steps li:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    right: -18px;
+    bottom: calc(var(--loss-rise) * -1);
+    width: 18px;
+    height: var(--loss-rise);
+    border-bottom: 2px solid #ff9900;
+    border-left: 2px solid #ff9900;
+    border-bottom-left-radius: 12px;
   }
 
   .loss-steps li:not(:last-child)::after {
