@@ -2301,6 +2301,7 @@ main .section:not(.hero) {
   padding: 16px 16px 18px;
   border: 1px solid rgba(255, 153, 0, 0.28);
   border-top: 2px solid #ff9900;
+  border-bottom: 2px solid #ff9900;
   border-radius: 16px;
   background:
     linear-gradient(180deg, rgba(255, 153, 0, 0.16), rgba(255, 153, 0, 0.04) 64px, rgba(255, 255, 255, 0.03) 64px);
@@ -2455,6 +2456,8 @@ main .section:not(.hero) {
     content: "";
     position: absolute;
     z-index: 1;
+    top: auto;
+    left: auto;
     right: -18px;
     bottom: calc(var(--loss-rise) * -1);
     width: 18px;
