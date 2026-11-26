@@ -2445,11 +2445,6 @@ main .section:not(.hero) {
     font-size: clamp(1.35rem, 12cqi, 2rem);
   }
 
-  .loss-step-label {
-    padding-right: 64px;
-    text-align: right;
-  }
-
   .loss-steps li::before {
     content: none;
   }
