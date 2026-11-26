@@ -2421,6 +2421,7 @@ main .section:not(.hero) {
   .loss-steps li:nth-child(2),
   .loss-steps li:nth-child(3) {
     align-self: start;
+    min-height: 260px;
     margin-left: 0;
     padding: 18px 16px 20px;
     border-radius: 18px;
