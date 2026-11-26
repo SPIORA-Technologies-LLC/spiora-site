@@ -2458,9 +2458,9 @@ main .section:not(.hero) {
     z-index: 1;
     top: auto;
     left: auto;
-    right: -18px;
-    bottom: calc(var(--loss-rise) * -1);
-    width: 18px;
+    right: -42px;
+    bottom: calc(var(--loss-rise) * -1 - 2px);
+    width: 42px;
     height: var(--loss-rise);
     border-bottom: 2px solid #ff9900;
     border-left: 2px solid #ff9900;
@@ -2471,13 +2471,43 @@ main .section:not(.hero) {
     content: "";
     position: absolute;
     z-index: 1;
-    top: 0;
+    top: -2px;
     right: -18px;
-    width: 18px;
-    height: var(--loss-rise);
+    width: 42px;
+    height: calc(var(--loss-rise) + 2px);
     border-top: 2px solid #ff9900;
     border-right: 2px solid #ff9900;
     border-top-right-radius: 12px;
+  }
+
+  .loss-steps li:not(:last-child) .loss-step-caption::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    right: -8px;
+    bottom: -2px;
+    width: 32px;
+    height: 2px;
+    background: #ff9900;
+  }
+
+  .loss-steps li:not(:first-child) .loss-step-icon::before,
+  .loss-steps li:not(:first-child) .loss-step-caption::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: -8px;
+    width: 32px;
+    height: 2px;
+    background: #ff9900;
+  }
+
+  .loss-steps li:not(:first-child) .loss-step-icon::before {
+    top: -2px;
+  }
+
+  .loss-steps li:not(:first-child) .loss-step-caption::before {
+    bottom: -2px;
   }
 
   .loss-stop {
