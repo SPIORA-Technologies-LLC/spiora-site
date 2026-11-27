@@ -6,15 +6,26 @@ type ButtonProps = {
   className?: string;
   children: ReactNode;
   href?: string;
+  target?: string;
+  rel?: string;
   onClick?: () => void;
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className" | "onClick" | "children">;
 
-export function Button({ variant = "primary", className, children, href, onClick, ...rest }: ButtonProps) {
+export function Button({
+  variant = "primary",
+  className,
+  children,
+  href,
+  target,
+  rel,
+  onClick,
+  ...rest
+}: ButtonProps) {
   const classes = ["btn", variant === "outline" ? "btn-outline" : "btn-primary", className].filter(Boolean).join(" ");
 
   if (href) {
     return (
-      <Link className={classes} href={href} onClick={onClick}>
+      <Link className={classes} href={href} target={target} rel={rel} onClick={onClick}>
         {children}
       </Link>
     );
