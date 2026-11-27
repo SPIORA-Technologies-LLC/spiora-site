@@ -2433,6 +2433,8 @@ main .section:not(.hero) {
   .loss-steps li:nth-child(1) {
     grid-column: 1;
     grid-row: 1 / 4;
+    padding-left: 15px;
+    border-left: 2px solid #ff9900;
   }
 
   .loss-steps li:nth-child(2) {
@@ -2443,6 +2445,8 @@ main .section:not(.hero) {
   .loss-steps li:nth-child(3) {
     grid-column: 3;
     grid-row: 3;
+    padding-right: 15px;
+    border-right: 2px solid #ff9900;
   }
 
   .loss-steps li:nth-child(3) .loss-step-value {
