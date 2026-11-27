@@ -2235,7 +2235,9 @@ main .section:not(.hero) {
   border: 1px solid var(--brand-500);
   border-radius: 24px;
   padding: 20px;
-  background: var(--bg-elevated);
+  background:
+    linear-gradient(180deg, rgba(255, 153, 0, 0.16), rgba(255, 153, 0, 0.04) 64px, transparent 64px),
+    var(--bg-elevated);
 }
 
 .loss-kicker {
