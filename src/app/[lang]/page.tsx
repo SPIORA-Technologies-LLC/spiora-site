@@ -43,7 +43,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             <h1 id="hero-title">{story.hero.title}</h1>
             <p className="lead">{story.hero.lead}</p>
             <div className="hero-actions">
-              <Button href={anchor("case")}>{story.hero.primary}</Button>
+              <Button href="https://www.spiora.ai">{story.hero.primary}</Button>
               <Button variant="outline" href={anchor("demo")}>
                 {story.hero.secondary}
               </Button>
