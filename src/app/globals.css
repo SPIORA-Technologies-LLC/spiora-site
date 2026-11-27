@@ -2472,7 +2472,7 @@ main .section:not(.hero) {
     left: auto;
     bottom: calc(var(--loss-rise) * -1 - 18px);
     height: calc(var(--loss-rise) + 38px);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 54 114' fill='none'%3E%3Cpath d='M0 19A17 17 0 0 0 17 2' stroke='%23080909' stroke-width='8'/%3E%3Cpath d='M54 95A17 17 0 0 1 37 78' stroke='%23080909' stroke-width='8'/%3E%3Cpath d='M0 21A36 36 0 0 1 36 57V79A18 18 0 0 0 54 97' stroke='%23ff9900' stroke-width='2' stroke-linecap='butt'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 54 114' fill='none'%3E%3Cpath d='M0 19A17 17 0 0 0 17 2' stroke='%23080909' stroke-width='8'/%3E%3Cpath d='M0 21A36 36 0 0 1 36 57V79A18 18 0 0 0 54 97' stroke='%23ff9900' stroke-width='2' stroke-linecap='butt'/%3E%3C/svg%3E");
   }
 
   .loss-steps li:not(:last-child)::after {
